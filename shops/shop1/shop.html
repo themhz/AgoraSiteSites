@@ -146,32 +146,44 @@
   <!-- Shop Page Content -->
   <div class="container mt-5">
     <div class="row">
-      <!-- Category Menu (Left Side) -->
+      <!-- Category Menu (Left Side) -->      
       <div class="col-md-3">
         <div class="category-menu">
-          <h4>Categories</h4>
-          <a href="shop.html">All Products</a>
-
-          <button class="btn btn-dark w-100 text-start" data-bs-toggle="collapse" data-bs-target="#electronicsMenu">
-            Electronics <i class="fas fa-chevron-down"></i>
-          </button>
-          <div class="collapse" id="electronicsMenu">
-            <a href="shop.html" class="ps-3">Phones</a>
-            <a href="shop.html" class="ps-3">Laptops</a>
-            <a href="shop.html" class="ps-3">Cameras</a>
-          </div>
-
-          <button class="btn btn-dark w-100 text-start mt-2" data-bs-toggle="collapse" data-bs-target="#gamingMenu">
-            Gaming <i class="fas fa-chevron-down"></i>
-          </button>
-          <div class="collapse" id="gamingMenu">
-            <a href="shop.html" class="ps-3">Consoles</a>
-            <a href="shop.html" class="ps-3">Accessories</a>
-          </div>
-
-          <a href="shop.html">Smart Home</a>
+            <h4>Categories</h4>
+            <ul class="list-unstyled">
+                <li><a href="shop.html">All Products</a></li>
+                <li>
+                    <button class="btn btn-dark w-100 text-start" data-bs-toggle="collapse" data-bs-target="#electronicsMenu" aria-expanded="true">
+                        Electronics <i class="fas fa-chevron-down"></i>
+                    </button>
+                    <ul class="collapse show list-unstyled ps-3" id="electronicsMenu">
+                        <li>
+                            <button class="btn btn-dark w-100 text-start" data-bs-toggle="collapse" data-bs-target="#phonesMenu" aria-expanded="true">
+                                Phones <i class="fas fa-chevron-down"></i>
+                            </button>
+                            <ul class="collapse show list-unstyled ps-3" id="phonesMenu">
+                                <li><a href="shop.html" class="active">Mobile</a></li>
+                                <li><a href="shop.html">Desk phones</a></li>
+                            </ul>
+                        </li>
+                        <li><a href="shop.html">Laptops</a></li>
+                        <li><a href="shop.html">Cameras</a></li>
+                    </ul>
+                </li>
+                <li>
+                    <button class="btn btn-dark w-100 text-start mt-2" data-bs-toggle="collapse" data-bs-target="#gamingMenu">
+                        Gaming <i class="fas fa-chevron-down"></i>
+                    </button>
+                    <ul class="collapse list-unstyled ps-3" id="gamingMenu">
+                        <li><a href="shop.html">Consoles</a></li>
+                        <li><a href="shop.html">Accessories</a></li>
+                    </ul>
+                </li>
+                <li><a href="shop.html">Smart Home</a></li>
+            </ul>
         </div>
       </div>
+
 
       <!-- Product Listing (Right Side) -->
       <div class="col-md-9">
@@ -315,8 +327,13 @@
         document.getElementById("newsletter-message").style.display = "block";
         document.getElementById("newsletter-email").value = ""; // Clear input field
       }
-    });
+    });    
   </script>
+
+
+
+
+
 </body>
 
 </html>
