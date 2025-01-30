@@ -1,0 +1,465 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>User Profile</title>
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Font Awesome for Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <style>
+        body {
+            background-color: #000;
+            color: #fff;
+        }
+
+        .navbar {
+            background-color: #ff8c42;
+        }
+
+        .card {
+            background-color: #222;
+            border: 1px solid #ff8c42;
+
+        }
+
+        .card:hover {
+            transform: scale(1.05);
+        }
+
+        .btn-primary {
+            background-color: #ff8c42;
+            border-color: #ff8c42;
+        }
+
+        .btn-primary:hover {
+            background-color: #e67300;
+            border-color: #e67300;
+        }
+
+        .table {
+            color: #fff;
+        }
+
+        .table thead {
+            background-color: #ff8c42;
+            color: #000;
+        }
+
+        .table tbody tr {
+            cursor: pointer;
+        }
+
+        .table tbody tr:hover {
+            background-color: #333;
+        }
+
+        .order-details {
+            display: none;
+        }
+
+        .product-img {
+            width: 50px;
+            height: 50px;
+            object-fit: cover;
+            border-radius: 5px;
+            margin-right: 10px;
+        }
+
+        .product-container {
+            margin-bottom: 10px;
+        }
+
+        footer {
+            background-color: #222;
+            color: #fff;
+            padding: 20px 0;
+            margin-top: 40px;
+        }
+
+        footer a {
+            color: #ff8c42;
+            text-decoration: none;
+        }
+
+        footer a:hover {
+            color: #e67300;
+        }
+
+        .social-icons a {
+            color: #fff;
+            margin: 0 10px;
+            font-size: 1.5rem;
+        }
+
+        .social-icons a:hover {
+            color: #ff8c42;
+        }
+
+        .wishlist-item {
+            display: flex;
+            align-items: center;
+            margin-bottom: 10px;
+            padding: 10px;
+            background-color: #222;
+            border: 1px solid #ff8c42;
+            border-radius: 5px;
+        }
+
+        .wishlist-item img {
+            width: 60px;
+            height: 60px;
+            margin-right: 15px;
+        }
+
+        .wishlist-item button {
+            margin-left: auto;
+        }
+    </style>
+</head>
+
+<body>
+    <!-- Navbar -->
+    <nav class="navbar navbar-expand-lg navbar-dark">
+        <div class="container">
+            <a class="navbar-brand" href="index.html">
+                <img src="https://placehold.co/80x80" alt="My Store Logo"> <!-- Placeholder Logo -->
+            </a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item">
+                        <a class="nav-link" href="index.html"><i class="fas fa-home"></i> Home</a>
+                    </li>
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle active" href="#" id="shopDropdown" role="button"
+                            data-bs-toggle="dropdown">
+                            <i class="fas fa-store"></i> Shop
+                        </a>
+                        <ul class="dropdown-menu">
+                            <li><a class="dropdown-item" href="shop.html">All Products</a></li>
+                            <li><a class="dropdown-item" href="shop.html">Electronics</a></li>
+                            <li><a class="dropdown-item" href="shop.html">Accessories</a></li>
+                            <li><a class="dropdown-item" href="shop.html">Gaming</a></li>
+                            <li><a class="dropdown-item" href="shop.html">Smart Home</a></li>
+                        </ul>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="contact.html"><i class="fas fa-envelope"></i> Contact</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="cart.html"><i class="fas fa-shopping-cart"></i> Cart</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link active" href="profile.html"><i class="fas fa-user"></i> Profile</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Profile Section -->
+    <div class="container mt-5">
+        <div class="row">
+            <!-- Profile Sidebar -->
+            <div class="col-md-4">
+                <div class="card text-center p-4">
+                    <img src="https://via.placeholder.com/150" class="rounded-circle mb-3" alt="Profile Picture">
+                    <h4>John Doe</h4>
+                    <p>Email: johndoe@example.com</p>
+                    <button class="btn btn-danger w-100 mt-3"><i class="fas fa-sign-out-alt"></i> Logout</button>
+                </div>
+            </div>
+
+            <!-- Profile Details -->
+            <div class="col-md-8">
+                <!-- Tabs -->
+                <ul class="nav nav-tabs">
+                    <li class="nav-item">
+                        <a class="nav-link active" data-bs-toggle="tab" href="#orders"><i class="fas fa-box"></i>
+                            Orders</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" data-bs-toggle="tab" href="#wishlist"><i class="fas fa-heart"></i>
+                            Wishlist</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" data-bs-toggle="tab" href="#settings"><i class="fas fa-cog"></i>
+                            Account Settings</a>
+                    </li>
+                </ul>
+
+                <!-- Tab Content -->
+                <div class="tab-content mt-3">
+                    <!-- Orders Tab -->
+                    <div class="tab-pane fade show active" id="orders">
+                        <h4><i class="fas fa-box"></i> Order History</h4>
+                        <table class="table">
+                            <thead>
+                                <tr>
+                                    <th>Order ID</th>
+                                    <th>Date</th>
+                                    <th>Status</th>
+                                    <th>Total</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <!-- Order with Two Products -->
+                                <tr onclick="toggleOrderDetails(1001)">
+                                    <td>#1001</td>
+                                    <td>2025-01-15</td>
+                                    <td><span class="badge bg-success">Delivered</span></td>
+                                    <td>$99.99</td>
+                                </tr>
+                                <tr id="order-details-1001" class="order-details">
+                                    <td colspan="4">
+                                        <strong>Items:</strong>
+                                        <div class="product-container d-flex align-items-center">
+                                            <img src="https://placehold.co/50" class="product-img" alt="Headphones">
+                                            Headphones - $49.99
+                                        </div>
+                                        <div class="product-container d-flex align-items-center">
+                                            <img src="https://placehold.co/50" class="product-img" alt="Keyboard">
+                                            Keyboard - $50.00
+                                        </div>
+
+                                        <p><strong>Subtotal:</strong> $99.99</p>
+                                        <p><strong>Tax:</strong> $5.00</p>
+                                        <p><strong>Total:</strong> $104.99</p>
+                                    </td>
+                                </tr>
+
+                                <!-- Other Statuses -->
+                                <tr onclick="toggleOrderDetails(1002)">
+                                    <td>#1002</td>
+                                    <td>2025-01-12</td>
+                                    <td><span class="badge bg-warning text-dark">Processing</span></td>
+                                    <td>$49.99</td>
+                                </tr>
+
+                                <tr onclick="toggleOrderDetails(1003)">
+                                    <td>#1003</td>
+                                    <td>2025-01-10</td>
+                                    <td><span class="badge bg-info">Shipped</span></td>
+                                    <td>$89.99</td>
+                                </tr>
+
+                                <tr onclick="toggleOrderDetails(1004)">
+                                    <td>#1004</td>
+                                    <td>2025-01-08</td>
+                                    <td><span class="badge bg-danger">Canceled</span></td>
+                                    <td>$19.99</td>
+                                </tr>
+
+                                <tr onclick="toggleOrderDetails(1005)">
+                                    <td>#1005</td>
+                                    <td>2025-01-05</td>
+                                    <td><span class="badge bg-secondary">Returned</span></td>
+                                    <td>$59.99</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <!-- Wishlist Tab -->
+                    <div class="tab-pane fade" id="wishlist">
+                        <h4><i class="fas fa-heart"></i> Your Wishlist</h4>
+                        <div class="wishlist-item">
+                            <img src="https://placehold.co/60" alt="Gaming Mouse">
+                            <span>Gaming Mouse - $39.99</span>
+                            <button class="btn btn-danger btn-sm"><i class="fas fa-trash"></i> Remove</button>
+                        </div>
+                        <div class="wishlist-item">
+                            <img src="https://placehold.co/60" alt="Wireless Headphones">
+                            <span>Wireless Headphones - $79.99</span>
+                            <button class="btn btn-danger btn-sm"><i class="fas fa-trash"></i> Remove</button>
+                        </div>
+                    </div>
+                    <!-- Settings Tab -->
+                    <div class="tab-pane fade" id="settings">
+                        <h4><i class="fas fa-cog"></i> Account Settings</h4>
+                        <form>
+                            <!-- Email -->
+                            <div class="mb-3">
+                                <label class="form-label">Email</label>
+                                <input type="email" class="form-control" value="johndoe@example.com">
+                            </div>
+
+                            <!-- Change Password -->
+                            <div class="mb-3">
+                                <label class="form-label">Change Password</label>
+                                <input type="password" class="form-control">
+                            </div>
+
+                            <!-- Notification Preferences -->
+                            <div class="mb-3">
+                                <label class="form-label">Notification Preferences</label>
+                                <select class="form-control">
+                                    <option>Email & SMS</option>
+                                    <option>Email Only</option>
+                                    <option>SMS Only</option>
+                                    <option>None</option>
+                                </select>
+                            </div>
+
+                            <!-- Shipping Address -->
+                            <h5 class="mt-4"><i class="fas fa-truck"></i> Shipping Address</h5>
+                            <div class="mb-3">
+                                <label class="form-label">Street</label>
+                                <input type="text" class="form-control" id="shipping-street">
+                            </div>
+                            <div class="mb-3">
+                                <label class="form-label">City</label>
+                                <input type="text" class="form-control" id="shipping-city">
+                            </div>
+                            <div class="mb-3">
+                                <label class="form-label">Postal Code</label>
+                                <input type="text" class="form-control" id="shipping-postal">
+                            </div>
+
+                            <!-- Checkbox to copy address -->
+                            <div class="form-check mb-3">
+                                <input type="checkbox" class="form-check-input" id="same-address">
+                                <label class="form-check-label">Billing address is the same as shipping</label>
+                            </div>
+
+                            <!-- Billing Address -->
+                            <h5><i class="fas fa-file-invoice"></i> Billing Address</h5>
+                            <div class="mb-3">
+                                <label class="form-label">Street</label>
+                                <input type="text" class="form-control" id="billing-street">
+                            </div>
+                            <div class="mb-3">
+                                <label class="form-label">City</label>
+                                <input type="text" class="form-control" id="billing-city">
+                            </div>
+                            <div class="mb-3">
+                                <label class="form-label">Postal Code</label>
+                                <input type="text" class="form-control" id="billing-postal">
+                            </div>
+
+                            <!-- Save Button -->
+                            <button type="submit" class="btn btn-primary">Save Changes</button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+    </div>
+
+    <!-- Footer -->
+    <footer class="text-center">
+        <div class="container">
+            <div class="row">
+                <!-- Quick Links -->
+                <div class="col-md-3 mb-3">
+                    <h5>Quick Links</h5>
+                    <ul class="list-unstyled">
+                        <li><a href="#">Home</a></li>
+                        <li><a href="#">Shop</a></li>
+                        <li><a href="contact.html">Contact</a></li>
+                        <li><a href="cart.html">Cart</a></li>
+                        <li><a href="terms.html">Terms & Conditions</a></li> <!-- Added this -->
+                    </ul>
+                </div>
+
+                <!-- Follow Us -->
+                <div class="col-md-3 mb-3">
+                    <h5>Follow Us</h5>
+                    <div class="social-icons">
+                        <a href="#" target="_blank"><i class="fab fa-facebook"></i></a>
+                        <a href="#" target="_blank"><i class="fab fa-twitter"></i></a>
+                        <a href="#" target="_blank"><i class="fab fa-instagram"></i></a>
+                        <a href="#" target="_blank"><i class="fab fa-linkedin"></i></a>
+                    </div>
+                </div>
+
+                <!-- Contact Info -->
+                <div class="col-md-3 mb-3">
+                    <h5>Contact Info</h5>
+                    <p>Email: support@mystore.com</p>
+                    <p>Phone: +1 (123) 456-7890</p>
+                    <p>Address: 123 Store St, City, Country</p>
+                </div>
+
+                <!-- Newsletter Subscription -->
+                <div class="col-md-3 mb-3">
+                    <h5>Subscribe to Our Newsletter</h5>
+                    <form id="newsletter-form">
+                        <div class="input-group">
+                            <input type="email" id="newsletter-email" class="form-control"
+                                placeholder="Enter your email" required>
+                            <button type="submit" class="btn btn-primary">Subscribe</button>
+                        </div>
+                        <p id="newsletter-message" class="mt-2 text-success" style="display: none;">Thank you for
+                            subscribing!</p>
+                    </form>
+                </div>
+            </div>
+            <hr>
+            <p class="mb-0">&copy; 2023 My Store. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <!-- Bootstrap JS -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
+    <script>
+        function toggleOrderDetails(orderId)
+        {
+            let detailsRow = document.getElementById("order-details-" + orderId);
+            // Toggle visibility
+            if (detailsRow.style.display === "none" || !detailsRow.style.display)
+            {
+                detailsRow.style.display = "table-row"; // Show the details
+            } else
+            {
+                detailsRow.style.display = "none"; // Hide the details
+            }
+        }
+
+        // Ensure the details are hidden on initial load
+        document.addEventListener("DOMContentLoaded", () =>
+        {
+            document.querySelectorAll('.order-details').forEach(row =>
+            {
+                row.style.display = 'none';
+            });
+        });
+
+        document.getElementById("same-address").addEventListener("change", function ()
+        {
+            if (this.checked)
+            {
+                document.getElementById("billing-street").value = document.getElementById("shipping-street").value;
+                document.getElementById("billing-city").value = document.getElementById("shipping-city").value;
+                document.getElementById("billing-postal").value = document.getElementById("shipping-postal").value;
+            } else
+            {
+                document.getElementById("billing-street").value = "";
+                document.getElementById("billing-city").value = "";
+                document.getElementById("billing-postal").value = "";
+            }
+        });
+    </script>
+
+    <!-- JavaScript for Newsletter Subscription -->
+    <script>
+        document.getElementById("newsletter-form").addEventListener("submit", function (event)
+        {
+            event.preventDefault();
+            let email = document.getElementById("newsletter-email").value;
+            if (email)
+            {
+                document.getElementById("newsletter-message").style.display = "block";
+                document.getElementById("newsletter-email").value = ""; // Clear input field
+            }
+        });
+    </script>
+</body>
+
+</html>
