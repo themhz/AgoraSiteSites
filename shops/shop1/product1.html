@@ -19,9 +19,19 @@
       background-color: #ff8c42;
     }
 
+    .navbar-brand img {
+      height: 80px;
+      /* Adjust size as needed */
+    }
+
     .card {
       background-color: #222;
       border: 1px solid #ff8c42;
+      transition: transform 0.3s ease;
+    }
+
+    .card:hover {
+      transform: scale(1.05);
     }
 
     .btn-primary {
@@ -38,6 +48,38 @@
       font-size: 1.5rem;
       color: #fff;
     }
+
+    .carousel-caption {
+      background-color: rgba(0, 0, 0, 0.5);
+      padding: 20px;
+      border-radius: 10px;
+    }
+
+    footer {
+      background-color: #222;
+      color: #fff;
+      padding: 20px 0;
+      margin-top: 40px;
+    }
+
+    footer a {
+      color: #ff8c42;
+      text-decoration: none;
+    }
+
+    footer a:hover {
+      color: #e67300;
+    }
+
+    .social-icons a {
+      color: #fff;
+      margin: 0 10px;
+      font-size: 1.5rem;
+    }
+
+    .social-icons a:hover {
+      color: #ff8c42;
+    }
   </style>
 </head>
 
@@ -45,23 +87,38 @@
   <!-- Navbar -->
   <nav class="navbar navbar-expand-lg navbar-dark">
     <div class="container">
-      <a class="navbar-brand" href="index.html">My Store</a>
+      <a class="navbar-brand" href="index.html">
+        <img src="https://placehold.co/80x80" alt="My Store Logo"> <!-- Placeholder Logo -->
+      </a>
       <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
         <span class="navbar-toggler-icon"></span>
       </button>
       <div class="collapse navbar-collapse" id="navbarNav">
         <ul class="navbar-nav ms-auto">
           <li class="nav-item">
-            <a class="nav-link active" href="index.html">Home</a>
+            <a class="nav-link" href="index.html"><i class="fas fa-home"></i> Home</a>
+          </li>
+          <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle active" href="#" id="shopDropdown" role="button"
+              data-bs-toggle="dropdown">
+              <i class="fas fa-store"></i> Shop
+            </a>
+            <ul class="dropdown-menu">
+              <li><a class="dropdown-item" href="shop.html">All Products</a></li>
+              <li><a class="dropdown-item" href="shop.html">Electronics</a></li>
+              <li><a class="dropdown-item" href="shop.html">Accessories</a></li>
+              <li><a class="dropdown-item" href="shop.html">Gaming</a></li>
+              <li><a class="dropdown-item" href="shop.html">Smart Home</a></li>
+            </ul>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="#">Shop</a>
+            <a class="nav-link" href="contact.html"><i class="fas fa-envelope"></i> Contact</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="contact.html">Contact</a>
+            <a class="nav-link" href="cart.html"><i class="fas fa-shopping-cart"></i> Cart</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="cart.html"><i class="fas fa-shopping-cart cart-icon"></i></a>
+            <a class="nav-link active" href="profile.html"><i class="fas fa-user"></i> Profile</a>
           </li>
         </ul>
       </div>
@@ -72,7 +129,7 @@
   <div class="container mt-5">
     <div class="row">
       <div class="col-md-6">
-        <img src="https://via.placeholder.com/500x400" class="img-fluid" alt="Product 1">
+        <img src="https://placehold.co/500x400" class="img-fluid" alt="Product 1">
       </div>
       <div class="col-md-6">
         <h2>Orange Wireless Headphones</h2>
@@ -97,11 +154,11 @@
         <div class="col-md-3 mb-3">
           <h5>Quick Links</h5>
           <ul class="list-unstyled">
-            <li><a href="#">Home</a></li>
-            <li><a href="#">Shop</a></li>
+            <li><a href="index.html">Home</a></li>
+            <li><a href="shop.html">Shop</a></li>
             <li><a href="contact.html">Contact</a></li>
             <li><a href="cart.html">Cart</a></li>
-            <li><a href="terms.html">Terms & Conditions</a></li> <!-- Added this -->
+            <li><a href="terms.html">Terms & Conditions</a></li>
           </ul>
         </div>
 
