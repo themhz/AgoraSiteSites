@@ -1,0 +1,584 @@
+z`<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>About Me - Efthimios Theotokatos</title>
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Font Awesome for Social Media Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <style>
+        /* Custom Styles */
+        :root {
+            --primary-color: #007bff;
+            --secondary-color: #ff9800;
+            --background-color: #f5f5f5;
+            --text-color: #333333;
+            --cta-color: #ff5722;
+        }
+
+        body {
+            background-color: var(--background-color);
+            color: var(--text-color);
+            padding-top: 60px;
+        }
+
+        .navbar {
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+            background-color: var(--primary-color) !important;
+            position: fixed;
+            top: 0;
+            width: 100%;
+            z-index: 1000;
+        }
+
+        .about-section {
+            padding: 40px 0;
+        }
+
+        .about-section h2 {
+            margin-bottom: 20px;
+        }
+
+        .about-section p {
+            margin-bottom: 20px;
+        }
+
+        .about-section img {
+            width: 150px;
+            height: 150px;
+            border-radius: 50%;
+            margin-bottom: 20px;
+        }
+
+        .about-section .bio {
+            margin-bottom: 40px;
+        }
+
+        .about-section .section {
+            margin-bottom: 40px;
+        }
+
+        .about-section .section h3 {
+            margin-bottom: 20px;
+        }
+
+        .about-section .section p {
+            margin-bottom: 10px;
+        }
+
+        footer {
+            background-color: var(--primary-color);
+        }
+
+        .social-icons a {
+            color: white;
+            margin: 0 10px;
+            font-size: 1.5rem;
+            transition: color 0.3s ease;
+        }
+
+        .social-icons a:hover {
+            color: #FFD700;
+            /* Gold color on hover */
+        }
+
+        .section-title {
+            border-bottom: 2px solid var(--primary-color);
+            padding-bottom: 10px;
+            margin-bottom: 20px;
+        }
+
+        .section-content {
+            margin-bottom: 20px;
+        }
+
+        .section-content p {
+            margin-bottom: 10px;
+        }
+
+        
+      /* Timeline styles */
+        .main-timeline {
+            position: relative
+        }
+
+        .main-timeline:before {
+            content: "";
+            display: block;
+            width: 2px;
+            height: 100%;
+            background: #c6c6c6;
+            margin: 0 auto;
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0
+        }
+
+        .main-timeline .timeline {
+            margin-bottom: 40px;
+            position: relative
+        }
+
+        .main-timeline .timeline:after {
+            content: "";
+            display: block;
+            clear: both
+        }
+
+        .main-timeline .icon {
+            width: 18px;
+            height: 18px;
+            line-height: 18px;
+            margin: auto;
+            position: absolute;
+            top: 0;
+            left: 0;
+            bottom: 0;
+            right: 0
+        }
+
+        .main-timeline .icon:before,
+        .main-timeline .icon:after {
+            content: "";
+            width: 100%;
+            height: 100%;
+            border-radius: 50%;
+            position: absolute;
+            top: 0;
+            left: 0;
+            transition: all 0.33s ease-out 0s
+        }
+
+        .main-timeline .icon:before {
+            background: #fff;
+            border: 2px solid #232323;
+            left: -3px
+        }
+
+        .main-timeline .icon:after {
+            border: 2px solid #c6c6c6;
+            left: 3px
+        }
+
+        .main-timeline .timeline:hover .icon:before {
+            left: 3px
+        }
+
+        .main-timeline .timeline:hover .icon:after {
+            left: -3px
+        }
+
+        .main-timeline .date-content {
+            width: 50%;
+            float: left;
+            margin-top: 22px;
+            position: relative
+        }
+
+        .main-timeline .date-content:before {
+            content: "";
+            width: 36.5%;
+            height: 2px;
+            background: #c6c6c6;
+            margin: auto 0;
+            position: absolute;
+            top: 0;
+            right: 10px;
+            bottom: 0
+        }
+
+        .main-timeline .date-outer {
+            width: 125px;
+            height: 125px;
+            font-size: 16px;
+            text-align: center;
+            margin: auto;
+            z-index: 1
+        }
+
+        .main-timeline .date-outer:before,
+        .main-timeline .date-outer:after {
+            content: "";
+            width: 125px;
+            height: 125px;
+            margin: 0 auto;
+            border-radius: 50%;
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            transition: all 0.33s ease-out 0s
+        }
+
+        .main-timeline .date-outer:before {
+            background: #fff;
+            border: 2px solid #232323;
+            left: -6px
+        }
+
+        .main-timeline .date-outer:after {
+            border: 2px solid #c6c6c6;
+            left: 6px
+        }
+
+        .main-timeline .timeline:hover .date-outer:before {
+            left: 6px
+        }
+
+        .main-timeline .timeline:hover .date-outer:after {
+            left: -6px
+        }
+
+        .main-timeline .date {
+            width: 100%;
+            margin: auto;
+            position: absolute;
+            top: 27%;
+            left: 0
+        }
+
+        .main-timeline .month {
+            font-size: 18px;
+            font-weight: 700
+        }
+
+        .main-timeline .year {
+            display: block;
+            font-size: 30px;
+            font-weight: 700;
+            color: #232323;
+            line-height: 36px
+        }
+
+        .main-timeline .timeline-content {
+            width: 50%;
+            padding: 20px 0 20px 50px;
+            float: right
+        }
+
+        .main-timeline .title {
+            font-size: 19px;
+            font-weight: 700;
+            line-height: 24px;
+            margin: 0 0 15px 0
+        }
+
+        .main-timeline .description {
+            margin-bottom: 0
+        }
+
+        .main-timeline .timeline:nth-child(2n) .date-content {
+            float: right
+        }
+
+        .main-timeline .timeline:nth-child(2n) .date-content:before {
+            left: 10px
+        }
+
+        .main-timeline .timeline:nth-child(2n) .timeline-content {
+            padding: 20px 50px 20px 0;
+            text-align: right
+        }
+
+        @media only screen and (max-width: 991px) {
+            .main-timeline .date-content {
+                margin-top: 35px
+            }
+            .main-timeline .date-content:before {
+                width: 22.5%
+            }
+            .main-timeline .timeline-content {
+                padding: 10px 0 10px 30px
+            }
+            .main-timeline .title {
+                font-size: 17px
+            }
+            .main-timeline .timeline:nth-child(2n) .timeline-content {
+                padding: 10px 30px 10px 0
+            }
+        }
+
+        @media only screen and (max-width: 767px) {
+            .main-timeline:before {
+                margin: 0;
+                left: 7px
+            }
+            .main-timeline .timeline {
+                margin-bottom: 20px
+            }
+            .main-timeline .timeline:last-child {
+                margin-bottom: 0
+            }
+            .main-timeline .icon {
+                margin: auto 0
+            }
+            .main-timeline .date-content {
+                width: 95%;
+                float: right;
+                margin-top: 0
+            }
+            .main-timeline .date-content:before {
+                display: none
+            }
+            .main-timeline .date-outer {
+                width: 110px;
+                height: 110px
+            }
+            .main-timeline .date-outer:before,
+            .main-timeline .date-outer:after {
+                width: 110px;
+                height: 110px
+            }
+            .main-timeline .date {
+                top: 30%
+            }
+            .main-timeline .year {
+                font-size: 24px
+            }
+            .main-timeline .timeline-content,
+            .main-timeline .timeline:nth-child(2n) .timeline-content {
+                width: 95%;
+                text-align: center;
+                padding: 10px 0
+            }
+            .main-timeline .title {
+                margin-bottom: 10px
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <!-- Navigation Menu -->
+    <nav class="navbar navbar-expand-lg navbar-dark bg-primary">
+        <div class="container">
+            <a class="navbar-brand" href="#">Your Business</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
+                aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item">
+                        <a class="nav-link" href="index.html">Home</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="index.html#templates">Templates</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="index.html#clients">Clients</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="index.html#technologies">Technologies</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link active" href="about.html">About Me</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="contact.html">Contact Me</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Main Content -->
+    <main class="py-5">
+        <div class="container">
+            <!-- About Me Section -->
+            <section class="about-section">
+                <div class="row">
+                    <div class="col-md-4 text-center">
+                        <img src="https://placehold.co/150?text=Efthimios" alt="Efthimios Theotokatos" class="img-fluid">
+                    </div>
+                    <div class="col-md-8">
+                        <h2>Efthimios Theotokatos</h2>
+                        <div class="bio">
+                            <p>Experienced programmer in web, mobile, and desktop applications. Capable of developing e-commerce websites, REST API, and web services. Most experience with .Net C#, PHP, and Java.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Personal Information -->
+                <div class="section">
+                    <h3 class="section-title">Personal Information</h3>
+                    <div class="section-content">
+                        <p><strong>Phone:</strong> 6987556486, 6945164028</p>
+                        <p><strong>E-mail:</strong> themhz@gmail.com</p>
+                        <p><strong>LinkedIn:</strong> <a href="https://gr.linkedin.com/in/eythimios-a-theotokatos-60bb4954" target="_blank">LinkedIn Profile</a></p>
+                        <p><strong>GitHub:</strong> <a href="https://github.com/themhz" target="_blank">GitHub</a></p>
+                        <p><strong>StackOverflow:</strong> <a href="https://stackoverflow.com/users/885457/themhz" target="_blank">StackOverflow</a></p>
+                    </div>
+                </div>
+
+                <!-- Educational Information -->
+                <div class="section">
+                    <h3 class="section-title">Educational Information</h3>
+                    <div class="section-content">
+                        <p><strong>2017 – 2021:</strong> Computer Science in Hellenic Open University (HOU), <a href="https://www.eap.gr/" target="_blank">www.eap.gr</a></p>
+                        <p><strong>2010 – 2011:</strong> Lower English certification.</p>
+                        <p><strong>2001:</strong> Certification by the state of Athens in software engineering and web development for IEK.</p>
+                        <p><strong>1998 – 2000:</strong> Attended at professional institute IEK Ipokratios (<a href="https://www.ipokratios.gr" target="_blank">www.ipokratios.gr</a>) and studied computer applications & software engineering.</p>
+                    </div>
+                </div>
+
+                <!-- Languages -->
+                <div class="section">
+                    <h3 class="section-title">Languages</h3>
+                    <div class="section-content">
+                        <p>English, Greek</p>
+                    </div>
+                </div>
+
+                <!-- Toolset Skills -->
+                <div class="section">
+                    <h3 class="section-title">Toolset Skills</h3>
+                    <div class="section-content">
+                        <p><strong>Programming languages:</strong> C#, VB.NET, ASP.NET, PHP, JAVA, PYTHON, PROLOG</p>
+                        <p><strong>Front End:</strong> HTML, CSS, JavaScript, jQuery, Angular JS</p>
+                        <p><strong>Database:</strong> SQL Server 2005, SQL Server 2008, MS Access, MySQL</p>
+                        <p><strong>Operating Systems:</strong> Windows, Linux/Ubuntu</p>
+                        <p><strong>Most preferable developing framework/pattern:</strong> MVC</p>
+                        <p><strong>IDE's:</strong> Visual Studio, NetBeans, Aptana, MySQL Workbench, SQL Server Enterprise Manager</p>
+                        <p><strong>Other tools:</strong> FreeMind, GIMP editor, Dia, FileZilla</p>
+                    </div>
+                </div>
+
+                <!-- Software Engineering Skills -->
+                <div class="section">
+                    <h3 class="section-title">Software Engineering Skills</h3>
+                    <div class="section-content">
+                        <p>Object-oriented programming, Functional programming, Error handling, Security-aware application using forms security or domain control security, SQL Injection aware applications, Send bulk e-mails, Using Captcha and other secure methods in submission forms, Form validation – user error handling, Sorting items, Capable of generating and parsing xls, xlsx reports, Generate, parse XML, Manage sessions, Using JSON objects, Image resizing, Creating and using web services in applications, Web reports using JavaScript and jQuery, Connect payments with banking systems like e-shops, Serial, Binary, tree search, Ajax, Crawl web content with web spiders, Convert wireframe into HTML, Style HTML using CSS and HTML 5, Creating complicated SQL queries, stored procedures, SQL user functions, Design and analysis skills, Prototyping using wireframe sketch tools, Analytical & Critical thinking on problems breaking them down using mind maps and why trees, Designing solutions for any application problem, GIMP for image editing, Open source software used: Joomla, WordPress, Other Libraries: jQuery, jQueryUI, jQplot, EPPlus, TinyMCE (Some of my own)</p>
+                    </div>
+                </div>
+
+                <!-- Currently Playing With -->
+                <div class="section">
+                    <h3 class="section-title">Currently Playing With</h3>
+                    <div class="section-content">
+                        <p><strong>Artificial Intelligence:</strong> TensorFlow Python</p>
+                        <p><strong>Creating basic Neurons</strong></p>
+                        <p><strong>Programming in FPGA using VHDL</strong></p>
+                        <p><strong>Programming Arduino</strong></p>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Previous Working Experience -->
+            <section class="about-section">
+                <div class="container">
+                    <div class="main-timeline">
+                    
+                                            <!-- start experience section-->
+                                            <div class="timeline">
+                                                <div class="icon"></div>
+                                                <div class="date-content">
+                                                    <div class="date-outer">
+                                                        <span class="date">
+                                                                <span class="month">2 Years</span>
+                                                        <span class="year">2013</span>
+                                                        </span>
+                                                    </div>
+                                                </div>
+                                                <div class="timeline-content">
+                                                    <h5 class="title">Visual Art &amp; Design</h5>
+                                                    <p class="description">
+                                                        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed efficitur ex sit amet massa scelerisque scelerisque. Aliquam erat volutpat. Aenean interdum finibus efficitur. Praesent dapibus dolor felis, eu ultrices elit molestie.
+                                                    </p>
+                                                </div>
+                                            </div>
+                                            <!-- end experience section-->
+                    
+                                            <!-- start experience section-->
+                                            <div class="timeline">
+                                                <div class="icon"></div>
+                                                <div class="date-content">
+                                                    <div class="date-outer">
+                                                        <span class="date">
+                                                                <span class="month">1 Years</span>
+                                                        <span class="year">2015</span>
+                                                        </span>
+                                                    </div>
+                                                </div>
+                                                <div class="timeline-content">
+                                                    <h5 class="title">Product Designer</h5>
+                                                    <p class="description">
+                                                        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed efficitur ex sit amet massa scelerisque scelerisque. Aliquam erat volutpat. Aenean interdum finibus efficitur. Praesent dapibus dolor felis, eu ultrices elit molestie.
+                                                    </p>
+                                                </div>
+                                            </div>
+                                            <!-- end experience section-->
+                    
+                                            <!-- start experience section-->
+                                            <div class="timeline">
+                                                <div class="icon"></div>
+                                                <div class="date-content">
+                                                    <div class="date-outer">
+                                                        <span class="date">
+                                                                <span class="month">2 Years</span>
+                                                        <span class="year">2016</span>
+                                                        </span>
+                                                    </div>
+                                                </div>
+                                                <div class="timeline-content">
+                                                    <h5 class="title">Web Designer</h5>
+                                                    <p class="description">
+                                                        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed efficitur ex sit amet massa scelerisque scelerisque. Aliquam erat volutpat. Aenean interdum finibus efficitur. Praesent dapibus dolor felis, eu ultrices elit molestie.
+                                                    </p>
+                                                </div>
+                                            </div>
+                                            <!-- end experience section-->
+                    
+                                            <!-- start experience section-->
+                                            <div class="timeline">
+                                                <div class="icon"></div>
+                                                <div class="date-content">
+                                                    <div class="date-outer">
+                                                        <span class="date">
+                                                                <span class="month">2 Years</span>
+                                                        <span class="year">2018</span>
+                                                        </span>
+                                                    </div>
+                                                </div>
+                                                <div class="timeline-content">
+                                                    <h5 class="title">Graphic Designer</h5>
+                                                    <p class="description">
+                                                        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed efficitur ex sit amet massa scelerisque scelerisque. Aliquam erat volutpat. Aenean interdum finibus efficitur. Praesent dapibus dolor felis, eu ultrices elit molestie.
+                                                    </p>
+                                                </div>
+                                            </div>
+                                            <!-- end experience section-->
+                    
+                                        </div>
+                    </div>
+            </section>
+        </div>
+    </main>
+
+    <!-- Footer -->
+    <footer class="bg-primary text-white py-4">
+        <div class="container text-center">
+            <p>&copy; 2025 Your Web Design Business. All rights reserved.</p>
+            <ul class="list-inline mb-0">
+                <li class="list-inline-item"><a href="#privacy" class="text-white">Privacy Policy</a></li>
+                <li class="list-inline-item"><a href="#terms" class="text-white">Terms of Service</a></li>
+            </ul>
+            <!-- Social Media Icons -->
+            <div class="social-icons mt-3">
+                <a href="https://facebook.com" target="_blank"><i class="fab fa-facebook"></i></a>
+                <a href="https://twitter.com" target="_blank"><i class="fab fa-twitter"></i></a>
+                <a href="https://instagram.com" target="_blank"><i class="fab fa-instagram"></i></a>
+                <a href="https://linkedin.com" target="_blank"><i class="fab fa-linkedin"></i></a>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Bootstrap JS -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+
+</html>

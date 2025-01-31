@@ -1,0 +1,504 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Your Web Design Business</title>
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Font Awesome for Social Media Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <style>
+        /* Custom Styles */
+        :root {
+            --primary-color: #007bff;
+            --secondary-color: #ff9800;
+            --background-color: #f5f5f5;
+            --text-color: #333333;
+            --cta-color: #ff5722;
+        }
+
+        body {
+            background-color: var(--background-color);
+            color: var(--text-color);
+            padding-top: 60px; /* Add padding to account for the fixed navbar */
+        }
+
+        .navbar {
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+            background-color: var(--primary-color) !important;
+            position: fixed;
+            top: 0;
+            width: 100%;
+            z-index: 1000;
+        }
+
+        .carousel-item img {
+            height: 400px;
+            object-fit: cover;
+        }
+
+        .card {
+            border: none;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+
+        .card:hover {
+            transform: translateY(-5px);
+            transition: transform 0.3s ease;
+        }
+
+        footer {
+            background-color: var(--primary-color);
+        }
+
+        .social-icons a {
+            color: white;
+            margin: 0 10px;
+            font-size: 1.5rem;
+            transition: color 0.3s ease;
+        }
+
+        .social-icons a:hover {
+            color: #FFD700;
+            /* Gold color on hover */
+        }
+
+        .newsletter {
+            background-color: var(--secondary-color);
+            padding: 40px 0;
+            color: whitesmoke;
+        }
+
+        .client-card {
+            text-align: center;
+            padding: 20px;
+            border: 1px solid #ddd;
+            border-radius: 10px;
+            background-color: #fff;
+            width: 300px;
+            margin: 0 10px;
+            flex: 0 0 auto;
+        }
+
+        .client-card img {
+            width: 100px;
+            height: 100px;
+            border-radius: 25px;
+            margin-bottom: 15px;
+        }
+
+        .technologies img {
+            width: 120px;
+            height: 120px;
+            margin: 10px;
+            transition: transform 0.3s ease;
+        }
+
+        .technologies img:hover {
+            transform: scale(1.1);
+        }
+
+        .btn-success {
+            background-color: var(--cta-color);
+            border-color: var(--cta-color);
+        }
+
+        .btn-success:hover {
+            background-color: #e64a19;
+            border-color: #e64a19;
+        }
+
+        .client-trail {
+            display: flex;
+            overflow-x: hidden;
+            scroll-behavior: smooth;
+            scrollbar-width: none;
+            -ms-overflow-style: none;
+            padding: 10px 0;
+        }
+
+        .client-trail::-webkit-scrollbar {
+            display: none;
+        }
+
+        .client-trail .client-card {
+            min-width: 300px;
+        }
+
+        .service-box {
+            background-color: #fff;
+            border: 1px solid #ddd;
+            border-radius: 10px;
+            padding: 20px;
+            text-align: center;
+            margin-bottom: 20px;
+            transition: transform 0.3s ease;
+        }
+
+        .service-box:hover {
+            transform: translateY(-10px);
+        }
+
+        .service-box h3 {
+            margin-bottom: 15px;
+        }
+
+        .service-box p {
+            margin-bottom: 20px;
+        }
+
+        .service-box .btn-primary {
+            background-color: var(--primary-color);
+            border-color: var(--primary-color);
+        }
+
+        .service-box .btn-primary:hover {
+            background-color: #0056b3;
+            border-color: #0056b3;
+        }
+    </style>
+</head>
+
+<body>
+    <!-- Navigation Menu -->
+    <nav class="navbar navbar-expand-lg navbar-dark bg-primary">
+        <div class="container">
+            <a class="navbar-brand" href="#">Your Business</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
+                aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item">
+                        <a class="nav-link active" href="#home">Home</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#templates">Templates</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#clients">Clients</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#technologies">Technologies</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="about.html">About Me</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="contact.html">Contact Me</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Header with Slideshow -->
+    <header class="bg-light py-5" id="home">
+        <div class="container">
+            <div id="carouselExample" class="carousel slide" data-bs-ride="carousel">
+                <div class="carousel-inner">
+                    <div class="carousel-item active">
+                        <img src="https://placehold.co/800x400?text=Slide+1" class="d-block w-100" alt="Latest Work 1">
+                    </div>
+                    <div class="carousel-item">
+                        <img src="https://placehold.co/800x400?text=Slide+2" class="d-block w-100" alt="Latest Work 2">
+                    </div>
+                    <div class="carousel-item">
+                        <img src="https://placehold.co/800x400?text=Slide+3" class="d-block w-100" alt="Latest Work 3">
+                    </div>
+                </div>
+                <button class="carousel-control-prev" type="button" data-bs-target="#carouselExample"
+                    data-bs-slide="prev">
+                    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                    <span class="visually-hidden">Previous</span>
+                </button>
+                <button class="carousel-control-next" type="button" data-bs-target="#carouselExample"
+                    data-bs-slide="next">
+                    <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                    <span class="visually-hidden">Next</span>
+                </button>
+            </div>
+        </div>
+    </header>
+
+    <!-- Main Content -->
+    <main class="py-5">
+        <div class="container">
+            <!-- Website Services Section -->
+            <section id="services" class="mb-5">
+                <h2 class="text-center mb-4">Website Services</h2>
+                <div class="row row-cols-1 row-cols-md-3 g-4">
+                    <div class="col">
+                        <div class="service-box">
+                            <h3>Bug Fixes</h3>
+                            <p>I can identify and fix any bugs in your website to ensure smooth functionality.</p>
+                            <a href="#" class="btn btn-primary">Learn More</a>
+                        </div>
+                    </div>
+                    <div class="col">
+                        <div class="service-box">
+                            <h3>Update</h3>
+                            <p>Keep your website up-to-date with the latest features and security patches. We handle all updates for you.</p>
+                            <a href="#" class="btn btn-primary">Learn More</a>
+                        </div>
+                    </div>
+                    <div class="col">
+                        <div class="service-box">
+                            <h3>Create New Site</h3>
+                            <p>Need a fresh start? I can design and develop a brand new website tailored to your needs.</p>
+                            <a href="#" class="btn btn-primary">Learn More</a>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Free Templates Section -->
+            <section id="templates" class="mb-5">
+                <h2 class="text-center mb-4">Free Templates</h2>
+                <div class="row row-cols-1 row-cols-md-3 g-4">
+                    <div class="col">
+                        <div class="card h-100">
+                            <img src="https://placehold.co/400x300?text=Template+1" class="card-img-top"
+                                alt="Template 1">
+                            <div class="card-body">
+                                <h5 class="card-title">Template 1</h5>
+                                <p class="card-text">A modern and responsive template for your next project.</p>
+                                <a href="#" class="btn btn-success" download>Download</a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col">
+                        <div class="card h-100">
+                            <img src="https://placehold.co/400x300?text=Template+2" class="card-img-top"
+                                alt="Template 2">
+                            <div class="card-body">
+                                <h5 class="card-title">Template 2</h5>
+                                <p class="card-text">A clean and professional template for businesses.</p>
+                                <a href="#" class="btn btn-success" download>Download</a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col">
+                        <div class="card h-100">
+                            <img src="https://placehold.co/400x300?text=Template+3" class="card-img-top"
+                                alt="Template 3">
+                            <div class="card-body">
+                                <h5 class="card-title">Template 3</h5>
+                                <p class="card-text">A creative and unique template for portfolios.</p>
+                                <a href="#" class="btn btn-success" download>Download</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!-- Second Row of Templates -->
+                <div class="row row-cols-1 row-cols-md-3 g-4 mt-4">
+                    <div class="col">
+                        <div class="card h-100">
+                            <img src="https://placehold.co/400x300?text=Template+4" class="card-img-top"
+                                alt="Template 4">
+                            <div class="card-body">
+                                <h5 class="card-title">Template 4</h5>
+                                <p class="card-text">A modern and responsive template for your next project.</p>
+                                <a href="#" class="btn btn-success" download>Download</a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col">
+                        <div class="card h-100">
+                            <img src="https://placehold.co/400x300?text=Template+5" class="card-img-top"
+                                alt="Template 5">
+                            <div class="card-body">
+                                <h5 class="card-title">Template 5</h5>
+                                <p class="card-text">A clean and professional template for businesses.</p>
+                                <a href="#" class="btn btn-success" download>Download</a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col">
+                        <div class="card h-100">
+                            <img src="https://placehold.co/400x300?text=Template+6" class="card-img-top"
+                                alt="Template 6">
+                            <div class="card-body">
+                                <h5 class="card-title">Template 6</h5>
+                                <p class="card-text">A creative and unique template for portfolios.</p>
+                                <a href="#" class="btn btn-success" download>Download</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Clients Section -->
+            <section id="clients" class="mb-5">
+                <h2 class="text-center mb-4">What Our Clients Say</h2>
+                <div class="client-trail" id="clientTrail">
+                    <div class="client-card">
+                        <img src="https://placehold.co/100x100?text=Client+1" alt="Client 1">
+                        <h5>John Doe</h5>
+                        <p>"Amazing work! The templates are modern and easy to use. Highly recommended!"</p>
+                    </div>
+                    <div class="client-card">
+                        <img src="https://placehold.co/100x100?text=Client+2" alt="Client 2">
+                        <h5>Jane Smith</h5>
+                        <p>"Great service and support. The designs are top-notch and very professional."</p>
+                    </div>
+                    <div class="client-card">
+                        <img src="https://placehold.co/100x100?text=Client+3" alt="Client 3">
+                        <h5>Mike Johnson</h5>
+                        <p>"The best web design business I've worked with. Fast delivery and excellent quality."</p>
+                    </div>
+                    <div class="client-card">
+                        <img src="https://placehold.co/100x100?text=Client+4" alt="Client 4">
+                        <h5>Emily Davis</h5>
+                        <p>"Incredible designs and fantastic customer service. Highly recommend!"</p>
+                    </div>
+                    <div class="client-card">
+                        <img src="https://placehold.co/100x100?text=Client+5" alt="Client 5">
+                        <h5>Robert Brown</h5>
+                        <p>"The templates are very user-friendly and the support team is always helpful."</p>
+                    </div>
+                    <div class="client-card">
+                        <img src="https://placehold.co/100x100?text=Client+6" alt="Client 6">
+                        <h5>Sarah Wilson</h5>
+                        <p>"Excellent work! The templates are modern and the team is very professional."</p>
+                    </div>
+                    <div class="client-card">
+                        <img src="https://placehold.co/100x100?text=Client+7" alt="Client 7">
+                        <h5>David Lee</h5>
+                        <p>"The best templates I've ever used. Highly recommend this web design business."</p>
+                    </div>
+                    <div class="client-card">
+                        <img src="https://placehold.co/100x100?text=Client+8" alt="Client 8">
+                        <h5>Lisa Clark</h5>
+                        <p>"Amazing service and fantastic templates. Will definitely use them again."</p>
+                    </div>
+                    <div class="client-card">
+                        <img src="https://placehold.co/100x100?text=Client+9" alt="Client 9">
+                        <h5>Mark Taylor</h5>
+                        <p>"The templates are very professional and the support team is always helpful."</p>
+                    </div>
+                    <div class="client-card">
+                        <img src="https://placehold.co/100x100?text=Client+10" alt="Client 10">
+                        <h5>Laura White</h5>
+                        <p>"Excellent templates and fantastic customer service. Highly recommend!"</p>
+                    </div>
+                </div>
+            </section>
+        </div>
+    </main>
+
+    <!-- Technologies Section -->
+    <section id="technologies" class="text-center py-5" style="background-color:orangered; color: whitesmoke;">
+        <div class="container">
+            <h2 class="text-center mb-4">Technologies We Use</h2>
+            <div class="d-flex flex-wrap justify-content-center">
+                <img src="https://placehold.co/120x120?text=WordPress" alt="WordPress" class="m-3 rounded-circle">
+                <img src="https://placehold.co/120x120?text=Joomla" alt="Joomla" class="m-3 rounded-circle">
+                <img src="https://placehold.co/120x120?text=Laravel" alt="Laravel" class="m-3 rounded-circle">
+                <img src="https://placehold.co/120x120?text=CSS" alt="CSS" class="m-3 rounded-circle">
+                <img src="https://placehold.co/120x120?text=JavaScript" alt="JavaScript" class="m-3 rounded-circle">
+                <img src="https://placehold.co/120x120?text=PHP" alt="PHP" class="m-3 rounded-circle">
+                <img src="https://placehold.co/120x120?text=MySQL" alt="MySQL" class="m-3 rounded-circle">
+            </div>
+        </div>
+    </section>
+
+    <!-- Newsletter Section -->
+    <section class="newsletter text-center py-5" style="background-color: forestgreen; color: whitesmoke;">
+        <div class="container">
+            <h2>Subscribe to Our Newsletter</h2>
+            <p class="lead">Get the latest updates, free templates, and exclusive offers straight to your inbox.</p>
+            <div class="d-flex justify-content-center">
+                <form class="d-flex">
+                    <input type="email" class="form-control me-2" placeholder="Enter your email"
+                        style="max-width: 300px;">
+                    <button type="submit" class="btn btn-primary">Subscribe</button>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-primary text-white py-4">
+        <div class="container text-center">
+            <p>&copy; 2025 Your Web Design Business. All rights reserved.</p>
+            <ul class="list-inline mb-0">
+                <li class="list-inline-item"><a href="#privacy" class="text-white">Privacy Policy</a></li>
+                <li class="list-inline-item"><a href="#terms" class="text-white">Terms of Service</a></li>
+            </ul>
+            <!-- Social Media Icons -->
+            <div class="social-icons mt-3">
+                <a href="https://facebook.com" target="_blank"><i class="fab fa-facebook"></i></a>
+                <a href="https://twitter.com" target="_blank"><i class="fab fa-twitter"></i></a>
+                <a href="https://instagram.com" target="_blank"><i class="fab fa-instagram"></i></a>
+                <a href="https://linkedin.com" target="_blank"><i class="fab fa-linkedin"></i></a>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Bootstrap JS -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            const clientTrail = document.getElementById('clientTrail');
+            let isDown = false;
+            let startX;
+            let scrollLeft;
+            let interval;
+
+            // Function to scroll the trail automatically
+            function autoScroll() {
+                interval = setInterval(() => {
+                    clientTrail.scrollBy({
+                        left: 300, // Scroll by the width of one card
+                        behavior: 'smooth'
+                    });
+
+                    // Check if the last card is fully visible
+                    if (clientTrail.scrollLeft + clientTrail.clientWidth >= clientTrail.scrollWidth) {
+                        clientTrail.scrollTo({
+                            left: 0,
+                            behavior: 'smooth'
+                        });
+                    }
+                }, 2000); // Scroll every 2 seconds
+            }
+
+            // Start auto-scrolling
+            autoScroll();
+
+            clientTrail.addEventListener('mousedown', (e) => {
+                isDown = true;
+                clientTrail.classList.add('active');
+                startX = e.pageX - clientTrail.offsetLeft;
+                scrollLeft = clientTrail.scrollLeft;
+                clearInterval(interval); // Stop auto-scrolling when user interacts
+            });
+
+            clientTrail.addEventListener('mouseleave', () => {
+                isDown = false;
+                clientTrail.classList.remove('active');
+                autoScroll(); // Resume auto-scrolling
+            });
+
+            clientTrail.addEventListener('mouseup', () => {
+                isDown = false;
+                clientTrail.classList.remove('active');
+                autoScroll(); // Resume auto-scrolling
+            });
+
+            clientTrail.addEventListener('mousemove', (e) => {
+                if (!isDown) return;
+                e.preventDefault();
+                const x = e.pageX - clientTrail.offsetLeft;
+                const walk = (x - startX) * 2; // Adjust the multiplier for faster scrolling
+                clientTrail.scrollLeft = scrollLeft - walk;
+            });
+        });
+    </script>
+</body>
+
+</html>
