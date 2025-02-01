@@ -17,109 +17,37 @@
             --background-color: #f5f5f5;
             --text-color: #333333;
             --cta-color: #ff5722;
+            --navbar-bg-color: #ffffff;
+            --navbar-text-color: #333333;
         }
 
         body {
             background-color: var(--background-color);
             color: var(--text-color);
+            padding-top: 60px; /* Add padding to account for the fixed navbar */
         }
 
         .navbar {
             box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-            background-color: var(--primary-color) !important;
+            background-color: var(--navbar-bg-color) !important;
+            position: fixed;
+            top: 0;
+            width: 100%;
+            z-index: 1000;
         }
 
-        .carousel-item img {
-            height: 400px;
-            object-fit: cover;
+        .navbar-brand img {
+            height: 20px;
+            margin-right: 10px;
         }
 
-        .card {
-            border: none;
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        .navbar-brand,
+        .navbar-nav .nav-link {
+            color: var(--navbar-text-color) !important;
         }
 
-        .card:hover {
-            transform: translateY(-5px);
-            transition: transform 0.3s ease;
-        }
-
-        footer {
-            background-color: var(--primary-color);
-        }
-
-        .social-icons a {
-            color: white;
-            margin: 0 10px;
-            font-size: 1.5rem;
-            transition: color 0.3s ease;
-        }
-
-        .social-icons a:hover {
-            color: #FFD700;
-            /* Gold color on hover */
-        }
-
-        .newsletter {
-            background-color: var(--secondary-color);
-            padding: 40px 0;
-            color: whitesmoke;
-        }
-
-        .client-card {
-            text-align: center;
-            padding: 20px;
-            border: 1px solid #ddd;
-            border-radius: 10px;
-            background-color: #fff;
-            width: 300px;
-            margin: 0 10px;
-            flex: 0 0 auto;
-        }
-
-        .client-card img {
-            width: 100px;
-            height: 100px;
-            border-radius: 25px;
-            margin-bottom: 15px;
-        }
-
-        .technologies img {
-            width: 120px;
-            height: 120px;
-            margin: 10px;
-            transition: transform 0.3s ease;
-        }
-
-        .technologies img:hover {
-            transform: scale(1.1);
-        }
-
-        .btn-success {
-            background-color: var(--cta-color);
-            border-color: var(--cta-color);
-        }
-
-        .btn-success:hover {
-            background-color: #e64a19;
-            border-color: #e64a19;
-        }
-
-        .client-trail {
-            display: flex;
-            overflow-x: hidden;
-            scroll-behavior: smooth;
-            scrollbar-width: none;
-            -ms-overflow-style: none;
-            padding: 10px 0;
-        }
-
-        .client-trail::-webkit-scrollbar {
-            display: none;
-        }
-
-        .client-trail .client-card {
-            min-width: 300px;
+        .navbar-nav .nav-link:hover {
+            color: var(--primary-color) !important;
         }
 
         .contact-form {
@@ -148,14 +76,32 @@
             background-color: #0056b3;
             border-color: #0056b3;
         }
+
+        footer {
+            background-color: var(--primary-color);
+        }
+
+        .social-icons a {
+            color: white;
+            margin: 0 10px;
+            font-size: 1.5rem;
+            transition: color 0.3s ease;
+        }
+
+        .social-icons a:hover {
+            color: #FFD700;
+            /* Gold color on hover */
+        }
     </style>
 </head>
 
 <body>
     <!-- Navigation Menu -->
-    <nav class="navbar navbar-expand-lg navbar-dark bg-primary">
+    <nav class="navbar navbar-expand-lg navbar-light bg-white">
         <div class="container">
-            <a class="navbar-brand" href="#">Your Business</a>
+            <a class="navbar-brand" href="#">
+                <img src="assets/agorasite.webp" alt="Logo">                
+            </a>
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
                 aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
@@ -166,13 +112,13 @@
                         <a class="nav-link" href="index.html">Home</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="#templates">Templates</a>
+                        <a class="nav-link" href="index.html#templates">Templates</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="#clients">Clients</a>
+                        <a class="nav-link" href="index.html#clients">Clients</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="#technologies">Technologies</a>
+                        <a class="nav-link" href="index.html#technologies">Technologies</a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link" href="about.html">About Me</a>

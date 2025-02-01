@@ -1,4 +1,4 @@
-z`<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="en">
 
 <head>
@@ -17,21 +17,37 @@ z`<!DOCTYPE html>
             --background-color: #f5f5f5;
             --text-color: #333333;
             --cta-color: #ff5722;
+            --navbar-bg-color: #ffffff;
+            --navbar-text-color: #333333;
         }
 
         body {
             background-color: var(--background-color);
             color: var(--text-color);
-            padding-top: 60px;
+            padding-top: 60px; /* Add padding to account for the fixed navbar */
         }
 
         .navbar {
             box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-            background-color: var(--primary-color) !important;
+            background-color: var(--navbar-bg-color) !important;
             position: fixed;
             top: 0;
             width: 100%;
             z-index: 1000;
+        }
+
+        .navbar-brand img {
+            height: 20px;
+            margin-right: 10px;
+        }
+
+        .navbar-brand,
+        .navbar-nav .nav-link {
+            color: var(--navbar-text-color) !important;
+        }
+
+        .navbar-nav .nav-link:hover {
+            color: var(--primary-color) !important;
         }
 
         .about-section {
@@ -93,16 +109,16 @@ z`<!DOCTYPE html>
 
         .section-content {
             margin-bottom: 20px;
+            
         }
 
         .section-content p {
             margin-bottom: 10px;
         }
 
-        
-      /* Timeline styles */
+        /* Timeline styles */
         .main-timeline {
-            position: relative
+            position: relative;
         }
 
         .main-timeline:before {
@@ -115,18 +131,18 @@ z`<!DOCTYPE html>
             position: absolute;
             top: 0;
             left: 0;
-            right: 0
+            right: 0;
         }
 
         .main-timeline .timeline {
             margin-bottom: 40px;
-            position: relative
+            position: relative;
         }
 
         .main-timeline .timeline:after {
             content: "";
             display: block;
-            clear: both
+            clear: both;
         }
 
         .main-timeline .icon {
@@ -138,7 +154,7 @@ z`<!DOCTYPE html>
             top: 0;
             left: 0;
             bottom: 0;
-            right: 0
+            right: 0;
         }
 
         .main-timeline .icon:before,
@@ -150,33 +166,33 @@ z`<!DOCTYPE html>
             position: absolute;
             top: 0;
             left: 0;
-            transition: all 0.33s ease-out 0s
+            transition: all 0.33s ease-out 0s;
         }
 
         .main-timeline .icon:before {
             background: #fff;
             border: 2px solid #232323;
-            left: -3px
+            left: -3px;
         }
 
         .main-timeline .icon:after {
             border: 2px solid #c6c6c6;
-            left: 3px
+            left: 3px;
         }
 
         .main-timeline .timeline:hover .icon:before {
-            left: 3px
+            left: 3px;
         }
 
         .main-timeline .timeline:hover .icon:after {
-            left: -3px
+            left: -3px;
         }
 
         .main-timeline .date-content {
             width: 50%;
             float: left;
             margin-top: 22px;
-            position: relative
+            position: relative;
         }
 
         .main-timeline .date-content:before {
@@ -188,7 +204,7 @@ z`<!DOCTYPE html>
             position: absolute;
             top: 0;
             right: 10px;
-            bottom: 0
+            bottom: 0;
         }
 
         .main-timeline .date-outer {
@@ -197,7 +213,7 @@ z`<!DOCTYPE html>
             font-size: 16px;
             text-align: center;
             margin: auto;
-            z-index: 1
+            z-index: 1;
         }
 
         .main-timeline .date-outer:before,
@@ -211,26 +227,26 @@ z`<!DOCTYPE html>
             top: 0;
             left: 0;
             right: 0;
-            transition: all 0.33s ease-out 0s
+            transition: all 0.33s ease-out 0s;
         }
 
         .main-timeline .date-outer:before {
             background: #fff;
             border: 2px solid #232323;
-            left: -6px
+            left: -6px;
         }
 
         .main-timeline .date-outer:after {
             border: 2px solid #c6c6c6;
-            left: 6px
+            left: 6px;
         }
 
         .main-timeline .timeline:hover .date-outer:before {
-            left: 6px
+            left: 6px;
         }
 
         .main-timeline .timeline:hover .date-outer:after {
-            left: -6px
+            left: -6px;
         }
 
         .main-timeline .date {
@@ -238,12 +254,12 @@ z`<!DOCTYPE html>
             margin: auto;
             position: absolute;
             top: 27%;
-            left: 0
+            left: 0;
         }
 
         .main-timeline .month {
             font-size: 18px;
-            font-weight: 700
+            font-weight: 700;
         }
 
         .main-timeline .year {
@@ -251,102 +267,117 @@ z`<!DOCTYPE html>
             font-size: 30px;
             font-weight: 700;
             color: #232323;
-            line-height: 36px
+            line-height: 36px;
         }
 
         .main-timeline .timeline-content {
             width: 50%;
             padding: 20px 0 20px 50px;
-            float: right
+            float: right;
         }
 
         .main-timeline .title {
             font-size: 19px;
             font-weight: 700;
             line-height: 24px;
-            margin: 0 0 15px 0
+            margin: 0 0 15px 0;
         }
 
         .main-timeline .description {
-            margin-bottom: 0
+            margin-bottom: 0;
         }
 
         .main-timeline .timeline:nth-child(2n) .date-content {
-            float: right
+            float: right;
         }
 
         .main-timeline .timeline:nth-child(2n) .date-content:before {
-            left: 10px
+            left: 10px;
         }
 
         .main-timeline .timeline:nth-child(2n) .timeline-content {
             padding: 20px 50px 20px 0;
-            text-align: right
+            text-align: right;
         }
 
         @media only screen and (max-width: 991px) {
             .main-timeline .date-content {
-                margin-top: 35px
+                margin-top: 35px;
             }
+
             .main-timeline .date-content:before {
-                width: 22.5%
+                width: 22.5%;
             }
+
             .main-timeline .timeline-content {
-                padding: 10px 0 10px 30px
+                padding: 10px 0 10px 30px;
             }
+
             .main-timeline .title {
-                font-size: 17px
+                font-size: 17px;
             }
+
             .main-timeline .timeline:nth-child(2n) .timeline-content {
-                padding: 10px 30px 10px 0
+                padding: 10px 30px 10px 0;
             }
         }
 
         @media only screen and (max-width: 767px) {
             .main-timeline:before {
                 margin: 0;
-                left: 7px
+                left: 7px;
             }
+
             .main-timeline .timeline {
-                margin-bottom: 20px
+                margin-bottom: 20px;
             }
+
             .main-timeline .timeline:last-child {
-                margin-bottom: 0
+                margin-bottom: 0;
             }
+
             .main-timeline .icon {
-                margin: auto 0
+                margin: auto 0;
             }
+
             .main-timeline .date-content {
                 width: 95%;
                 float: right;
-                margin-top: 0
+                margin-top: 0;
             }
+
             .main-timeline .date-content:before {
-                display: none
+                display: none;
             }
+
             .main-timeline .date-outer {
                 width: 110px;
-                height: 110px
+                height: 110px;
             }
+
             .main-timeline .date-outer:before,
             .main-timeline .date-outer:after {
                 width: 110px;
-                height: 110px
+                height: 110px;
             }
+
             .main-timeline .date {
-                top: 30%
+                top: 30%;
             }
+
             .main-timeline .year {
-                font-size: 24px
+                font-size: 24px;
             }
+
             .main-timeline .timeline-content,
             .main-timeline .timeline:nth-child(2n) .timeline-content {
                 width: 95%;
                 text-align: center;
-                padding: 10px 0
+                padding: 10px 0;
             }
+
             .main-timeline .title {
-                margin-bottom: 10px
+                margin-bottom: 10px;
             }
         }
     </style>
@@ -354,9 +385,11 @@ z`<!DOCTYPE html>
 
 <body>
     <!-- Navigation Menu -->
-    <nav class="navbar navbar-expand-lg navbar-dark bg-primary">
+    <nav class="navbar navbar-expand-lg navbar-light bg-white">
         <div class="container">
-            <a class="navbar-brand" href="#">Your Business</a>
+            <a class="navbar-brand" href="#">
+                <img src="assets/agorasite.webp" alt="Logo">                
+            </a>
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
                 aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
@@ -393,12 +426,16 @@ z`<!DOCTYPE html>
             <section class="about-section">
                 <div class="row">
                     <div class="col-md-4 text-center">
-                        <img src="https://placehold.co/150?text=Efthimios" alt="Efthimios Theotokatos" class="img-fluid">
+                        <img src="assets/img/theotokatos.jpg" alt="Efthimios Theotokatos" class="img-fluid">
                     </div>
                     <div class="col-md-8">
                         <h2>Efthimios Theotokatos</h2>
                         <div class="bio">
-                            <p>Experienced programmer in web, mobile, and desktop applications. Capable of developing e-commerce websites, REST API, and web services. Most experience with .Net C#, PHP, and Java.</p>
+                            <p>I am an experienced software developer specializing in web, mobile, and desktop applications, with a strong background in .NET (C#), PHP, and Java. Over the years, I have worked on diverse projects, ranging from e-commerce websites and RESTful APIs to enterprise software solutions.
+                                Throughout my career, I have contributed to the development of large-scale applications, including a template management system for CivilTech, a task automation system using WebView2, and a web scraper for data collection. I have also played a key role in website development and optimization,
+                                working on projects like the Benaki Museum website, and building custom modules and plugins for Joomla, WordPress.
+                                <br><br>My expertise extends to database management, where I have developed complex reporting systems using SQL Server, MySQL, and Oracle. Additionally, I have experience integrating Google Maps, banking payment systems, and mobile screen recognition technology into web applications.
+                                I am passionate about problem-solving, automation, and AI, with ongoing projects in machine learning (TensorFlow), FPGA programming (VHDL), and embedded systems (Arduino). I continuously strive to improve efficiency, security, and user experience in the applications I develop.</p>
                         </div>
                     </div>
                 </div>
@@ -409,9 +446,11 @@ z`<!DOCTYPE html>
                     <div class="section-content">
                         <p><strong>Phone:</strong> 6987556486, 6945164028</p>
                         <p><strong>E-mail:</strong> themhz@gmail.com</p>
-                        <p><strong>LinkedIn:</strong> <a href="https://gr.linkedin.com/in/eythimios-a-theotokatos-60bb4954" target="_blank">LinkedIn Profile</a></p>
+                        <p><strong>LinkedIn:</strong> <a href="https://gr.linkedin.com/in/eythimios-a-theotokatos-60bb4954"
+                                target="_blank">LinkedIn Profile</a></p>
                         <p><strong>GitHub:</strong> <a href="https://github.com/themhz" target="_blank">GitHub</a></p>
-                        <p><strong>StackOverflow:</strong> <a href="https://stackoverflow.com/users/885457/themhz" target="_blank">StackOverflow</a></p>
+                        <p><strong>StackOverflow:</strong> <a href="https://stackoverflow.com/users/885457/themhz"
+                                target="_blank">StackOverflow</a></p>
                     </div>
                 </div>
 
@@ -419,10 +458,11 @@ z`<!DOCTYPE html>
                 <div class="section">
                     <h3 class="section-title">Educational Information</h3>
                     <div class="section-content">
-                        <p><strong>2017 – 2021:</strong> Computer Science in Hellenic Open University (HOU), <a href="https://www.eap.gr/" target="_blank">www.eap.gr</a></p>
-                        <p><strong>2010 – 2011:</strong> Lower English certification.</p>
-                        <p><strong>2001:</strong> Certification by the state of Athens in software engineering and web development for IEK.</p>
-                        <p><strong>1998 – 2000:</strong> Attended at professional institute IEK Ipokratios (<a href="https://www.ipokratios.gr" target="_blank">www.ipokratios.gr</a>) and studied computer applications & software engineering.</p>
+                        <p>Degree of Computer Science in Hellenic Open University (HOU), <a
+                                href="https://www.eap.gr/" target="_blank">www.eap.gr</a></p>
+                        <p>Professional Certification by the state of Athens in software engineering and web
+                            development.</p>
+
                     </div>
                 </div>
 
@@ -436,7 +476,7 @@ z`<!DOCTYPE html>
 
                 <!-- Toolset Skills -->
                 <div class="section">
-                    <h3 class="section-title">Toolset Skills</h3>
+                    <h3 class="section-title">Skills</h3>
                     <div class="section-content">
                         <p><strong>Programming languages:</strong> C#, VB.NET, ASP.NET, PHP, JAVA, PYTHON, PROLOG</p>
                         <p><strong>Front End:</strong> HTML, CSS, JavaScript, jQuery, Angular JS</p>
@@ -452,109 +492,213 @@ z`<!DOCTYPE html>
                 <div class="section">
                     <h3 class="section-title">Software Engineering Skills</h3>
                     <div class="section-content">
-                        <p>Object-oriented programming, Functional programming, Error handling, Security-aware application using forms security or domain control security, SQL Injection aware applications, Send bulk e-mails, Using Captcha and other secure methods in submission forms, Form validation – user error handling, Sorting items, Capable of generating and parsing xls, xlsx reports, Generate, parse XML, Manage sessions, Using JSON objects, Image resizing, Creating and using web services in applications, Web reports using JavaScript and jQuery, Connect payments with banking systems like e-shops, Serial, Binary, tree search, Ajax, Crawl web content with web spiders, Convert wireframe into HTML, Style HTML using CSS and HTML 5, Creating complicated SQL queries, stored procedures, SQL user functions, Design and analysis skills, Prototyping using wireframe sketch tools, Analytical & Critical thinking on problems breaking them down using mind maps and why trees, Designing solutions for any application problem, GIMP for image editing, Open source software used: Joomla, WordPress, Other Libraries: jQuery, jQueryUI, jQplot, EPPlus, TinyMCE (Some of my own)</p>
+                        <div class="row">
+                            <div class="col-md-6">
+                                <h4>Programming & Development</h4>
+                                <ul class="list-group mb-3">
+                                    <li class="list-group-item">Object-Oriented Programming (OOP) & Functional Programming</li>
+                                    <li class="list-group-item">Error Handling & Debugging</li>
+                                    <li class="list-group-item">Security-aware Development: Forms security, domain control security, SQL Injection prevention</li>
+                                    <li class="list-group-item">Web Development: HTML, CSS, JavaScript, jQuery, AJAX, JSON, XML</li>
+                                    <li class="list-group-item">Frontend Styling & UI Development: HTML5, CSS, Wireframe to HTML conversion</li>
+                                </ul>
+                            </div>
+
+                            <div class="col-md-6">
+                                <h4>Data Handling & Reporting</h4>
+                                <ul class="list-group mb-3">
+                                    <li class="list-group-item">Database Management: SQL Server, MySQL, Oracle</li>
+                                    <li class="list-group-item">Complex SQL queries, stored procedures, user-defined functions</li>
+                                    <li class="list-group-item">Data Processing & Reporting: Generating & parsing XLS/XLSX, XML reports</li>
+                                    <li class="list-group-item">Web Reports: JavaScript, jQuery-based data visualization</li>
+                                    <li class="list-group-item">Session Management & Data Persistence</li>
+                                </ul>
+                            </div>
+                        </div>
+
+                        <div class="row">
+                            <div class="col-md-6">
+                                <h4>Automation & Integration</h4>
+                                <ul class="list-group mb-3">
+                                    <li class="list-group-item">Web Services Development: RESTful APIs, XML & JSON-based services</li>
+                                    <li class="list-group-item">Payment System Integration: E-commerce transactions, banking systems</li>
+                                    <li class="list-group-item">Task Automation: WebView2 automation, bulk email handling</li>
+                                    <li class="list-group-item">Web Scraping & Data Crawling: Extracting web content with web spiders</li>
+                                </ul>
+                            </div>
+
+                            <div class="col-md-6">
+                                <h4>Problem-Solving & Software Design</h4>
+                                <ul class="list-group mb-3">
+                                    <li class="list-group-item">Prototyping & Wireframing: Mind maps, why-tree analysis</li>
+                                    <li class="list-group-item">Data Structures & Algorithms: Serial, Binary, Tree Search</li>
+                                    <li class="list-group-item">Designing Scalable Solutions for complex application problems</li>
+                                </ul>
+                            </div>
+                        </div>
+
+                        <div class="row">
+                            <div class="col-md-6">
+                                <h4>Tools & Technologies</h4>
+                                <ul class="list-group mb-3">
+                                    <li class="list-group-item">Development Frameworks & CMS: .NET (C#), Joomla, WordPress, Yii, Drupal</li>
+                                    <li class="list-group-item">Libraries & Plugins: jQuery, jQueryUI, jQPlot, EPPlus, TinyMCE (custom implementations)</li>
+                                    <li class="list-group-item">Image Processing: GIMP for image editing</li>
+                                </ul>
+                            </div>
+
+                            <div class="col-md-6">
+                                <h4>Prompt Engineering & AI</h4>
+                                <ul class="list-group mb-3">
+                                    <li class="list-group-item">Advanced **Prompt Engineering** for AI models</li>
+                                    <li class="list-group-item">Optimizing AI-generated responses for automation and content creation</li>
+                                    <li class="list-group-item">Working with **Large Language Models (LLMs)** like OpenAI's GPT</li>
+                                    <li class="list-group-item">AI-powered workflow automation & intelligent task execution</li>
+                                    <li class="list-group-item">Experimenting with **TensorFlow** and **basic neural network development**</li>
+                                    <li class="list-group-item">Exploring **AI in software automation & chatbot integration**</li>
+                                </ul>
+                            </div>
+                        </div>
                     </div>
                 </div>
 
-                <!-- Currently Playing With -->
-                <div class="section">
-                    <h3 class="section-title">Currently Playing With</h3>
-                    <div class="section-content">
-                        <p><strong>Artificial Intelligence:</strong> TensorFlow Python</p>
-                        <p><strong>Creating basic Neurons</strong></p>
-                        <p><strong>Programming in FPGA using VHDL</strong></p>
-                        <p><strong>Programming Arduino</strong></p>
-                    </div>
-                </div>
             </section>
 
             <!-- Previous Working Experience -->
-            <section class="about-section">
+            <section class="section">
+                <h3 class="section-title">Experience</h3>
                 <div class="container">
                     <div class="main-timeline">
-                    
-                                            <!-- start experience section-->
-                                            <div class="timeline">
-                                                <div class="icon"></div>
-                                                <div class="date-content">
-                                                    <div class="date-outer">
-                                                        <span class="date">
-                                                                <span class="month">2 Years</span>
-                                                        <span class="year">2013</span>
-                                                        </span>
-                                                    </div>
-                                                </div>
-                                                <div class="timeline-content">
-                                                    <h5 class="title">Visual Art &amp; Design</h5>
-                                                    <p class="description">
-                                                        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed efficitur ex sit amet massa scelerisque scelerisque. Aliquam erat volutpat. Aenean interdum finibus efficitur. Praesent dapibus dolor felis, eu ultrices elit molestie.
-                                                    </p>
-                                                </div>
-                                            </div>
-                                            <!-- end experience section-->
-                    
-                                            <!-- start experience section-->
-                                            <div class="timeline">
-                                                <div class="icon"></div>
-                                                <div class="date-content">
-                                                    <div class="date-outer">
-                                                        <span class="date">
-                                                                <span class="month">1 Years</span>
-                                                        <span class="year">2015</span>
-                                                        </span>
-                                                    </div>
-                                                </div>
-                                                <div class="timeline-content">
-                                                    <h5 class="title">Product Designer</h5>
-                                                    <p class="description">
-                                                        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed efficitur ex sit amet massa scelerisque scelerisque. Aliquam erat volutpat. Aenean interdum finibus efficitur. Praesent dapibus dolor felis, eu ultrices elit molestie.
-                                                    </p>
-                                                </div>
-                                            </div>
-                                            <!-- end experience section-->
-                    
-                                            <!-- start experience section-->
-                                            <div class="timeline">
-                                                <div class="icon"></div>
-                                                <div class="date-content">
-                                                    <div class="date-outer">
-                                                        <span class="date">
-                                                                <span class="month">2 Years</span>
-                                                        <span class="year">2016</span>
-                                                        </span>
-                                                    </div>
-                                                </div>
-                                                <div class="timeline-content">
-                                                    <h5 class="title">Web Designer</h5>
-                                                    <p class="description">
-                                                        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed efficitur ex sit amet massa scelerisque scelerisque. Aliquam erat volutpat. Aenean interdum finibus efficitur. Praesent dapibus dolor felis, eu ultrices elit molestie.
-                                                    </p>
-                                                </div>
-                                            </div>
-                                            <!-- end experience section-->
-                    
-                                            <!-- start experience section-->
-                                            <div class="timeline">
-                                                <div class="icon"></div>
-                                                <div class="date-content">
-                                                    <div class="date-outer">
-                                                        <span class="date">
-                                                                <span class="month">2 Years</span>
-                                                        <span class="year">2018</span>
-                                                        </span>
-                                                    </div>
-                                                </div>
-                                                <div class="timeline-content">
-                                                    <h5 class="title">Graphic Designer</h5>
-                                                    <p class="description">
-                                                        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed efficitur ex sit amet massa scelerisque scelerisque. Aliquam erat volutpat. Aenean interdum finibus efficitur. Praesent dapibus dolor felis, eu ultrices elit molestie.
-                                                    </p>
-                                                </div>
-                                            </div>
-                                            <!-- end experience section-->
-                    
-                                        </div>
+
+                        <!-- start experience section-->
+                        <div class="timeline">
+                            <div class="icon"></div>
+                            <div class="date-content">
+                                <div class="date-outer">
+                                    <span class="date">
+                                        <span class="year">2022 - Present</span>
+                                    </span>
+                                </div>
+                            </div>
+                            <div class="timeline-content">
+                                <h5 class="title">Programmer, Web developer at Civiltech</h5>
+                                <p class="description">
+                                    I Contributed to the development of a template management system for a reporting tool within a CivilTech application, enabling dynamic report generation. I then designed and implemented a task management system, integrating WebView2 to automate user workflows, such as publishing content on public websites. Additionally, I developed a web scraper to extract and collect data from various web sources. Throughout my tenure, I was also responsible for debugging and optimizing multiple company applications, ensuring stability, performance, and reliability.
+                                </p>
+                            </div>
+                        </div>
+                        <!-- end experience section-->
+
+                        <!-- start experience section-->
+                        <div class="timeline">
+                            <div class="icon"></div>
+                            <div class="date-content">
+                                <div class="date-outer">
+                                    <span class="date">
+                                        <span class="year">2016</span>
+                                    </span>
+                                </div>
+                            </div>
+                            <div class="timeline-content">
+                                <h5 class="title">Programmer, Web developer at Honest Partners</h5>
+                                <p class="description">
+                                    Contributed to the development of the official website for the Benaki Museum, ensuring a seamless and engaging user experience. As part of the team, I worked on debugging and maintaining Joomla-based projects, improving their stability and performance. Additionally, I developed custom modules and plugins for Joomla, extending its functionality to meet business needs. Beyond Joomla, I was involved in debugging and optimizing applications built on Yii, Drupal, and WordPress, enhancing security, performance, and overall functionality across multiple platforms.
+                                </p>
+                            </div>
+                        </div>
+                        <!-- end experience section-->
+
+                        <!-- start experience section-->
+                        <div class="timeline">
+                            <div class="icon"></div>
+                            <div class="date-content">
+                                <div class="date-outer">
+                                    <span class="date">
+                                        <span class="year">2009</span>
+                                    </span>
+                                </div>
+                            </div>
+                            <div class="timeline-content">
+                                <h5 class="title">Programmer, Web developer at News</h5>
+                                <p class="description">
+                                    Developed a Client Phone Management System using C# .NET MVC, designed to assist sales teams in managing client interactions. This flexible solution functioned similarly to a CRM, with real-time phone management capabilities.
+                                    Designed and implemented a dynamic registration and reporting system, adaptable to various reporting needs across the company.
+                                    Created a web service for the automated data transfer of TELETEXT messages, ensuring efficient and reliable communication.
+                                    Worked with a team to develop an electronic prescription system for pharmacies across Greece, enhancing prescription management and streamlining pharmaceutical operations.
+
+                                </p>
+                            </div>
+                        </div>
+                        <!-- end experience section-->
+
+                        <!-- start experience section-->
+                        <div class="timeline">
+                            <div class="icon"></div>
+                            <div class="date-content">
+                                <div class="date-outer">
+                                    <span class="date">
+                                        <span class="year">2007</span>
+                                    </span>
+                                </div>
+                            </div>
+                            <div class="timeline-content">
+                                <h5 class="title">Programmer, Web developer at Realize Current (Viva)</h5>
+                                <p class="description">
+                                    Developed a web application for Eurobank, integrating Google Maps for enhanced functionality.
+                                    Designed and implemented multiple web services for Eurobank, streamlining various business processes.
+                                    Generated numerous reports for Eurobank, providing valuable insights and data analysis.
+                                    Worked as an outsourced partner through Realize, contributing to key projects for Eurobank EFG.
+
+                                </p>
+                            </div>
+                        </div>
+                        <!-- end experience section-->
+
+                        <!-- start experience section-->
+                        <div class="timeline">
+                            <div class="icon"></div>
+                            <div class="date-content">
+                                <div class="date-outer">
+                                    <span class="date">
+                                        <span class="year">2005</span>
+                                    </span>
+                                </div>
+                            </div>
+                            <div class="timeline-content">
+                                <h5 class="title">Programmer, Web developer at FORTHnet (Current Nova)</h5>
+                                <p class="description">
+                                    Developed and maintained the Forthnet E-shop (eshop.forthnet.gr) using ASP 3.0 and SQL Server 2000.
+                                    Developed and supported the Kathimerini Financial Portal (financial.kathimerini.gr) built with ASP 3.0 and SQL Server 2000.
+                                    Implemented financial services through the IR_WebService, utilizing C# and SQL Server 2000.
+                                    Created a system of screen recognition for mobile phones using WAP services, which detected mobile screen resolution to dynamically load appropriately sized images. This system was built using C# Web Services and SQL Server 2000. It also included a web interface for content management.
+
+                                </p>
+                            </div>
+                        </div>
+                        <!-- end experience section-->
+
+                        <!-- start experience section-->
+                        <div class="timeline">
+                            <div class="icon"></div>
+                            <div class="date-content">
+                                <div class="date-outer">
+                                    <span class="date">
+                                        <span class="year">2002</span>
+                                    </span>
+                                </div>
+                            </div>
+                            <div class="timeline-content">
+                                <h5 class="title">Programmer, Web developer at Lannet</h5>
+                                <p class="description">
+                                    Developed a wide range of web-based reports using ASP.NET (VB.NET) and ASP 3.0. Additionally, I managed the company's Billing and ERP software, generating critical reports by leveraging Oracle and TOAD for complex query creation. I played a key role in the development of the Number Portability System, designing the number recognition functionality. Furthermore, I created numerous reports using Crystal Reports to support business operations and decision-making.
+
+                                </p>
+                            </div>
+                        </div>
+                        <!-- end experience section-->
+
                     </div>
+                </div>
             </section>
         </div>
     </main>
