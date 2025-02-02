@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Booking Agency - Gallery</title>
+    <!-- Bootstrap CSS -->
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css"> <!-- Link to your custom CSS file -->
+    <style>
+        /* Custom CSS for the gallery */
+        .gallery-container {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+        }
+        .gallery-item {
+            margin: 10px;
+            cursor: pointer;
+        }
+        .gallery-item img {
+            width: 100%;
+            height: auto;            
+            border-radius: 5px;
+            transition: transform 0.3s;
+        }
+        .gallery-item img:hover {
+            transform: scale(1.05);
+        }
+        .modal-fullscreen .modal-dialog {
+            width: 100%;
+            height: 100%;
+            max-width: 100%;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        .modal-fullscreen .modal-content {
+            height: auto;
+            width: auto;
+            border: none;
+            border-radius: 0;
+            background: transparent;
+        }
+        .modal-fullscreen .modal-body {
+            padding: 0;
+            overflow: hidden;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        .modal-fullscreen .modal-body img {
+            max-width: 100%;
+            max-height: 100%;
+            object-fit: contain; /* Maintain aspect ratio */
+        }
+        .modal-fullscreen .close {
+            position: absolute;
+            top: 10px;
+            right: 10px;
+            z-index: 1051; /* Ensure the close button is above the image */
+        }
+    </style>
+</head>
+<body>
+    <!-- Header Section -->
+    <header>
+        <nav class="navbar navbar-expand-lg navbar-light bg-light">
+            <a class="navbar-brand" href="index.html">Booking Agency</a>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ml-auto">
+                    <li class="nav-item">
+                        <a class="nav-link" href="index.html">Home</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="about.html">About Us</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="rooms.html">Rooms</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="booking.html">Book Now</a>
+                    </li>
+                    <li class="nav-item active">
+                        <a class="nav-link" href="gallery.html">Gallery</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="contact.html">Contact</a>
+                    </li>
+                </ul>
+            </div>
+        </nav>
+    </header>
+
+    <!-- Gallery Section -->
+    <section class="container my-5">
+        <h1 class="text-center">Gallery</h1>
+        <div class="gallery-container">
+            <div class="gallery-item" data-toggle="modal" data-target="#galleryModal" data-image="https://placehold.co/800x601">
+                <img src="https://placehold.co/300x201" alt="Room 1">
+            </div>
+            <div class="gallery-item" data-toggle="modal" data-target="#galleryModal" data-image="https://placehold.co/800x602">
+                <img src="https://placehold.co/300x202" alt="Room 2">
+            </div>
+            <div class="gallery-item" data-toggle="modal" data-target="#galleryModal" data-image="https://placehold.co/800x603">
+                <img src="https://placehold.co/300x203" alt="Room 3">
+            </div>
+            <div class="gallery-item" data-toggle="modal" data-target="#galleryModal" data-image="https://placehold.co/800x604">
+                <img src="https://placehold.co/300x204" alt="Room 4">
+            </div>
+            <div class="gallery-item" data-toggle="modal" data-target="#galleryModal" data-image="https://placehold.co/800x605">
+                <img src="https://placehold.co/300x205" alt="Room 5">
+            </div>
+            <div class="gallery-item" data-toggle="modal" data-target="#galleryModal" data-image="https://placehold.co/800x606">
+                <img src="https://placehold.co/300x206" alt="Room 6">
+            </div>
+        </div>
+    </section>
+
+    <!-- Modal for Gallery Image -->
+    <div class="modal fade modal-fullscreen" id="galleryModal" tabindex="-1" aria-labelledby="galleryModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+                <div class="modal-body">
+                    <img id="modalImage" src="" class="d-block" alt="Gallery Image">
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Footer Section -->
+    <footer class="text-muted bg-light py-4">
+        <div class="container text-center">
+            <p>&copy; 2023 Booking Agency. All rights reserved.</p>
+            <ul class="list-inline">
+                <li class="list-inline-item"><a href="terms.html">Terms and Conditions</a></li>
+                <li class="list-inline-item"><a href="privacy.html">Privacy Policy</a></li>
+            </ul>
+        </div>
+    </footer>
+
+    <!-- Bootstrap JS and dependencies -->
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.4/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    <script>
+        // JavaScript to update the modal image source
+        $('.gallery-item').on('click', function() {
+            var imageSrc = $(this).data('image');
+            $('#modalImage').attr('src', imageSrc);
+        });
+    </script>
+</body>
+</html>
