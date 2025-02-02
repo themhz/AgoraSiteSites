@@ -6,6 +6,8 @@
     <title>Booking Agency - Book Now</title>
     <!-- Bootstrap CSS -->
     <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Font Awesome for Icons -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet">
     <link rel="stylesheet" href="styles.css"> <!-- Link to your custom CSS file -->
 </head>
 <body>
@@ -18,23 +20,26 @@
             </button>
             <div class="collapse navbar-collapse" id="navbarNav">
                 <ul class="navbar-nav ml-auto">
-                    <li class="nav-item">
-                        <a class="nav-link" href="index.html">Home</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="about.html">About Us</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="rooms.html">Rooms</a>
+                    <li class="nav-item ">
+                        <a class="nav-link" href="index.html"><i class="fas fa-home"></i> Home</a>
                     </li>
                     <li class="nav-item active">
-                        <a class="nav-link" href="search-results.html">Book Now</a>
+                        <a class="nav-link" href="about.html"><i class="fas fa-info-circle"></i> About Us</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="gallery.html">Gallery</a>
+                        <a class="nav-link" href="rooms.html"><i class="fas fa-bed"></i> Rooms</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="contact.html">Contact</a>
+                        <a class="nav-link" href="search-results.html"><i class="fas fa-calendar-alt"></i> Book Now</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="gallery.html"><i class="fas fa-images"></i> Gallery</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="contact.html"><i class="fas fa-envelope"></i> Contact</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="profile.html"><i class="fas fa-user"></i> Profile</a>
                     </li>
                 </ul>
             </div>
@@ -48,52 +53,127 @@
                 <img src="https://placehold.co/600x400" class="img-fluid" alt="Deluxe Room">
             </div>
             <div class="col-md-6">
-                <h1>Deluxe Room</h1>
-                <p>Spacious and luxurious room with a view. Includes a king-size bed, en-suite bathroom, and complimentary breakfast.</p>
-                <p><strong>Price:</strong> $200 per night</p>
-                <p><strong>Amenities:</strong> Free Wi-Fi, Air Conditioning, Mini Bar, Room Service</p>
+                <h1>Deluxe Room <i class="fas fa-hotel"></i></h1>
+                <p>Spacious and luxurious room with a view. Includes a king-size bed <i class="fas fa-bed"></i>, en-suite bathroom <i class="fas fa-shower"></i>, and complimentary breakfast <i class="fas fa-coffee"></i>.</p>
+                <p><strong>Price:</strong> $200 per night <i class="fas fa-dollar-sign"></i></p>
+                <p><strong>Amenities:</strong> Free Wi-Fi <i class="fas fa-wifi"></i>, Air Conditioning <i class="fas fa-snowflake"></i>, Mini Bar <i class="fas fa-glass-martini-alt"></i>, Room Service <i class="fas fa-concierge-bell"></i></p>
             </div>
         </div>
     </section>
 
     <!-- Booking Form Section -->
     <section class="container my-5">
-        <h2 class="text-center">Book Now</h2>
-        <form action="confirmation.html" method="post" class="needs-validation" novalidate>
+        <h2 class="text-center">Book Now <i class="fas fa-edit"></i></h2>
+        <form action="confirmation.html" method="post" class="needs-validation">
             <div class="form-row">
                 <div class="col-md-6 mb-3">
-                    <label for="check-in">Check-In Date</label>
+                    <label for="check-in">Check-In Date <i class="fas fa-calendar-alt"></i></label>
                     <input type="date" class="form-control" id="check-in" name="check-in" required>
                     <div class="invalid-feedback">Please provide a check-in date.</div>
                 </div>
                 <div class="col-md-6 mb-3">
-                    <label for="check-out">Check-Out Date</label>
+                    <label for="check-out">Check-Out Date <i class="fas fa-calendar-alt"></i></label>
                     <input type="date" class="form-control" id="check-out" name="check-out" required>
                     <div class="invalid-feedback">Please provide a check-out date.</div>
                 </div>
             </div>
             <div class="form-row">
                 <div class="col-md-6 mb-3">
-                    <label for="guests">Number of Guests</label>
+                    <label for="guests">Number of Guests <i class="fas fa-users"></i></label>
                     <input type="number" class="form-control" id="guests" name="guests" min="1" required>
                     <div class="invalid-feedback">Please provide the number of guests.</div>
                 </div>
                 <div class="col-md-6 mb-3">
-                    <label for="special-requests">Special Requests</label>
+                    <label for="special-requests">Special Requests <i class="fas fa-pencil-alt"></i></label>
                     <textarea class="form-control" id="special-requests" name="special-requests" rows="3"></textarea>
                 </div>
             </div>
-            <button class="btn btn-primary btn-block" type="submit">Book Now</button>
+
+            <!-- Payment Options Section -->
+            <h3 class="mt-4">Choose Payment Method <i class="fas fa-credit-card"></i></h3>
+            <div class="form-group">
+                <div class="form-check">
+                    <input class="form-check-input" type="radio" name="payment-method" id="paypal" value="paypal" required>
+                    <label class="form-check-label" for="paypal">
+                        <i class="fab fa-paypal"></i> PayPal
+                    </label>
+                </div>
+                <div class="form-check">
+                    <input class="form-check-input" type="radio" name="payment-method" id="credit-card" value="credit-card">
+                    <label class="form-check-label" for="credit-card">
+                        <i class="fas fa-credit-card"></i> Credit Card
+                    </label>
+                </div>
+                <div class="form-check">
+                    <input class="form-check-input" type="radio" name="payment-method" id="bank-transfer" value="bank-transfer">
+                    <label class="form-check-label" for="bank-transfer">
+                        <i class="fas fa-university"></i> Bank Transfer
+                    </label>
+                </div>
+                <div class="form-check">
+                    <input class="form-check-input" type="radio" name="payment-method" id="bank-redirect" value="bank-redirect">
+                    <label class="form-check-label" for="bank-redirect">
+                        <i class="fas fa-exchange-alt"></i> Bank Redirection
+                    </label>
+                </div>
+                <div class="invalid-feedback">Please select a payment method.</div>
+            </div>
+
+            <!-- Payment Details Section -->
+            <div id="payment-details" class="mt-4">
+                <!-- PayPal Details -->
+                <div id="paypal-details" class="payment-method-details" style="display: none;">
+                    <p>You will be redirected to PayPal to complete your payment. Click the button below to proceed.</p>
+                    <button type="button" class="btn btn-primary" onclick="redirectToPayPal()">Proceed to PayPal</button>
+                </div>
+
+                <!-- Credit Card Details -->
+                <div id="credit-card-details" class="payment-method-details" style="display: none;">
+                    <div class="form-group">
+                        <label for="cardholder-name">Cardholder Name</label>
+                        <input type="text" class="form-control" id="cardholder-name" name="cardholder-name" >
+                    </div>
+                    <div class="form-group">
+                        <label for="card-number">Card Number</label>
+                        <input type="text" class="form-control" id="card-number" name="card-number" placeholder="1234 5678 9012 3456" >
+                    </div>
+                    <div class="form-row">
+                        <div class="form-group col-md-6">
+                            <label for="expiration-date">Expiration Date</label>
+                            <input type="text" class="form-control" id="expiration-date" name="expiration-date" placeholder="MM/YY" >
+                        </div>
+                        <div class="form-group col-md-6">
+                            <label for="cvv">CVV</label>
+                            <input type="text" class="form-control" id="cvv" name="cvv" placeholder="123" >
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Bank Transfer Details -->
+                <div id="bank-transfer-details" class="payment-method-details" style="display: none;">
+                    <p>Please transfer the payment amount to the following IBAN account:</p>
+                    <p><strong>IBAN:</strong> [Your IBAN Account Number]</p>
+                    <p>Once the transfer is complete, please send us the transaction details at <a href="mailto:info@bookingagency.com">info@bookingagency.com</a>.</p>
+                </div>
+
+                <!-- Bank Redirection Details -->
+                <div id="bank-redirect-details" class="payment-method-details" style="display: none;">
+                    <p>You will be redirected to your bank's payment portal to complete the transaction. Click the button below to proceed.</p>
+                    <button type="button" class="btn btn-primary" onclick="redirectToBank()">Proceed to Bank</button>
+                </div>
+            </div>
+
+            <button class="btn btn-primary btn-block mt-4" type="submit">Confirm Booking <i class="fas fa-check"></i></button>
         </form>
     </section>
 
     <!-- Footer Section -->
     <footer class="text-muted bg-light py-4">
         <div class="container text-center">
-            <p>&copy; 2023 Booking Agency. All rights reserved.</p>
+            <p>&copy; 2025 Booking Agency. All rights reserved.</p>
             <ul class="list-inline">
-                <li class="list-inline-item"><a href="terms.html">Terms and Conditions</a></li>
-                <li class="list-inline-item"><a href="privacy.html">Privacy Policy</a></li>
+                <li class="list-inline-item"><a href="terms.html">Terms and Conditions <i class="fas fa-file-alt"></i></a></li>
+                <li class="list-inline-item"><a href="privacy.html">Privacy Policy <i class="fas fa-lock"></i></a></li>
             </ul>
         </div>
     </footer>
@@ -103,24 +183,54 @@
     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.4/dist/umd/popper.min.js"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
     <script>
-        // Example starter JavaScript for disabling form submissions if there are invalid fields
-        (function() {
-            'use strict';
-            window.addEventListener('load', function() {
-                // Fetch all the forms we want to apply custom Bootstrap validation styles to
-                var forms = document.getElementsByClassName('needs-validation');
-                // Loop over them and prevent submission
-                var validation = Array.prototype.filter.call(forms, function(form) {
-                    form.addEventListener('submit', function(event) {
-                        if (form.checkValidity() === false) {
-                            event.preventDefault();
-                            event.stopPropagation();
-                        }
-                        form.classList.add('was-validated');
-                    }, false);
-                });
+        // Function to handle payment method selection
+        const paymentMethods = document.querySelectorAll('input[name="payment-method"]');
+    const paymentDetails = document.querySelectorAll('.payment-method-details');
+
+    paymentMethods.forEach(method => {
+        method.addEventListener('change', (e) => {
+            // Hide all payment details
+            paymentDetails.forEach(detail => detail.style.display = 'none');
+
+            // Show the selected payment details
+            const selectedMethod = e.target.value;
+            document.getElementById(`${selectedMethod}-details`).style.display = 'block';
+        });
+    });
+
+    // Function to simulate PayPal redirection
+    function redirectToPayPal() {
+        alert("You are being redirected to PayPal. Please complete your payment there.");
+        window.location.href = "https://www.paypal.com";
+    }
+
+    // Function to simulate bank redirection
+    function redirectToBank() {
+        alert("You are being redirected to your bank's payment portal. Please complete your payment there.");
+        window.location.href = "https://yourbank.com";
+    }
+
+    // Form validation and submission handling
+    (function() {
+        'use strict';
+        window.addEventListener('load', function() {
+            var form = document.querySelector('.needs-validation');
+
+            form.addEventListener('submit', function(event) {
+                alert(1);
+                if (!form.checkValidity()) {
+                    event.preventDefault();
+                    event.stopPropagation();
+                } else {
+                    // If the form is valid, manually redirect
+                    event.preventDefault(); // Prevent default form submission
+                    
+                    window.location.href = "confirmation.html"; // Redirect to confirmation page
+                }
+                form.classList.add('was-validated');
             }, false);
-        })();
+        });
+    })();
     </script>
 </body>
 </html>
