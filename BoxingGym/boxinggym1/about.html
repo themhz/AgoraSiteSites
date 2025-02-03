@@ -13,18 +13,62 @@
 </head>
 <body>
     <style>
-        .nav-link i {
-           margin-right: 5px;
-        }
-        .navbar-toggler {
-            border: none;
-        }
-        .navbar-toggler-icon {
-        background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 30 30' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath stroke='rgba%28255, 255, 255, 0.5%29' stroke-width='2' stroke-linecap='round' stroke-miterlimit='10' d='M4 7h22M4 15h22M4 23h22'/%3E%3C/svg%3E");
-        }
+         .footer-links {
+      margin-bottom: 20px;
+    }
+    .footer-links a {
+      color: white;
+      margin: 0 10px;
+      text-decoration: none;
+    }
+    .footer-links a:hover {
+      color: #ff5733;
+    }
+    .newsletter-form {
+      display: flex;
+      justify-content: center;
+      margin-bottom: 20px;
+    }
+    .newsletter-form input {
+      width: 200px;
+      padding: 10px;
+      border: none;
+      border-radius: 5px 0 0 5px;
+    }
+    .newsletter-form button {
+      padding: 10px;
+      border: none;
+      border-radius: 0 5px 5px 0;
+      background-color: #ff5733;
+      color: white;
+      cursor: pointer;
+    }
+    .newsletter-form button:hover {
+      background-color: #e64a19;
+    }
+    .header {
+      position: fixed;
+      top: 0;
+      width: 100%;
+      z-index: 1000;
+      background-color: #000;
+    }
+    .header .navbar {
+      padding: 10px 0;
+    }
+    .header .navbar-brand img {
+      height: 40px;
+    }
+    .header .navbar-nav .nav-link {
+      padding: 10px 15px;
+    }
+    body {
+      padding-top: 70px; /* Adjust this value based on the height of your header */
+    }
     </style>
   <!-- Header -->
-  <header class="bg-black py-3">
+  
+  <header class="header bg-black py-3">
     <div class="container">
       <nav class="navbar navbar-expand-lg navbar-dark">
         <div class="logo">
@@ -39,7 +83,10 @@
             <li class="nav-item"><a href="about.html" class="nav-link text-white"><i class="fas fa-info-circle"></i> About Us</a></li>
             <li class="nav-item"><a href="classes.html" class="nav-link text-white"><i class="fas fa-dumbbell"></i> Classes</a></li>
             <li class="nav-item"><a href="pricing.html" class="nav-link text-white"><i class="fas fa-tags"></i> Pricing</a></li>
+            <li class="nav-item"><a href="appointment.html" class="nav-link text-white"><i class="fas fa-calendar-alt"></i> Book an Appointment</a></li>
             <li class="nav-item"><a href="contact.html" class="nav-link text-white"><i class="fas fa-envelope"></i> Contact Us</a></li>
+            <li class="nav-item"><a href="signup.html" class="nav-link text-white"><i class="fas fa-user"></i> Sign Up</a></li>
+            <li class="nav-item"><a href="profile.html" class="nav-link text-white"><i class="fas fa-user"></i> Profile</a></li>
           </ul>
         </div>
       </nav>
@@ -136,6 +183,17 @@
   <!-- Footer -->
   <footer class="bg-black text-white py-4">
     <div class="container text-center">
+      <div class="footer-links">
+        <a href="https://www.facebook.com" target="_blank"><i class="fab fa-facebook-f"></i></a>
+        <a href="https://www.tiktok.com" target="_blank"><i class="fab fa-tiktok"></i></a>
+        <a href="https://www.twitter.com" target="_blank"><i class="fab fa-x"></i></a>
+        <a href="https://www.instagram.com" target="_blank"><i class="fab fa-instagram"></i></a>
+        <a href="https://www.youtube.com" target="_blank"><i class="fab fa-youtube"></i></a>
+      </div>
+      <div class="newsletter-form">
+        <input type="email" placeholder="Enter your email" required>
+        <button type="submit">Subscribe</button>
+      </div>
       <p>&copy; 2023 [Your Gym Name]. All rights reserved.</p>
       <ul class="list-inline">
         <li class="list-inline-item"><a href="privacy.html" class="text-white">Privacy Policy</a></li>

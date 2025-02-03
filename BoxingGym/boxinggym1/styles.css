@@ -170,20 +170,3 @@ body {
 
   
 
-  /* Change cursor to pointer on hover */
-.available-slot {
-  cursor: pointer;
-}
-
-/* Highlight the box on hover */
-.available-slot:hover {
-  background-color: #ffeb3b; /* Yellow highlight color */
-  border-radius: 5px;
-}
-
-/* Mark the box when clicked */
-.available-slot.selected {
-  background-color: #4caf50; /* Green mark color */
-  color: white;
-  border-radius: 5px;
-}
