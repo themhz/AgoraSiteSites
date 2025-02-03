@@ -1,0 +1,220 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Your Gym Name - Martial Arts Gym</title>
+  <!-- Bootstrap CSS -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+  <!-- Font Awesome CSS -->
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet">
+  <!-- Custom CSS -->
+  <!-- <link rel="stylesheet" href="styles.css"> -->
+  <style>
+    .carousel-section {
+      position: relative;
+      width: 100vw;
+      margin-left: calc(-50vw + 50%);
+    }
+    .carousel-overlay {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: rgba(0, 0, 0, 0.5);
+      z-index: 1;
+    }
+    .carousel-inner video {
+      position: relative;
+      z-index: 0;
+    }
+    .carousel-caption {
+      position: absolute;
+      bottom: 20px;
+      left: 50%;
+      transform: translateX(-50%);
+      z-index: 2;
+      color: white;
+      text-align: center;
+      width: 100%;
+      padding: 0 20px;
+    }   
+
+
+    
+  </style>
+</head>
+<body>
+  <!-- Header -->
+  <header class="bg-black py-3">
+    <div class="container">
+      <nav class="navbar navbar-expand-lg navbar-dark">
+        <div class="logo">
+          <img src="https://placehold.co/100x50" alt="Your Gym Logo" width="100">
+        </div>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNav">
+          <ul class="navbar-nav ms-auto">
+            <li class="nav-item"><a href="index.html" class="nav-link text-white"><i class="fas fa-home"></i> Home</a></li>
+            <li class="nav-item"><a href="about.html" class="nav-link text-white"><i class="fas fa-info-circle"></i> About Us</a></li>
+            <li class="nav-item"><a href="classes.html" class="nav-link text-white"><i class="fas fa-dumbbell"></i> Classes</a></li>
+            <li class="nav-item"><a href="pricing.html" class="nav-link text-white"><i class="fas fa-tags"></i> Pricing</a></li>
+            <li class="nav-item"><a href="contact.html" class="nav-link text-white"><i class="fas fa-envelope"></i> Contact Us</a></li>
+          </ul>
+        </div>
+      </nav>
+    </div>
+  </header>
+
+  <!-- Hero Section -->
+  <section class="hero bg-danger text-white text-center py-5">
+    <div class="container">
+      <h1 class="display-4">Welcome to [Your Gym Name]</h1>
+      <p class="lead">Transform your mind and body with our expert martial arts training.</p>
+      <a href="classes.html" class="btn btn-light btn-lg">View Our Classes</a>
+      <a href="appointment.html" class="btn btn-outline-light btn-lg">Book a Free Trial</a>
+    </div>
+  </section>
+
+  <!-- Carousel Section -->
+  <section class="carousel-section py-5">
+    <div class="carousel-overlay"></div>
+    <div id="gymCarousel" class="carousel slide" data-bs-ride="carousel">
+      <div class="carousel-inner">
+        <div class="carousel-item active">
+          <video class="d-block w-100" autoplay loop muted>
+            <source src="/AgoraSiteSites/Services/AgoraSite/assets/img/boxinggym/video5.mp4" type="video/mp4">
+            Your browser does not support the video tag.
+          </video>
+          <div class="carousel-caption">
+            <h3>Boxing Classes</h3>
+            <p>Train like a champion with our boxing classes. Improve your strength, speed, and technique.</p>
+          </div>
+        </div>
+        <div class="carousel-item">
+          <video class="d-block w-100" autoplay loop muted>
+            <source src="/AgoraSiteSites/Services/AgoraSite/assets/img/boxinggym/video6.mp4" type="video/mp4">
+            Your browser does not support the video tag.
+          </video>
+          <div class="carousel-caption">
+            <h3>Muay Thai Training</h3>
+            <p>Master the art of striking with our Muay Thai training programs.</p>
+          </div>
+        </div>
+        <div class="carousel-item">
+          <video class="d-block w-100" autoplay loop muted>
+            <source src="/AgoraSiteSites/Services/AgoraSite/assets/img/boxinggym/video7.mp4" type="video/mp4">
+            Your browser does not support the video tag.
+          </video>
+          <div class="carousel-caption">
+            <h3>Brazilian Jiu-Jitsu</h3>
+            <p>Learn self-defense and improve your fitness with our BJJ classes.</p>
+          </div>
+        </div>
+      </div>
+      <button class="carousel-control-prev" type="button" data-bs-target="#gymCarousel" data-bs-slide="prev">
+        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+        <span class="visually-hidden">Previous</span>
+      </button>
+      <button class="carousel-control-next" type="button" data-bs-target="#gymCarousel" data-bs-slide="next">
+        <span class="carousel-control-next-icon" aria-hidden="true"></span>
+        <span class="visually-hidden">Next</span>
+      </button>
+    </div>
+  </section>
+
+  <!-- About Section -->
+  <section class="about py-5">
+    <div class="container">
+      <div class="row">
+        <div class="col-md-8 mx-auto text-center">
+          <h2 class="mb-4">About Our Gym</h2>
+          <p class="lead">At [Your Gym Name], we are dedicated to helping you achieve your fitness and martial arts goals. Our experienced instructors and welcoming community make us the perfect place to train, grow, and succeed.</p>
+          <a href="about.html" class="btn btn-danger btn-lg">Learn More</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Classes Section -->
+  <section class="classes bg-light py-5">
+    <div class="container">
+      <h2 class="text-center mb-5">Our Classes</h2>
+      <div class="row">
+        <div class="col-md-4 text-center">
+          <div class="card mb-4">
+            <img src="https://placehold.co/400x300" alt="Boxing Class" class="card-img-top">
+            <div class="card-body">
+              <h3 class="card-title">Boxing</h3>
+              <p class="card-text">Train like a champion with our boxing classes. Improve your strength, speed, and technique.</p>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-4 text-center">
+          <div class="card mb-4">
+            <img src="https://placehold.co/400x300" alt="Muay Thai Class" class="card-img-top">
+            <div class="card-body">
+              <h3 class="card-title">Muay Thai</h3>
+              <p class="card-text">Master the art of striking with our Muay Thai training programs.</p>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-4 text-center">
+          <div class="card mb-4">
+            <img src="https://placehold.co/400x300" alt="BJJ Class" class="card-img-top">
+            <div class="card-body">
+              <h3 class="card-title">Brazilian Jiu-Jitsu</h3>
+              <p class="card-text">Learn self-defense and improve your fitness with our BJJ classes.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="text-center">
+        <a href="classes.html" class="btn btn-danger btn-lg">See Full Schedule</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Testimonials Section -->
+  <section class="testimonials bg-black text-white py-5">
+    <div class="container">
+      <h2 class="text-center mb-5">What Our Members Say</h2>
+      <div class="row">
+        <div class="col-md-6">
+          <div class="card mb-4 bg-dark text-white">
+            <div class="card-body">
+              <p class="card-text">"[Your Gym Name] has changed my life! The trainers are amazing, and the community is so supportive."</p>
+              <p class="text-muted">- John Doe</p>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-6">
+          <div class="card mb-4 bg-dark text-white">
+            <div class="card-body">
+              <p class="card-text">"I love the variety of classes and the friendly atmosphere. Highly recommend!"</p>
+              <p class="text-muted">- Jane Smith</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="bg-black text-white py-4">
+    <div class="container text-center">
+      <p>&copy; 2023 [Your Gym Name]. All rights reserved.</p>
+      <ul class="list-inline">
+        <li class="list-inline-item"><a href="privacy.html" class="text-white">Privacy Policy</a></li>
+        <li class="list-inline-item"><a href="terms.html" class="text-white">Terms of Service</a></li>
+      </ul>
+    </div>
+  </footer>
+
+  <!-- Bootstrap JS (Optional, for interactive components) -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>

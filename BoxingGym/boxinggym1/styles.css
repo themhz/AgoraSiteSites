@@ -1,0 +1,189 @@
+/* Custom Styles */
+body {
+    font-family: 'Arial', sans-serif;
+  }
+  
+  /* Custom Styles for Home Page */
+.hero {
+    background-image: url('https://placehold.co/1200x400'); /* Add a boxing-themed hero image */
+    background-size: cover;
+    background-position: center;
+  }
+  
+  .card {
+    border: none;
+    transition: transform 0.3s ease;
+  }
+  
+  .card:hover {
+    transform: translateY(-10px);
+  }
+  
+  .btn-danger {
+    background-color: #dc3545; /* Bootstrap's default red */
+    border: none;
+  }
+  
+  .btn-danger:hover {
+    background-color: #c82333; /* Darker red on hover */
+  }
+
+  /* Custom Styles for About Page */
+
+.about-hero {
+    background-image: url('https://placehold.co/1200x400'); /* Add a boxing-themed hero image */
+    background-size: cover;
+    background-position: center;
+  }
+  
+  .our-story img {
+    border: 3px solid #dc3545; /* Red border for the gym interior image */
+  }
+  
+  .card {
+    border: none;
+    transition: transform 0.3s ease;
+  }
+  
+  .card:hover {
+    transform: translateY(-10px);
+  }
+  
+  .why-choose-us h3 {
+    color: #dc3545; /* Red color for section headings */
+  }
+
+  /* Custom Styles for Classes Page */
+.classes-hero {
+    background-image: url('https://placehold.co/1200x400'); /* Add a boxing-themed hero image */
+    background-size: cover;
+    background-position: center;
+  }
+  
+  .card {
+    border: none;
+    transition: transform 0.3s ease;
+  }
+  
+  .card:hover {
+    transform: translateY(-10px);
+  }
+  
+  .btn-danger {
+    background-color: #dc3545; /* Bootstrap's default red */
+    border: none;
+  }
+  
+  .btn-danger:hover {
+    background-color: #c82333; /* Darker red on hover */
+  }
+  
+  .table th, .table td {
+    text-align: center;
+  }
+
+  /* Custom Styles for Weekly Calendar */
+.weekly-calendar .card {
+    height: 100%;
+    border: none;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease;
+  }
+  
+  .weekly-calendar .card:hover {
+    transform: translateY(-5px);
+  }
+  
+  .weekly-calendar .card-header {
+    font-weight: bold;
+  }
+  
+  .weekly-calendar .card-body {
+    padding: 1.5rem;
+  }
+  
+/* Custom Styles for Sign-Up Page */
+/* Custom Styles for Sign-Up Page */
+.signup-hero {
+    background-image: url('https://placehold.co/1200x400'); /* Add a boxing-themed hero image */
+    background-size: cover;
+    background-position: center;
+  }
+  
+  .signup-form .card {
+    border: none;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  }
+  
+  .signup-form .card-title {
+    color: #dc3545; /* Red color for the title */
+  }
+  
+  .signup-form .btn-danger {
+    background-color: #dc3545; /* Bootstrap's default red */
+    border: none;
+  }
+  
+  .signup-form .btn-danger:hover {
+    background-color: #c82333; /* Darker red on hover */
+  }
+
+  /* Custom Styles for Pricing Page */
+.pricing-hero {
+    background-image: url('https://placehold.co/1200x400'); /* Add a boxing-themed hero image */
+    background-size: cover;
+    background-position: center;
+  }
+  
+  .pricing-plans .card {
+    border: none;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease;
+  }
+  
+  .pricing-plans .card:hover {
+    transform: translateY(-10px);
+  }
+  
+  .pricing-plans .card-header {
+    background-color: #dc3545; /* Red color for the header */
+    color: white;
+    font-weight: bold;
+  }
+  
+  .pricing-plans .btn-danger {
+    background-color: #dc3545; /* Bootstrap's default red */
+    border: none;
+  }
+  
+  .pricing-plans .btn-danger:hover {
+    background-color: #c82333; /* Darker red on hover */
+  }
+  
+  .special-offers .card {
+    border: none;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  }
+
+  
+
+  /* Change cursor to pointer on hover */
+.available-slot {
+  cursor: pointer;
+}
+
+/* Highlight the box on hover */
+.available-slot:hover {
+  background-color: #ffeb3b; /* Yellow highlight color */
+  border-radius: 5px;
+}
+
+/* Mark the box when clicked */
+.available-slot.selected {
+  background-color: #4caf50; /* Green mark color */
+  color: white;
+  border-radius: 5px;
+}

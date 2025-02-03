@@ -1,0 +1,194 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Sign Up - [Your Gym Name]</title>
+  <!-- Bootstrap CSS -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+  <!-- Font Awesome CSS -->
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet">
+  <!-- Custom CSS -->
+  <!-- <link rel="stylesheet" href="styles.css"> -->
+</head>
+<body>
+  <!-- Header -->
+  <header class="bg-black py-3">
+    <div class="container">
+      <div class="d-flex justify-content-between align-items-center">
+        <div class="logo">
+          <img src="https://placehold.co/100x50" alt="Your Gym Logo" width="100">
+        </div>
+        <nav>
+          <ul class="nav">
+            <li class="nav-item"><a href="index.html" class="nav-link text-white"><i class="fas fa-home"></i> Home</a></li>
+            <li class="nav-item"><a href="about.html" class="nav-link text-white"><i class="fas fa-info-circle"></i> About Us</a></li>
+            <li class="nav-item"><a href="classes.html" class="nav-link text-white"><i class="fas fa-dumbbell"></i> Classes</a></li>
+            <li class="nav-item"><a href="pricing.html" class="nav-link text-white"><i class="fas fa-tags"></i> Pricing</a></li>
+            <li class="nav-item"><a href="contact.html" class="nav-link text-white"><i class="fas fa-envelope"></i> Contact Us</a></li>
+          </ul>
+        </nav>
+      </div>
+    </div>
+  </header>
+
+  <!-- Sign-Up Hero Section -->
+  <section class="signup-hero bg-danger text-white text-center py-5">
+    <div class="container">
+      <h1 class="display-4">Sign Up Today</h1>
+      <p class="lead">Join [Your Gym Name] and start your martial arts journey.</p>
+    </div>
+  </section>
+
+  <!-- Sign-Up Form Section -->
+  <section class="signup-form py-5">
+    <div class="container">
+      <div class="row justify-content-center">
+        <div class="col-md-8">
+          <div class="card shadow">
+            <div class="card-body">
+              <h2 class="card-title text-center mb-4">Create Your Account</h2>
+              <form>
+                <!-- Name -->
+                <div class="mb-3">
+                  <label for="name" class="form-label">Full Name</label>
+                  <input type="text" class="form-control" id="name" placeholder="Enter your full name" required>
+                </div>
+                <!-- Email -->
+                <div class="mb-3">
+                  <label for="email" class="form-label">Email Address</label>
+                  <input type="email" class="form-control" id="email" placeholder="Enter your email" required>
+                </div>
+                <!-- Phone -->
+                <div class="mb-3">
+                  <label for="phone" class="form-label">Phone Number</label>
+                  <input type="tel" class="form-control" id="phone" placeholder="Enter your phone number" required>
+                </div>
+                <!-- Password -->
+                <div class="mb-3">
+                  <label for="password" class="form-label">Password</label>
+                  <input type="password" class="form-control" id="password" placeholder="Create a password" required>
+                </div>
+                <!-- Confirm Password -->
+                <div class="mb-3">
+                  <label for="confirm-password" class="form-label">Confirm Password</label>
+                  <input type="password" class="form-control" id="confirm-password" placeholder="Confirm your password" required>
+                </div>
+                <!-- Class Selection -->
+                <div class="mb-3">
+                  <label for="class" class="form-label">Select a Class</label>
+                  <select class="form-select" id="class" required>
+                    <option value="" disabled selected>Choose a class</option>
+                    <option value="boxing">Boxing</option>
+                    <option value="muay-thai">Muay Thai</option>
+                    <option value="bjj">Brazilian Jiu-Jitsu</option>
+                  </select>
+                </div>
+                <!-- Days Selection -->
+                <div class="mb-3">
+                  <label class="form-label">Select Days (Max 3)</label>
+                  <div class="form-check">
+                    <input class="form-check-input day-checkbox" type="checkbox" id="monday" value="Monday">
+                    <label class="form-check-label" for="monday">Monday</label>
+                  </div>
+                  <div class="form-check">
+                    <input class="form-check-input day-checkbox" type="checkbox" id="tuesday" value="Tuesday">
+                    <label class="form-check-label" for="tuesday">Tuesday</label>
+                  </div>
+                  <div class="form-check">
+                    <input class="form-check-input day-checkbox" type="checkbox" id="wednesday" value="Wednesday">
+                    <label class="form-check-label" for="wednesday">Wednesday</label>
+                  </div>
+                  <div class="form-check">
+                    <input class="form-check-input day-checkbox" type="checkbox" id="thursday" value="Thursday">
+                    <label class="form-check-label" for="thursday">Thursday</label>
+                  </div>
+                  <div class="form-check">
+                    <input class="form-check-input day-checkbox" type="checkbox" id="friday" value="Friday">
+                    <label class="form-check-label" for="friday">Friday</label>
+                  </div>
+                  <div class="form-check">
+                    <input class="form-check-input day-checkbox" type="checkbox" id="saturday" value="Saturday">
+                    <label class="form-check-label" for="saturday">Saturday</label>
+                  </div>
+                  <div class="form-check">
+                    <input class="form-check-input day-checkbox" type="checkbox" id="sunday" value="Sunday">
+                    <label class="form-check-label" for="sunday">Sunday</label>
+                  </div>
+                </div>
+                <!-- Hour Selection (Dynamically Added) -->
+                <div id="hour-selection"></div>
+                <!-- Submit Button -->
+                <div class="d-grid">
+                  <button type="submit" class="btn btn-danger btn-lg">Sign Up Now</button>
+                </div>
+              </form>
+              <div class="text-center mt-3">
+                <p>Already have an account? <a href="login.html">Log in here</a>.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="bg-black text-white py-4">
+    <div class="container text-center">
+      <p>&copy; 2023 [Your Gym Name]. All rights reserved.</p>
+      <ul class="list-inline">
+        <li class="list-inline-item"><a href="privacy.html" class="text-white">Privacy Policy</a></li>
+        <li class="list-inline-item"><a href="terms.html" class="text-white">Terms of Service</a></li>
+      </ul>
+    </div>
+  </footer>
+
+  <!-- Bootstrap JS (Optional, for interactive components) -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+  <!-- Custom JavaScript -->
+  <script>
+    // JavaScript to handle day and hour selection
+    const dayCheckboxes = document.querySelectorAll('.day-checkbox');
+    const hourSelection = document.getElementById('hour-selection');
+
+    dayCheckboxes.forEach(checkbox => {
+      checkbox.addEventListener('change', () => {
+        const selectedDays = Array.from(dayCheckboxes).filter(cb => cb.checked).length;
+
+        // Limit to 3 days
+        if (selectedDays > 3) {
+          checkbox.checked = false;
+          alert('You can select a maximum of 3 days.');
+          return;
+        }
+
+        // Update hour selection fields
+        updateHourSelection();
+      });
+    });
+
+    function updateHourSelection() {
+      hourSelection.innerHTML = ''; // Clear previous fields
+
+      dayCheckboxes.forEach(checkbox => {
+        if (checkbox.checked) {
+          const day = checkbox.value;
+          const hourField = `
+            <div class="mb-3">
+              <label for="${day.toLowerCase()}-hour" class="form-label">Select Hour for ${day}</label>
+              <select class="form-select" id="${day.toLowerCase()}-hour" required>
+                <option value="" disabled selected>Choose a time</option>
+                <option value="6:00 PM">6:00 PM</option>
+                <option value="7:00 PM">7:00 PM</option>
+                <option value="8:00 PM">8:00 PM</option>
+              </select>
+            </div>
+          `;
+          hourSelection.insertAdjacentHTML('beforeend', hourField);
+        }
+      });
+    }
+  </script>
+</body>
+</html>
