@@ -1,0 +1,884 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Café Haven</title>
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Font Awesome Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        :root {
+            --primary-color: #F5F1E7;
+            /* Creamy white */
+            --secondary-color: #4B3832;
+            /* Dark coffee brown */
+            --accent-color: #6F4E37;
+            /* Medium coffee brown */
+            --text-color: #3E3E3E;
+            /* Dark grey */
+            --light-grey: #D3CEC4;
+            /* Warm grey */
+        }
+
+        body {
+            background-color: #EFEBE0;
+            /* Light warm grey */
+            color: var(--text-color);
+        }
+
+        .navbar {
+            background-color: var(--secondary-color) !important;
+        }
+
+        .card {
+            border: 1px solid var(--accent-color);
+            background-color: var(--primary-color);
+        }
+
+        .card img {
+            border-bottom: 2px solid var(--accent-color);
+        }
+
+        .tall-card {
+            background-color: var(--primary-color);
+        }
+
+        .hero-section {
+            background-color: var(--primary-color);
+            border-bottom: 3px solid var(--accent-color);
+        }
+
+        #menu {
+            background-color: #F5F5F5;
+            /* Off-white */
+            padding: 4rem 0;
+        }
+
+        footer {
+            background-color: var(--secondary-color);
+            color: var(--primary-color);
+        }
+
+        .social-links a {
+            color: var(--light-grey) !important;
+        }
+
+        .carousel-caption {
+            background-color: rgba(75, 56, 50, 0.8);
+            /* Dark coffee brown with transparency */
+        }
+
+        .btn-primary {
+            background-color: var(--accent-color);
+            border-color: var(--accent-color);
+        }
+
+        .btn-primary:hover {
+            background-color: var(--secondary-color);
+            border-color: var(--secondary-color);
+        }
+
+        .text-secondary {
+            color: var(--secondary-color) !important;
+        }
+
+        .text-muted {
+            color: #7D6E63 !important;
+            /* Warm medium grey */
+        }
+
+        .video-overlay {
+            color: var(--primary-color);
+        }
+
+        .social-links a:hover {
+            opacity: 0.8;
+        }
+
+        .carousel-caption {
+            background-color: rgba(55, 71, 79, 0.8);
+            padding: 2rem;
+            border-radius: 5px;
+        }
+
+        .btn-primary {
+            background-color: var(--accent-color);
+            border-color: var(--accent-color);
+        }
+
+        .btn-primary:hover {
+            background-color: var(--secondary-color);
+            border-color: var(--secondary-color);
+        }
+
+        #about {
+            background-color: #f8f9fa;
+            /* Light background */
+            padding: 60px 0;
+            /* border-top: 3px solid var(--accent-color); */
+        }
+
+        #about img {
+            border-radius: 10px;
+            transition: transform 0.3s ease-in-out;
+        }
+
+        #about img:hover {
+            transform: scale(1.05);
+        }
+    </style>
+</head>
+
+<body id="home">
+    <nav class="navbar navbar-expand-lg navbar-dark fixed-top">
+        <div class="container">
+            <a class="navbar-brand" href="#"><i class="fas fa-coffee"></i> Café Haven</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item"><a class="nav-link" href="#home"><i class="fas fa-home"></i> Home</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#menu"><i class="fas fa-utensils"></i> Menu</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#about"><i class="fas fa-info-circle"></i> About</a></li>
+                    <li class="nav-item"><a class="nav-link" href="checkout.html"><i class="fas fa-cc-visa"></i> Checkout</a></li>
+                    <li class="nav-item"><a class="nav-link" href="thankyou.html"><i class="fas fa-info-circle"></i> Thank you</a></li>
+                    <li class="nav-item"><a class="nav-link" href="canceled.html"><i class="fas fa-info-circle"></i> Canceled order</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#contact"><i class="fas fa-envelope"></i> Contact</a>
+                    </li>
+                    <li class="nav-item">
+                        <button class="nav-link btn btn-link" id="cart-link">
+                            <i class="fas fa-shopping-cart"></i> Cart
+                            <span id="cart-count" class="badge bg-secondary">0</span>
+                        </button>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+
+    <!-- Video Background Section -->
+    <div class="container-fluid mt-4 p-0 position-relative">
+        <div class="video-container" style="height: 70vh; overflow: hidden;">
+            <!-- First Video -->
+            <video id="video1" class="video-fade active" autoplay muted playsinline>
+                <source src="https://videos.pexels.com/video-files/2909914/2909914-uhd_2732_1440_24fps.mp4"
+                    type="video/mp4">
+
+            </video>
+
+            <!-- Second Video -->
+            <video id="video2" class="video-fade" muted playsinline>
+                <source src="https://videos.pexels.com/video-files/2675509/2675509-hd_1920_1080_24fps.mp4"
+                    type="video/mp4">
+
+            </video>
+
+            <!-- Third Video -->
+            <video id="video3" class="video-fade" muted playsinline>
+                <source
+                    src="https://media.istockphoto.com/id/1083268132/video/slow-motion-coffee-pouring-in-cup.mp4?s=mp4-640x640-is&k=20&c=x2CDmZf-CZADnce0oZCCWpjxIc3r7oJtilN0QKacVvI="
+                    type="video/mp4">
+
+            </video>
+
+            <!-- Video Caption Overlay -->
+            <div id="video-caption" class="video-overlay">
+                <h2 class="display-4 mb-3">Welcome to Café Haven</h2>
+                <p class="lead">Experience Authentic Greek Coffee Culture</p>
+            </div>
+
+            <!-- Scrolling Indicator -->
+            <div class="position-absolute bottom-0 start-50 translate-middle-x mb-4">
+                <i class="fas fa-chevron-down fa-2x text-white animate-bounce"></i>
+            </div>
+        </div>
+    </div>
+
+    <style>
+        .video-container {
+            position: relative;
+        }
+
+        .video-overlay {
+            z-index: 1;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+            padding: 25px;
+        }
+
+        .animate-bounce {
+            animation: bounce 2s infinite;
+        }
+
+        @keyframes bounce {
+
+            0%,
+            20%,
+            50%,
+            80%,
+            100% {
+                transform: translateY(0);
+            }
+
+            40% {
+                transform: translateY(-30px);
+            }
+
+            60% {
+                transform: translateY(-15px);
+            }
+        }
+
+        .video-container video {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            min-width: 100%;
+            min-height: 100%;
+        }
+
+        .video-overlay::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: rgba(0, 0, 0, 0.3);
+            z-index: -1;
+        }
+
+        .video-fade {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            min-width: 100%;
+            min-height: 100%;
+            object-fit: cover;
+            opacity: 0;
+            transition: opacity 2s ease-in-out;
+        }
+
+        .video-fade.active {
+            opacity: 1;
+            z-index: 2;
+        }
+
+        .video-overlay {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            z-index: 3;
+            text-align: center;
+            color: white;
+            text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.8);
+        }
+    </style>
+
+    <!-- Hero Section -->
+    <section class="hero-section">
+        <div class="container text-center py-5">
+            <h1 class="text-secondary">Welcome to Café Haven</h1>
+            <p class="lead text-muted">Experience the perfect blend of flavor and ambiance.</p>
+        </div>
+    </section>
+    <!-- Menu Sections -->
+    <section id="menu" class="py-4">
+        <div class="container">
+            <h2 class="text-center mb-3 text-secondary">Our Menu</h2>
+
+            <!-- Coffee Section -->
+            <div class="row mb-5">
+                <div class="col-12">
+                    <h3 class="text-secondary mb-4">ΚΑΦΕΔΕΣ / COFFEE</h3>
+                    <div class="row g-3">
+                        <div class="col-md-6">
+                            <p><strong>Εσπρέσο μονό / διπλό</strong> - 1.40€ / 1.90€<br>
+                                <em>(Espresso single / double)</em>
+                            </p>
+                            <form class="order-form">
+                                <div class="input-group mb-3">
+                                    <input type="number" class="form-control" placeholder="Quantity" min="1" value="1">
+                                    <button class="btn btn-primary" type="button"
+                                        onclick="addToCart('Espresso single / double', 1.40, 1.90)">Order</button>
+                                </div>
+                            </form>
+
+                            <p><strong>Καπουτσίνο / Λάτε</strong> - 2.30€<br>
+                                <em>(Cappuccino / Latte)</em>
+                            </p>
+                            <form class="order-form">
+                                <div class="input-group mb-3">
+                                    <input type="number" class="form-control" placeholder="Quantity" min="1" value="1">
+                                    <button class="btn btn-primary" type="button"
+                                        onclick="addToCart('Cappuccino / Latte', 2.30)">Order</button>
+                                </div>
+                            </form>
+
+                            <p><strong>Καπουτσίνο κρύο</strong> - 2.50€<br>
+                                <em>(Cappuccino cold)</em>
+                            </p>
+                            <form class="order-form">
+                                <div class="input-group mb-3">
+                                    <input type="number" class="form-control" placeholder="Quantity" min="1" value="1">
+                                    <button class="btn btn-primary" type="button"
+                                        onclick="addToCart('Cappuccino cold', 2.50)">Order</button>
+                                </div>
+                            </form>
+                        </div>
+                        <div class="col-md-6">
+                            <p><strong>Φραπέ / Νες καφέ</strong> - 1.80€<br>
+                                <em>(Nescafe hot / cold)</em>
+                            </p>
+                            <form class="order-form">
+                                <div class="input-group mb-3">
+                                    <input type="number" class="form-control" placeholder="Quantity" min="1" value="1">
+                                    <button class="btn btn-primary" type="button"
+                                        onclick="addToCart('Nescafe hot / cold', 1.80)">Order</button>
+                                </div>
+                            </form>
+
+                            <p><strong>Ελληνικός μονός / διπλός</strong> - 1.20€ / 1.70€<br>
+                                <em>(Greek coffee single / double)</em>
+                            </p>
+                            <form class="order-form">
+                                <div class="input-group mb-3">
+                                    <input type="number" class="form-control" placeholder="Quantity" min="1" value="1">
+                                    <button class="btn btn-primary" type="button"
+                                        onclick="addToCart('Greek coffee single / double', 1.20, 1.70)">Order</button>
+                                </div>
+                            </form>
+
+                            <p><strong>Καφές φίλτρου / με γεύσεις</strong> - 1.80€ / 2.00€<br>
+                                <em>(Filter coffee / flavors)</em>
+                            </p>
+                            <form class="order-form">
+                                <div class="input-group mb-3">
+                                    <input type="number" class="form-control" placeholder="Quantity" min="1" value="1">
+                                    <button class="btn btn-primary" type="button"
+                                        onclick="addToCart('Filter coffee / flavors', 1.80, 2.00)">Order</button>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Chocolates Section -->
+            <div class="row mb-5">
+                <div class="col-12">
+                    <h3 class="text-secondary mb-4">ΣΟΚΟΛΑΤΕΣ / CHOCOLATES</h3>
+                    <div class="row g-3">
+                        <div class="col-md-6">
+                            <p><strong>Σοκολάτα (ζεστή-κρύα)</strong> - 2.50€<br>
+                                <em>(Chocolate hot / cold)</em>
+                            </p>
+                            <form class="order-form">
+                                <div class="input-group mb-3">
+                                    <input type="number" class="form-control" placeholder="Quantity" min="1" value="1">
+                                    <button class="btn btn-primary" type="button"
+                                        onclick="addToCart('Chocolate hot / cold', 2.50)">Order</button>
+                                </div>
+                            </form>
+
+                            <p><strong>Με γεύσεις</strong> - 2.70€<br>
+                                <em>(With flavors: caramel, hazelnut, strawberry, vanilla, lime)</em>
+                            </p>
+                            <form class="order-form">
+                                <div class="input-group mb-3">
+                                    <input type="number" class="form-control" placeholder="Quantity" min="1" value="1">
+                                    <button class="btn btn-primary" type="button"
+                                        onclick="addToCart('Chocolate with flavors', 2.70)">Order</button>
+                                </div>
+                            </form>
+                        </div>
+                        <div class="col-md-6">
+                            <p><strong>Σοκολάτα λευκή (ζεστή-κρύα)</strong> - 2.50€<br>
+                                <em>(White chocolate hot / cold)</em>
+                            </p>
+                            <form class="order-form">
+                                <div class="input-group mb-3">
+                                    <input type="number" class="form-control" placeholder="Quantity" min="1" value="1">
+                                    <button class="btn btn-primary" type="button"
+                                        onclick="addToCart('White chocolate hot / cold', 2.50)">Order</button>
+                                </div>
+                            </form>
+
+                            <p><strong>Ρόφημα Pogo</strong> - 3.20€<br>
+                                <em>(Pogo Special)</em>
+                            </p>
+                            <form class="order-form">
+                                <div class="input-group mb-3">
+                                    <input type="number" class="form-control" placeholder="Quantity" min="1" value="1">
+                                    <button class="btn btn-primary" type="button"
+                                        onclick="addToCart('Pogo Special', 3.20)">Order</button>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Tea Section -->
+            <div class="row mb-5">
+                <div class="col-12">
+                    <h3 class="text-secondary mb-4">ΤΣΑΪ / TEA</h3>
+                    <div class="row g-3">
+                        <div class="col-md-6">
+                            <p><strong>Τσάι ζεστό</strong> - 2.00€<br>
+                                <em>(Hot tea)</em><br>
+                                English Breakfast, Earl Grey Blue Flower, Chai Tea, Japan Sencha, China Gunpowder, China
+                                Jasmine, Vanilla, Apple Ginger, Fruit Melange “Crist”, Darjeeling Margaret’s Hope,
+                                Rooibos “Cape Town”, Cream Caramel, Camillo, Fireplace, Lemon, Peach
+                            </p>
+                            <form class="order-form">
+                                <div class="input-group mb-3">
+                                    <input type="number" class="form-control" placeholder="Quantity" min="1" value="1">
+                                    <button class="btn btn-primary" type="button"
+                                        onclick="addToCart('Hot tea', 2.00)">Order</button>
+                                </div>
+                            </form>
+                        </div>
+                        <div class="col-md-6">
+                            <p><strong>Τσάι κρύο</strong> - 2.00€<br>
+                                <em>(Ice tea)</em><br>
+                                Apple Ginger, Fruit Melange, Rooibos “Cape Town”, Cream Caramel, Camillo, Fireplace,
+                                Lemon, Peach
+                            </p>
+                            <form class="order-form">
+                                <div class="input-group mb-3">
+                                    <input type="number" class="form-control" placeholder="Quantity" min="1" value="1">
+                                    <button class="btn btn-primary" type="button"
+                                        onclick="addToCart('Ice tea', 2.00)">Order</button>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Refreshments -->
+            <div class="row mb-5">
+                <div class="col-12">
+                    <h3 class="text-secondary mb-4">ΑΝΑΨΥΚΤΙΚΑ / REFRESHMENTS</h3>
+                    <div class="row g-3">
+                        <div class="col-md-6">
+                            <p>Coca Cola - 1.50€</p>
+                            <form class="order-form">
+                                <div class="input-group mb-3">
+                                    <input type="number" class="form-control" placeholder="Quantity" min="1" value="1">
+                                    <button class="btn btn-primary" type="button"
+                                        onclick="addToCart('Coca Cola', 1.50)">Order</button>
+                                </div>
+                            </form>
+                            <p>Λεμονάδα (Lemonade) - 1.50€</p>
+                            <form class="order-form">
+                                <div class="input-group mb-3">
+                                    <input type="number" class="form-control" placeholder="Quantity" min="1" value="1">
+                                    <button class="btn btn-primary" type="button"
+                                        onclick="addToCart('Lemonade', 1.50)">Order</button>
+                                </div>
+                            </form>
+                            <p>Σπράιτ / Σόδα / Τόνικ (Sprite / Soda water / Tonic) - 1.50€</p>
+                            <form class="order-form">
+                                <div class="input-group mb-3">
+                                    <input type="number" class="form-control" placeholder="Quantity" min="1" value="1">
+                                    <button class="btn btn-primary" type="button"
+                                        onclick="addToCart('Sprite / Soda water / Tonic', 1.50)">Order</button>
+                                </div>
+                            </form>
+                        </div>
+                        <div class="col-md-6">
+                            <p>Νερό εμφιαλωμένο (0,5lt) (Bottle water 0.5lt) - 0.40€</p>
+                            <form class="order-form">
+                                <div class="input-group mb-3">
+                                    <input type="number" class="form-control" placeholder="Quantity" min="1" value="1">
+                                    <button class="btn btn-primary" type="button"
+                                        onclick="addToCart('Bottle water 0.5lt', 0.40)">Order</button>
+                                </div>
+                            </form>
+                            <p>Πορτοκαλάδα / μπλε (Orange / Blue) - 1.50€</p>
+                            <form class="order-form">
+                                <div class="input-group mb-3">
+                                    <input type="number" class="form-control" placeholder="Quantity" min="1" value="1">
+                                    <button class="btn btn-primary" type="button"
+                                        onclick="addToCart('Orange / Blue', 1.50)">Order</button>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Beers -->
+            <div class="row mb-5">
+                <div class="col-12">
+                    <h3 class="text-secondary mb-4">ΜΠΥΡΕΣ / BEERS</h3>
+                    <div class="row g-3">
+                        <div class="col-md-6">
+                            <p>Kaiser (500 ml) - 2.80€</p>
+                            <form class="order-form">
+                                <div class="input-group mb-3">
+                                    <input type="number" class="form-control" placeholder="Quantity" min="1" value="1">
+                                    <button class="btn btn-primary" type="button"
+                                        onclick="addToCart('Kaiser (500 ml)', 2.80)">Order</button>
+                                </div>
+                            </form>
+                            <p>Amstel (500 ml) - 2.50€</p>
+                            <form class="order-form">
+                                <div class="input-group mb-3">
+                                    <input type="number" class="form-control" placeholder="Quantity" min="1" value="1">
+                                    <button class="btn btn-primary" type="button"
+                                        onclick="addToCart('Amstel (500 ml)', 2.50)">Order</button>
+                                </div>
+                            </form>
+                        </div>
+                        <div class="col-md-6">
+                            <p>Μύθος (Mythos) (500 ml) - 2.50€</p>
+                            <form class="order-form">
+                                <div class="input-group mb-3">
+                                    <input type="number" class="form-control" placeholder="Quantity" min="1" value="1">
+                                    <button class="btn btn-primary" type="button"
+                                        onclick="addToCart('Mythos (500 ml)', 2.50)">Order</button>
+                                </div>
+                            </form>
+                            <p>Corona - 3.50€</p>
+                            <form class="order-form">
+                                <div class="input-group mb-3">
+                                    <input type="number" class="form-control" placeholder="Quantity" min="1" value="1">
+                                    <button class="btn btn-primary" type="button"
+                                        onclick="addToCart('Corona', 3.50)">Order</button>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Add remaining sections (Wine, Ouzo, Raki-Tsipouro, Drinks, Snacks) following the same structure -->
+
+        </div>
+    </section>
+
+    <!-- Cart Modal -->
+    <div class="modal fade" id="cartModal" tabindex="-1" aria-labelledby="cartModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="cartModalLabel">Your Cart</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <ul id="cart-items" class="list-group"></ul>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                    <button type="button" class="btn btn-primary" onclick="clearCart()">Clear Cart</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Footer with Offers and Contact -->
+    <footer class="mt-5">
+        <!-- Offer Section -->
+        <section id="about" class="py-5" style="background-color: var(--primary-color);">
+            <div class="container text-center">
+                <h2 class="text-secondary">Special Offers</h2>
+                <p class="text-muted">Enjoy our daily specials and weekly offers.</p>
+                <div class="row mt-4">
+                    <div class="col-md-4">
+                        <div class="card mb-3">
+                            <div class="card-body">
+                                <h5 class="text-secondary">Morning Special</h5>
+                                <p class="text-muted">20% off all pastries before 10am</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-4">
+                        <div class="card mb-3">
+                            <div class="card-body">
+                                <h5 class="text-secondary">Happy Hour</h5>
+                                <p class="text-muted">2-for-1 cocktails 5pm-7pm</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-4">
+                        <div class="card mb-3">
+                            <div class="card-body">
+                                <h5 class="text-secondary">Weekend Brunch</h5>
+                                <p class="text-muted">Free coffee with any breakfast order</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <!-- About Us Section -->
+        <section id="about" class="py-5 bg-dark">
+            <div class="container">
+                <h2 class="text-center text-secondary mb-4"><i class="fas fa-info-circle"></i> About Us</h2>
+                <p class="text-center text-muted">Discover the story behind Café Haven.</p>
+
+                <div class="row align-items-center">
+                    <div class="col-md-6">
+                        <img src="https://placehold.co/600x400" class="img-fluid rounded shadow" alt="Café Interior">
+                    </div>
+                    <div class="col-md-6">
+                        <h3 class="text-secondary">Our Story</h3>
+                        <p class="text-muted">
+                            Café Haven was founded with a passion for coffee and a love for community.
+                            Our goal is to bring people together over the finest handcrafted beverages in a cozy and
+                            welcoming atmosphere.
+                        </p>
+                        <h3 class="text-secondary">Our Mission</h3>
+                        <p class="text-muted">
+                            We are dedicated to serving high-quality coffee sourced ethically from around the world,
+                            prepared by expert baristas who truly care about your experience.
+                        </p>
+                        <a href="#menu" class="btn btn-primary"><i class="fas fa-mug-hot"></i> Explore Our Menu</a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+
+        <section id="contact" class="py-5 bg-brown">
+            <div class="container text-center">
+                <h2 class="text-center text-white "><i class="fas fa-envelope"></i> Contact Us</h2>
+                <p class="text-center text-muted">We'd love to hear from you! Fill out the form below.</p>
+
+                <div class="row justify-content-center">
+                    <div class="col-md-8">
+                        <form id="contactForm">
+                            <div class="mb-3">
+                                <label for="name" class="form-label"><i class="fas fa-user"></i> Your Name</label>
+                                <input type="text" class="form-control" id="name" placeholder="Enter your name"
+                                    required>
+                            </div>
+                            <div class="mb-3">
+                                <label for="email" class="form-label"><i class="fas fa-envelope"></i> Email
+                                    Address</label>
+                                <input type="email" class="form-control" id="email" placeholder="Enter your email"
+                                    required>
+                            </div>
+                            <div class="mb-3">
+                                <label for="message" class="form-label"><i class="fas fa-comment"></i> Your
+                                    Message</label>
+                                <textarea class="form-control" id="message" rows="4" placeholder="Enter your message"
+                                    required></textarea>
+                            </div>
+                            <button type="submit" class="btn btn-primary w-100">
+                                <i class="fas fa-paper-plane"></i> Send Message
+                            </button>
+                        </form>
+                        <p class="mt-3 text-center text-success d-none" id="successMessage"><i
+                                class="fas fa-check-circle"></i> Message sent successfully!</p>
+                    </div>
+                </div>
+                <div class="row mt-4">
+                    <div class="col-md-6">
+                        <h5 class="text-secondary">Visit Us</h5>
+                        <p class="text-muted">123 Coffee Street<br>Bean City<br>Athens, Greece</p>
+                    </div>
+                    <div class="col-md-6">
+                        <h5 class="text-secondary">Get in Touch</h5>
+                        <p class="text-muted">Call: (555) 123-4567<br>Email: info@cafehaven.com</p>
+                        <div class="social-links">
+                            <a href="#" class="me-3"><i class="fab fa-facebook fa-2x"></i></a>
+                            <a href="#" class="me-3"><i class="fab fa-instagram fa-2x"></i></a>
+                            <a href="#"><i class="fab fa-twitter fa-2x"></i></a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Copyright -->
+        <div class="py-3" style="background-color: var(--secondary-color);">
+            <div class="container text-center">
+                <p class="mb-0 text-light">&copy; 2024 Café Haven. All rights reserved. |
+                    <a href="#" class="text-light">Privacy Policy</a> |
+                    <a href="#" class="text-light">Terms of Service</a>
+                </p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Bootstrap JS and Popper.js -->
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.min.js"></script>
+    <script>
+        let caption = document.getElementById("video-caption");
+        let isTransitioning = false;
+        let currentVideoIndex = 0;
+        let videos = [
+            document.getElementById("video1"),
+            document.getElementById("video2"),
+            document.getElementById("video3")
+        ];
+        document.addEventListener("DOMContentLoaded", function () {
+
+
+            videos.forEach(video => video.load());
+            videos[currentVideoIndex].play();
+            videos[currentVideoIndex].classList.add("active");
+            updateCaption(currentVideoIndex);
+
+            videos.forEach((video, index) => {
+                video.addEventListener("timeupdate", function () {
+                    if (video.currentTime > 0 && video.currentTime >= video.duration - 1) {
+                        transitionVideos();
+                    }
+                });
+            });
+
+            // Ensure cart modal opens when clicking the cart link
+            document.getElementById('cart-link').addEventListener('click', function (event) {
+                event.preventDefault();
+                cartModal.show();
+            });
+
+            // Load cart from localStorage on page load
+            loadCart();
+        });
+
+        let cart = [];
+        const cartModal = new bootstrap.Modal(document.getElementById('cartModal'));
+        const cartCount = document.getElementById('cart-count');
+        const cartItems = document.getElementById('cart-items');
+
+        function addToCart(name, priceSingle, priceDouble) {
+            const quantity = parseInt(event.target.previousElementSibling.value);
+            const price = priceDouble ? (quantity > 1 ? priceDouble : priceSingle) : priceSingle;
+
+            let existingItem = cart.find(item => item.name === name);
+
+            if (existingItem) {
+                existingItem.quantity += quantity;
+            } else {
+                const item = { name, quantity, price };
+                cart.push(item);
+            }
+
+            saveCart();
+            updateCart();
+            cartModal.show();
+        }
+
+        function updateCart() {
+            cartItems.innerHTML = '';
+
+            cart.forEach((item, index) => {
+                const li = document.createElement('li');
+                li.classList.add('list-group-item', 'd-flex', 'justify-content-between', 'align-items-center');
+                li.innerHTML = `
+            <span>${item.name} - Price: ${(item.price * item.quantity).toFixed(2)}€</span>
+            <div class="d-flex align-items-center">
+                <input type="number" class="form-control form-control-sm me-2" style="width: 60px;" value="${item.quantity}" min="1" onchange="updateQuantity(${index}, this.value)">
+                <button class="btn btn-danger btn-sm" onclick="removeItem(${index})">X</button>
+            </div>
+        `;
+                cartItems.appendChild(li);
+            });
+
+            // ✅ Update cart count to show total quantity of items
+            cartCount.textContent = cart.reduce((total, item) => total + item.quantity, 0);
+
+            // ✅ Add checkout button if cart has items
+            if (cart.length > 0) {
+                const checkoutButton = document.createElement('button');
+                checkoutButton.classList.add('btn', 'btn-success', 'mt-3');
+                checkoutButton.textContent = 'Checkout';
+                checkoutButton.onclick = checkout;
+                cartItems.appendChild(checkoutButton);
+            }
+
+            saveCart();
+        }
+
+
+        function updateQuantity(index, newQuantity) {
+            newQuantity = parseInt(newQuantity);
+            if (newQuantity > 0) {
+                cart[index].quantity = newQuantity;
+            } else {
+                cart.splice(index, 1);
+            }
+            updateCart();
+        }
+
+        function removeItem(index) {
+            cart.splice(index, 1);
+            updateCart();
+        }
+
+        function clearCart() {
+            cart = [];
+            updateCart();
+            cartModal.hide();
+        }
+
+        function checkout() {
+            console.log("Order Summary:");
+            cart.forEach(item => {
+                console.log(`${item.name} - Quantity: ${item.quantity} - Total: ${(item.price * item.quantity).toFixed(2)}€`);
+            });
+            alert("Checkout complete! Check the console for details.");
+            clearCart();
+        }
+
+        function saveCart() {
+            localStorage.setItem('cart', JSON.stringify(cart));
+        }
+
+        function loadCart() {
+            const storedCart = localStorage.getItem('cart');
+            if (storedCart) {
+                cart = JSON.parse(storedCart);
+                updateCart();
+            }
+        }
+
+        function transitionVideos() {
+            if (isTransitioning) return;
+            isTransitioning = true;
+
+            let current = videos[currentVideoIndex];
+            let nextIndex = (currentVideoIndex + 1) % videos.length;
+            let next = videos[nextIndex];
+
+            next.currentTime = 0;
+            next.classList.add("active");
+            updateCaption(nextIndex);
+
+            next.play().catch(error => console.log("Playback prevented, waiting..."));
+
+            setTimeout(() => {
+                current.classList.remove("active");
+                current.pause();
+
+                currentVideoIndex = nextIndex;
+                isTransitioning = false;
+            }, 2000);
+        }
+
+        function updateCaption(videoNum) {
+            caption.innerHTML = [
+                "<h2 class='display-4 mb-3'>Welcome to Café Haven</h2><p class='lead'>Experience Authentic Greek Coffee Culture</p>",
+                "<h2 class='display-4 mb-3'>Our Specialty Coffees</h2><p class='lead'>Savor the finest flavors crafted for you</p>",
+                "<h2 class='display-4 mb-3'>Relax & Enjoy</h2><p class='lead'>A cozy atmosphere with the perfect cup</p>"
+            ][videoNum];
+        }
+    </script>
+
+</body>
+
+</html>
