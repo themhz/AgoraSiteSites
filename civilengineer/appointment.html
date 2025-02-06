@@ -1,0 +1,347 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Project Cost Estimator - Civil Engineer</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Font Awesome Icons -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet">
+    <!-- Flatpickr CSS for Date Picker -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/flatpickr/dist/flatpickr.min.css">
+    <link rel="stylesheet" href="styles.css">
+</head>
+
+<body>
+
+    <style>
+        /* Change cursor to pointer on hover */
+        .available-slot {
+            cursor: pointer;
+        }
+
+        /* Highlight the box on hover */
+        .available-slot:hover {
+            background-color: #ffeb3b;
+            /* Yellow highlight color */
+            border-radius: 5px;
+        }
+
+        /* Mark the box when clicked */
+        .available-slot.selected {
+            background-color: #4caf50;
+            /* Green mark color */
+            color: white;
+            border-radius: 5px;
+        }
+    </style>
+    <!-- Navbar -->
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+        <div class="container">
+            <a class="navbar-brand" href="index.html">Civil Engineer</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item"><a class="nav-link" href="index.html">Home</a></li>
+                    <li class="nav-item"><a class="nav-link" href="about.html">About</a></li>
+                    <li class="nav-item"><a class="nav-link" href="services.html">Services</a></li>
+                    <li class="nav-item"><a class="nav-link" href="portfolio.html">Portfolio</a></li>
+                    <li class="nav-item"><a class="nav-link" href="contact.html">Contact</a></li>
+                    <li class="nav-item"><a class="nav-link" href="cost_estimator.html">Cost Estimator</a></li>
+                    <li class="nav-item"><a class="nav-link active" href="appointment.html">Appointment</a></li>
+                    
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Appointment Hero Section -->
+    <section class="appointment-hero bg-primary text-white text-center py-5">
+        <div class="container">
+            <h1 class="display-4"><i class="fas fa-calendar-alt"></i> Book an Appointment</h1>
+            <p class="lead"></p>
+        </div>
+    </section>
+
+    <!-- Weekly Availability Map -->
+    <section class="availability-map py-5">
+        <div class="container">
+            <h2 class="text-center mb-4"><i class="fas fa-calendar-week"></i> Weekly Availability</h2>
+            <div class="table-responsive">
+                <table class="table table-bordered text-center">
+                    <thead class="bg-danger text-white">
+                        <tr>
+                            <th>Time</th>
+                            <th>Mon</th>
+                            <th>Tue</th>
+                            <th>Wed</th>
+                            <th>Thu</th>
+                            <th>Fri</th>
+                            <th>Sat</th>
+                            <th>Sun</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <!-- Example Time Slots -->
+                        <tr>
+                            <td>09:00 AM</td>
+                            <td><i class="fas fa-check text-success available-slot" data-day="Mon"
+                                    data-time="09:00"></i></td>
+                            <td><i class="fas fa-check text-success available-slot" data-day="Tue"
+                                    data-time="09:00"></i></td>
+                            <td><i class="fas fa-times text-danger"></i></td>
+                            <td><i class="fas fa-check text-success available-slot" data-day="Thu"
+                                    data-time="09:00"></i></td>
+                            <td><i class="fas fa-check text-success available-slot" data-day="Fri"
+                                    data-time="09:00"></i></td>
+                            <td><i class="fas fa-times text-danger"></i></td>
+                            <td><i class="fas fa-times text-danger"></i></td>
+                        </tr>
+                        <tr>
+                            <td>10:00 AM</td>
+                            <td><i class="fas fa-check text-success available-slot" data-day="Mon"
+                                    data-time="10:00"></i></td>
+                            <td><i class="fas fa-times text-danger"></i></td>
+                            <td><i class="fas fa-check text-success available-slot" data-day="Wed"
+                                    data-time="10:00"></i></td>
+                            <td><i class="fas fa-check text-success available-slot" data-day="Thu"
+                                    data-time="10:00"></i></td>
+                            <td><i class="fas fa-times text-danger"></i></td>
+                            <td><i class="fas fa-check text-success available-slot" data-day="Sat"
+                                    data-time="10:00"></i></td>
+                            <td><i class="fas fa-times text-danger"></i></td>
+                        </tr>
+                        <tr>
+                            <td>11:00 AM</td>
+                            <td><i class="fas fa-times text-danger"></i></td>
+                            <td><i class="fas fa-check text-success available-slot" data-day="Tue"
+                                    data-time="11:00"></i></td>
+                            <td><i class="fas fa-check text-success available-slot" data-day="Wed"
+                                    data-time="11:00"></i></td>
+                            <td><i class="fas fa-times text-danger"></i></td>
+                            <td><i class="fas fa-check text-success available-slot" data-day="Fri"
+                                    data-time="11:00"></i></td>
+                            <td><i class="fas fa-check text-success available-slot" data-day="Sat"
+                                    data-time="11:00"></i></td>
+                            <td><i class="fas fa-times text-danger"></i></td>
+                        </tr>
+                        <tr>
+                            <td>12:00 PM</td>
+                            <td><i class="fas fa-check text-success available-slot" data-day="Mon"
+                                    data-time="12:00"></i></td>
+                            <td><i class="fas fa-check text-success available-slot" data-day="Tue"
+                                    data-time="12:00"></i></td>
+                            <td><i class="fas fa-check text-success available-slot" data-day="Wed"
+                                    data-time="12:00"></i></td>
+                            <td><i class="fas fa-check text-success available-slot" data-day="Thu"
+                                    data-time="12:00"></i></td>
+                            <td><i class="fas fa-check text-success available-slot" data-day="Fri"
+                                    data-time="12:00"></i></td>
+                            <td><i class="fas fa-times text-danger"></i></td>
+                            <td><i class="fas fa-times text-danger"></i></td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+            <p class="text-muted text-center mt-3">
+                <i class="fas fa-info-circle"></i> <strong>Legend:</strong>
+                <span class="text-success"><i class="fas fa-check"></i> Available</span>,
+                <span class="text-danger"><i class="fas fa-times"></i> Unavailable</span>
+            </p>
+        </div>
+    </section>
+
+    <!-- Appointment Booking Section -->
+    <section class="appointment-booking py-5">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-8 mx-auto">
+                    <h2 class="text-center mb-4"><i class="fas fa-calendar-plus"></i> Choose a Date and Time</h2>
+                    <!-- Date Picker -->
+                    <div class="mb-4">
+                        <label for="datePicker" class="form-label"><i class="fas fa-calendar-day"></i> Select
+                            Date</label>
+                        <input type="text" id="datePicker" class="form-control" placeholder="Select a date">
+                    </div>
+                    <!-- Time Slot Picker -->
+                    <div class="mb-4">
+                        <label for="timeSlot" class="form-label"><i class="fas fa-clock"></i> Select Time Slot</label>
+                        <select id="timeSlot" class="form-select">
+                            <option value="" disabled selected>Choose a time</option>
+                            <option value="09:00">09:00 AM</option>
+                            <option value="10:00">10:00 AM</option>
+                            <option value="11:00">11:00 AM</option>
+                            <option value="12:00">12:00 PM</option>
+                            <option value="13:00">01:00 PM</option>
+                            <option value="14:00">02:00 PM</option>
+                            <option value="15:00">03:00 PM</option>
+                            <option value="16:00">04:00 PM</option>
+                            <option value="17:00">05:00 PM</option>
+                        </select>
+                    </div>
+                    <!-- User Details Form -->
+                    <form id="appointmentForm">
+                        <div class="mb-3">
+                            <label for="fullName" class="form-label"><i class="fas fa-user"></i> Full Name</label>
+                            <input type="text" class="form-control" id="fullName" placeholder="Your Full Name" required>
+                        </div>
+                        <div class="mb-3">
+                            <label for="email" class="form-label"><i class="fas fa-envelope"></i> Email</label>
+                            <input type="email" class="form-control" id="email" placeholder="Your Email" required>
+                        </div>
+                        <div class="mb-3">
+                            <label for="phone" class="form-label"><i class="fas fa-phone"></i> Phone</label>
+                            <input type="tel" class="form-control" id="phone" placeholder="Your Phone Number" required>
+                        </div>
+                        <div class="mb-3">
+                            <label for="notes" class="form-label"><i class="fas fa-sticky-note"></i> Additional
+                                Notes</label>
+                            <textarea class="form-control" id="notes" rows="3"
+                                placeholder="Any special requests?"></textarea>
+                        </div>
+                        <button type="submit" class="btn btn-primary w-25"><i class="fas fa-calendar-check"></i> Book
+                            Appointment</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Confirmation Modal -->
+    <div class="modal fade" id="confirmationModal" tabindex="-1" aria-labelledby="confirmationModalLabel"
+        aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="confirmationModalLabel"><i class="fas fa-check-circle"></i> Appointment
+                        Booked!</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <p>Your appointment has been successfully booked. We look forward to seeing you!</p>
+                    <p><strong>Date:</strong> <span id="modalDate"></span></p>
+                    <p><strong>Time:</strong> <span id="modalTime"></span></p>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-light" data-bs-dismiss="modal">Close</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+
+
+
+
+    <!-- Footer -->
+    <footer class="bg-dark text-white text-center py-3">
+        <p>&copy; 2025 Civil Engineer. All Rights Reserved.</p>
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+    <!-- Bootstrap JS -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <!-- Flatpickr JS for Date Picker -->
+    <script src="https://cdn.jsdelivr.net/npm/flatpickr"></script>
+    <!-- Custom JS -->
+    <script>
+        // Initialize Flatpickr Date Picker
+        flatpickr("#datePicker", {
+            minDate: "today", // Disable past dates
+            dateFormat: "Y-m-d", // Date format
+        });
+
+        // Handle Click on Available Slots
+        document.querySelectorAll(".available-slot").forEach(slot => {
+            slot.addEventListener("click", () => {
+                const day = slot.getAttribute("data-day");
+                const time = slot.getAttribute("data-time");
+
+                // Set the selected day and time in the form
+                const datePicker = document.getElementById("datePicker");
+                const timeSlot = document.getElementById("timeSlot");
+
+                // Calculate the next occurrence of the selected day
+                const daysOfWeek = ["Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat"];
+                const selectedDayIndex = daysOfWeek.indexOf(day);
+                const today = new Date();
+                const daysUntilSelectedDay = (selectedDayIndex - today.getDay() + 7) % 7;
+                const selectedDate = new Date(today);
+                selectedDate.setDate(today.getDate() + daysUntilSelectedDay);
+
+                // Set the date picker value
+                datePicker._flatpickr.setDate(selectedDate);
+
+                // Set the time slot value
+                timeSlot.value = time;
+            });
+        });
+
+        // Handle Form Submission
+        document.getElementById("appointmentForm").addEventListener("submit", function (e) {
+            e.preventDefault();
+
+            // Get form values
+            const date = document.getElementById("datePicker").value;
+            const time = document.getElementById("timeSlot").value;
+            const fullName = document.getElementById("fullName").value;
+            const email = document.getElementById("email").value;
+            const phone = document.getElementById("phone").value;
+            const notes = document.getElementById("notes").value;
+
+            // Validate inputs
+            if (!date || !time || !fullName || !email || !phone) {
+                alert("Please fill out all required fields.");
+                return;
+            }
+
+            // Show confirmation modal
+            document.getElementById("modalDate").textContent = date;
+            document.getElementById("modalTime").textContent = time;
+            const confirmationModal = new bootstrap.Modal(document.getElementById("confirmationModal"));
+            confirmationModal.show();
+
+            // Reset form
+            document.getElementById("appointmentForm").reset();
+        });
+
+        // Handle Click on Available Slots
+        document.querySelectorAll(".available-slot").forEach(slot => {
+            slot.addEventListener("click", () => {
+                // Remove 'selected' class from all slots
+                document.querySelectorAll(".available-slot").forEach(s => s.classList.remove("selected"));
+
+                // Add 'selected' class to the clicked slot
+                slot.classList.add("selected");
+
+                const day = slot.getAttribute("data-day");
+                const time = slot.getAttribute("data-time");
+
+                // Set the selected day and time in the form
+                const datePicker = document.getElementById("datePicker");
+                const timeSlot = document.getElementById("timeSlot");
+
+                // Calculate the next occurrence of the selected day
+                const daysOfWeek = ["Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat"];
+                const selectedDayIndex = daysOfWeek.indexOf(day);
+                const today = new Date();
+                const daysUntilSelectedDay = (selectedDayIndex - today.getDay() + 7) % 7;
+                const selectedDate = new Date(today);
+                selectedDate.setDate(today.getDate() + daysUntilSelectedDay);
+
+                // Set the date picker value
+                datePicker._flatpickr.setDate(selectedDate);
+
+                // Set the time slot value
+                timeSlot.value = time;
+            });
+        });
+
+    </script>
+</body>
+
+</html>
