@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Project Cost Estimator - Civil Engineer</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <!-- Navbar -->
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+        <div class="container">
+            <a class="navbar-brand" href="index.html">Civil Engineer</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item"><a class="nav-link" href="index.html">Home</a></li>
+                    <li class="nav-item"><a class="nav-link" href="about.html">About</a></li>
+                    <li class="nav-item"><a class="nav-link" href="services.html">Services</a></li>
+                    <li class="nav-item"><a class="nav-link" href="portfolio.html">Portfolio</a></li>
+                    <li class="nav-item"><a class="nav-link" href="contact.html">Contact</a></li>
+                    <li class="nav-item"><a class="nav-link active" href="cost_estimator.html">Cost Estimator</a></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Cost Estimator Header -->
+    <section class="text-center py-5 bg-light">
+        <div class="container">
+            <h2>Project Cost Estimator</h2>
+            <p class="lead">Estimate the cost of your construction project based on key parameters.</p>
+        </div>
+    </section>
+
+    <!-- Cost Estimator Form -->
+    <section class="container py-5">
+        <div class="row justify-content-center">
+            <div class="col-md-6">
+                <form id="costEstimatorForm">
+                    <div class="mb-3">
+                        <label for="projectType" class="form-label">Project Type</label>
+                        <select class="form-control" id="projectType">
+                            <option value="1000">Residential</option>
+                            <option value="2000">Commercial</option>
+                            <option value="1500">Industrial</option>
+                        </select>
+                    </div>
+                    <div class="mb-3">
+                        <label for="area" class="form-label">Total Area (sq ft)</label>
+                        <input type="number" class="form-control" id="area" required>
+                    </div>
+                    <div class="mb-3">
+                        <label for="materials" class="form-label">Material Quality</label>
+                        <select class="form-control" id="materials">
+                            <option value="1">Standard</option>
+                            <option value="1.2">Premium</option>
+                            <option value="1.5">Luxury</option>
+                        </select>
+                    </div>
+                    <button type="button" class="btn btn-primary" onclick="calculateCost()">Estimate Cost</button>
+                </form>
+                <div class="mt-4">
+                    <h4>Estimated Cost: <span id="estimatedCost">$0</span></h4>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-dark text-white text-center py-3">
+        <p>&copy; 2025 Civil Engineer. All Rights Reserved.</p>
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+    <script>
+        function calculateCost() {
+            let projectTypeCost = parseFloat(document.getElementById("projectType").value);
+            let area = parseFloat(document.getElementById("area").value);
+            let materialMultiplier = parseFloat(document.getElementById("materials").value);
+            
+            if (!isNaN(area) && area > 0) {
+                let totalCost = projectTypeCost * area * materialMultiplier;
+                document.getElementById("estimatedCost").innerText = "$" + totalCost.toLocaleString();
+            } else {
+                document.getElementById("estimatedCost").innerText = "Please enter a valid area.";
+            }
+        }
+    </script>
+</body>
+</html>
