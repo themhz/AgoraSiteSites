@@ -12,6 +12,8 @@ const Navbar = () => {
           <Nav.Link as={Link} to="/">
             🏠 Home
           </Nav.Link>
+          <Nav.Link as={Link} to="/contact">📩 Contact</Nav.Link>
+
         </Nav>
       </Container>
     </BootstrapNavbar>

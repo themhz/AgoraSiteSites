@@ -2,6 +2,7 @@ import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import Navbar from "./components/Navbar";
 import Hero from "./components/Hero";
 import Home from "./pages/Home";
+import Contact from "./pages/Contact";
 import EventDetails from "./pages/EventDetails";
 import Payment from "./pages/Payment";
 import Confirmation from "./pages/Confirmation";
@@ -20,6 +21,8 @@ function App() {
           <Route path="/payment" element={<Payment />} />
           <Route path="/confirmation" element={<Confirmation />} />
           <Route path="/error" element={<ErrorPage />} />
+          <Route path="/contact" element={<Contact />} />
+
         </Routes>
       </div>
     </Router>
