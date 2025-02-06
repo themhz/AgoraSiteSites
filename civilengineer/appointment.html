@@ -35,9 +35,22 @@
             color: white;
             border-radius: 5px;
         }
+    
+        .sticky-navbar {
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            background: rgba( 0.8, 0.8, 0.8, 0.8);
+            /* 30% transparent */
+            backdrop-filter: blur(10px);
+            /* Adds a subtle blur effect */
+            -webkit-backdrop-filter: blur(1px);
+            /* Safari support */
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
+        }
     </style>
     <!-- Navbar -->
-    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+    <nav class="navbar navbar-expand-lg navbar-dark sticky-navbar">
         <div class="container">
             <a class="navbar-brand" href="index.html">Civil Engineer</a>
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">

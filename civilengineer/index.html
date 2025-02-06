@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -18,25 +19,42 @@
             color: white;
             text-align: center;
         }
+
         .hero video {
             position: absolute;
             top: 0;
             left: 50%;
             transform: translateX(-50%);
-            width: 100%; /* Adjust the width as needed */
+            width: 100%;
+            /* Adjust the width as needed */
             height: 80%;
             object-fit: cover;
             z-index: -1;
         }
+
         .hero-content {
             position: relative;
             z-index: 2;
         }
+
+        .sticky-navbar {
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            background: rgba( 0.8, 0.8, 0.8, 0.8);
+            /* 30% transparent */
+            backdrop-filter: blur(10px);
+            /* Adds a subtle blur effect */
+            -webkit-backdrop-filter: blur(1px);
+            /* Safari support */
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
+        }
     </style>
 </head>
+
 <body>
     <!-- Navbar -->
-    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+    <nav class="navbar navbar-expand-lg navbar-dark sticky-navbar">
         <div class="container">
             <a class="navbar-brand" href="#">Civil Engineer</a>
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
@@ -44,13 +62,14 @@
             </button>
             <div class="collapse navbar-collapse" id="navbarNav">
                 <ul class="navbar-nav ms-auto">
+                    <li class="nav-item"><a class="nav-link active" href="index.html">Home</a></li>
                     <li class="nav-item"><a class="nav-link" href="about.html">About</a></li>
                     <li class="nav-item"><a class="nav-link" href="services.html">Services</a></li>
                     <li class="nav-item"><a class="nav-link" href="portfolio.html">Portfolio</a></li>
                     <li class="nav-item"><a class="nav-link" href="contact.html">Contact</a></li>
                     <li class="nav-item"><a class="nav-link" href="cost_estimator.html">Cost Estimator</a></li>
                     <li class="nav-item"><a class="nav-link" href="appointment.html">Appointment</a></li>
-                    
+
                 </ul>
             </div>
         </div>
@@ -59,7 +78,7 @@
     <!-- Hero Section with Video Background -->
     <header class="hero">
         <video autoplay muted loop>
-            <source src="https://videos.pexels.com/video-files/3010400/3010400-sd_640_360_24fps.mp4" type="video/mp4">
+            <source src="https://videos.pexels.com/video-files/2325093/2325093-hd_1920_1080_25fps.mp4" type="video/mp4">
             Your browser does not support the video tag.
         </video>
         <div class="container hero-content">
@@ -73,7 +92,8 @@
     <section id="about" class="py-5">
         <div class="container text-center">
             <h2>About Me</h2>
-            <p class="lead">I am a professional civil engineer specializing in structural design, project management, and sustainable solutions.</p>
+            <p class="lead">I am a professional civil engineer specializing in structural design, project management,
+                and sustainable solutions.</p>
         </div>
     </section>
 
@@ -146,4 +166,5 @@
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
 </body>
+
 </html>
