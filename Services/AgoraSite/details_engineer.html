@@ -1,0 +1,378 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Web Page Details - Your Web Design Business</title>
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Font Awesome for Social Media Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <style>
+        /* Custom Styles */
+        :root {
+            --primary-color: #007bff;
+            --secondary-color: #ff9800;
+            --background-color: #f5f5f5;
+            --text-color: #333333;
+            --cta-color: #ff5722;
+            --navbar-bg-color: #ffffff;
+            --navbar-text-color: #333333;
+        }
+
+        body {
+            background-color: var(--background-color);
+            color: var(--text-color);
+            padding-top: 60px; /* Add padding to account for the fixed navbar */
+        }
+
+        .navbar {
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+            background-color: var(--navbar-bg-color) !important;
+            position: fixed;
+            top: 0;
+            width: 100%;
+            z-index: 1000;
+        }
+
+        .navbar-brand img {
+            height: 20px;
+            margin-right: 10px;
+        }
+
+        .navbar-brand,
+        .navbar-nav .nav-link {
+            color: var(--navbar-text-color) !important;
+        }
+
+        .navbar-nav .nav-link:hover {
+            color: var(--primary-color) !important;
+        }
+
+        .details-section {
+            padding: 20px 0;
+        }
+
+        .details-section h2 {
+            margin-bottom: 20px;
+        }
+
+        .details-section p {
+            margin-bottom: 20px;
+        }
+
+        .details-section img {
+            width: 100%;
+            height: auto;
+            margin-bottom: 20px;
+        }
+
+        .details-section .bio {
+            margin-bottom: 40px;
+        }
+
+        .details-section .section {
+            margin-bottom: 40px;
+        }
+
+        .details-section .section h3 {
+            margin-bottom: 20px;
+        }
+
+        .details-section .section p {
+            margin-bottom: 10px;
+        }
+
+        footer {
+            background-color: var(--primary-color);
+        }
+
+        .social-icons a {
+            color: white;
+            margin: 0 10px;
+            font-size: 1.5rem;
+            transition: color 0.3s ease;
+        }
+
+        .social-icons a:hover {
+            color: #FFD700;
+            /* Gold color on hover */
+        }
+
+        .section-title {
+            border-bottom: 2px solid var(--primary-color);
+            padding-bottom: 10px;
+            margin-bottom: 20px;
+        }
+
+        .section-content {
+            margin-bottom: 20px;
+        }
+
+        .section-content p {
+            margin-bottom: 10px;
+        }
+
+        .page-list {
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+            margin-bottom: 40px;
+            flex: 1;
+        }
+
+        .page-list .page-item {
+            background-color: #fff;
+            border: 1px solid #ddd;
+            padding: 20px;
+            text-align: center;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            cursor: pointer;
+        }
+
+        .page-list .page-item:hover {
+            background-color: #f0f0f0;
+        }
+
+        .page-list .page-item h4 {
+            margin-bottom: 15px;
+        }
+
+        .page-list .page-item p {
+            margin-bottom: 10px;
+        }
+
+        .details-content {
+            background-color: #f9f9f9;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            position: -webkit-sticky; /* For Safari */
+            position: sticky;
+            top: 60px; /* Adjust as needed */
+            z-index: 1;
+            width: 100%;
+        }
+
+        .details-content h3 {
+            margin-bottom: 20px;
+        }
+
+        .details-content p {
+            margin-bottom: 10px;
+        }
+
+        .details-content .btn-primary {
+            background-color: var(--primary-color);
+            border-color: var(--primary-color);
+            margin-top: 20px;
+        }
+
+        .details-content .btn-primary:hover {
+            background-color: #0056b3;
+            border-color: #0056b3;
+        }
+
+        .page-blocks {
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+        }
+
+        .page-blocks .block {
+            flex: 1;
+        }
+
+        .page-blocks .block img {
+            width: 100%;
+            height: auto;
+            margin-bottom: 15px;
+        }
+
+        @media (max-width: 768px) {
+            .details-section .row {
+                flex-direction: column;
+            }
+            .details-section .col-md-6:first-child {
+                order: 2;
+            }
+            .details-section .col-md-6:last-child {
+                order: 1;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <!-- Navigation Menu -->
+    <nav class="navbar navbar-expand-lg navbar-light bg-white">
+        <div class="container">
+            <a class="navbar-brand" href="index.html">
+                <img src="assets/agorasite.webp" alt="Logo">
+            </a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
+                aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item">
+                        <a class="nav-link" href="index.html"><i class="fas fa-home"></i> Home</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="index.html#templates"><i class="fas fa-layer-group"></i> Templates</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="index.html#clients"><i class="fas fa-users"></i> Clients</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="index.html#technologies"><i class="fas fa-cogs"></i> Technologies</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="about.html"><i class="fas fa-user"></i> About Me</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="contact.html"><i class="fas fa-envelope"></i> Contact Me</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Main Content -->
+    <main class="py-5">
+        <div class="container">
+            <!-- Page Details Section -->
+            <section class="details-section">
+                <h2 class="text-center mb-4">Civil Engineer Template</h2>
+                <div class="row">
+                    <!-- Details Content Column -->
+                    <div class="col-md-6">
+                        <div class="details-content">
+                            <h3>Technologies Used</h3>
+                            <p>
+                                <i class="fab fa-html5" style="color: #e34c26;"></i> HTML5,
+                                <i class="fab fa-js" style="color: #f7df1e;"></i> JavaScript,
+                                <i class="fab fa-css3" style="color: #264de4;"></i> CSS3,
+                                <i class="fab fa-bootstrap" style="color: #7952b3;"></i> Bootstrap,                                
+                            </p>
+
+                            <h3>Colors Used</h3>
+                            <p>
+                                <ul>
+                                    <li>
+                                        <i style="color: #ffffff;font-size:large;background-color: #000000;"><b>White</b></i>
+                                    </li>
+                                    <li>
+                                        <i style="color: #000000;font-size:large;"><b>Black</b></i>
+                                    </li>
+                                    <li>
+                                        <i style="color: #264de4;font-size:large;"><b>Blue </b></i>
+                                    </li>
+                                    <li>
+                                        <i style="color: grey;font-size:large;"><b>Grey </b></i>
+                                    </li>
+                                </ul>
+                            </p>
+
+                            <h3>Page Type</h3>
+                            <p>
+                                <ul>
+                                    <li>
+                                        <i class="fas fa-book" style="color: #ff9800;"></i> Appointment
+                                    </li>
+                                    <li>
+                                        <i class="fas fa-upload" style="color: #007bff;"></i> File upload
+                                    </li>
+                                    <li>
+                                        <i class="fas fa-envelope" style="color: #007bff;"></i> Contact
+                                    </li>
+                                    <li>
+                                        <i class="fas fa-dollar" style="color: green;"></i> Project Cost Estimator
+                                    </li>
+                                </ul>
+                            </p>
+
+                            <h3>Download Instructions</h3>
+                            <p>Click the button below to download the template. Follow the instructions in the README file to install and set up the page on your local machine.<a href="path/to/your/download/file.zip" class="btn btn-primary" download>Download Page</a></p>
+                            
+                            <h3>Page Size</h3>
+                            <p>Browser Size: 2MB</p>
+                            <p>Disk Size: 5MB</p>
+                        </div>
+                    </div>
+                    <!-- Page List Column -->
+                    <div class="col-md-6">
+                        <div class="page-list">
+                            <div class="page-item" onclick="window.open('/AgoraSiteSites/civilengineer/index.html','_blank')">
+                                <img src="assets/img/civilengineer/home.png" alt="Home Page">
+                                <h4>Home Page</h4>
+                                <p>Overview of the website</p>
+                            </div>
+                            <div class="page-item" onclick="window.open('/AgoraSiteSites/civilengineer/about.html', '_blank')">
+                                <img src="assets/img/civilengineer/about.png" alt="About Page">
+                                <h4>About Page</h4>
+                                <p></p>
+                            </div>
+                            <div class="page-item" onclick="window.open('/AgoraSiteSites/civilengineer/services.html', '_blank')">
+                                <img src="assets/img/civilengineer/services.png" alt="Services Page">
+                                <h4>Services Page</h4>
+                                <p></p>
+                            </div>
+                            <div class="page-item" onclick="window.open('/AgoraSiteSites/civilengineer/portfolio.html', '_blank')">
+                                <img src="assets/img/civilengineer/portfolio.png" alt="about Page">
+                                <h4>Portfolio Page</h4>
+                                <p></p>
+                            </div>
+                            <div class="page-item" onclick="window.open('/AgoraSiteSites/civilengineer/contact.html', '_blank')">
+                                <img src="assets/img/civilengineer/contact.png" alt="Rooms Page">
+                                <h4>Contact Page</h4>
+                                <p></p>
+                            </div>
+                            <div class="page-item" onclick="window.open('/AgoraSiteSites/civilengineer/cost_estimator.html', '_blank')">
+                                <img src="assets/img/civilengineer/project_cost_estimator.png" alt="Room Page">
+                                <h4>Project Cost Estimator Page</h4>
+                                <p></p>
+                            </div>
+                            <div class="page-item" onclick="window.open('/AgoraSiteSites/civilengineer/appointment.html', '_blank')">
+                                <img src="assets/img/civilengineer/appointment.png" alt="Room Page">
+                                <h4>Appointment Page</h4>
+                                <p></p>
+                            </div>
+                            <div class="page-item" onclick="window.open('/AgoraSiteSites/civilengineer/upload_documents.html', '_blank')">
+                                <img src="assets/img/civilengineer/upload_documents.png" alt="Room Page">
+                                <h4>Appointment Page</h4>
+                                <p></p>
+                            </div>
+                            <!-- Add more page items as needed -->
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </div>
+    </main>
+
+    <!-- Footer -->
+    <footer class="bg-primary text-white py-4">
+        <div class="container text-center">
+            <p>&copy; 2025 Your Web Design Business. All rights reserved.</p>
+            <ul class="list-inline mb-0">
+                <li class="list-inline-item"><a href="#privacy" class="text-white">Privacy Policy</a></li>
+                <li class="list-inline-item"><a href="#terms" class="text-white">Terms of Service</a></li>
+            </ul>
+            <!-- Social Media Icons -->
+            <div class="social-icons mt-3">
+                <a href="https://facebook.com" target="_blank"><i class="fab fa-facebook"></i></a>
+                <a href="https://twitter.com" target="_blank"><i class="fab fa-twitter"></i></a>
+                <a href="https://instagram.com" target="_blank"><i class="fab fa-instagram"></i></a>
+                <a href="https://linkedin.com" target="_blank"><i class="fab fa-linkedin"></i></a>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Bootstrap JS -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+
+</html>
