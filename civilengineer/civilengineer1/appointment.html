@@ -11,10 +11,6 @@
     <!-- Flatpickr CSS for Date Picker -->
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/flatpickr/dist/flatpickr.min.css">
     <link rel="stylesheet" href="styles.css">
-</head>
-
-<body>
-
     <style>
         /* Change cursor to pointer on hover */
         .available-slot {
@@ -35,12 +31,12 @@
             color: white;
             border-radius: 5px;
         }
-    
+
         .sticky-navbar {
             position: sticky;
             top: 0;
             z-index: 1000;
-            background: rgba( 0.8, 0.8, 0.8, 0.8);
+            background: rgba(0.8, 0.8, 0.8, 0.8);
             /* 30% transparent */
             backdrop-filter: blur(10px);
             /* Adds a subtle blur effect */
@@ -48,7 +44,54 @@
             /* Safari support */
             box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
         }
+
+        .footer-icons {
+            margin-top: 10px;
+        }
+
+        .footer-icons a {
+            color: white;
+            margin: 0 10px;
+            font-size: 24px;
+        }
+
+        .footer-icons a:hover {
+            color: #007bff;
+        }
+
+        .gdpr-banner {
+            position: fixed;
+            bottom: 0;
+            width: 100%;
+            background-color: #333;
+            color: white;
+            text-align: center;
+            padding: 10px;
+            z-index: 1000;
+            display: none;
+        }
+
+        .gdpr-banner button {
+            background-color: #007bff;
+            border: none;
+            color: white;
+            padding: 10px 20px;
+            margin-left: 10px;
+            cursor: pointer;
+        }
+
+        .gdpr-banner button:hover {
+            background-color: #0056b3;
+        }
     </style>
+</head>
+
+<body>
+    <!-- GDPR Banner -->
+    <div class="gdpr-banner" id="gdprBanner">
+        <p>We use cookies to ensure you get the best experience on our website. <button id="acceptGDPR">Accept</button>
+        </p>
+    </div>
     <!-- Navbar -->
     <nav class="navbar navbar-expand-lg navbar-dark sticky-navbar">
         <div class="container">
@@ -58,14 +101,24 @@
             </button>
             <div class="collapse navbar-collapse" id="navbarNav">
                 <ul class="navbar-nav ms-auto">
-                    <li class="nav-item"><a class="nav-link " href="index.html"><i class="fa-solid fa-house"></i> &nbsp;&nbsp;Home</a></li>
-                    <li class="nav-item"><a class="nav-link" href="about.html"><i class="fa-solid fa-user"></i>&nbsp;&nbsp;About</a></li>
-                    <li class="nav-item"><a class="nav-link" href="services.html"><i class="fa-solid fa-wrench"></i>&nbsp;&nbsp;Services</a></li>
-                    <li class="nav-item"><a class="nav-link" href="portfolio.html"><i class="fa-solid fa-briefcase"></i>&nbsp;&nbsp;Portfolio</a></li>
-                    <li class="nav-item"><a class="nav-link" href="contact.html"><i class="fa-solid fa-envelope"></i>&nbsp;&nbsp;Contact</a></li>
-                    <li class="nav-item"><a class="nav-link" href="cost_estimator.html"><i class="fa-solid fa-calculator"></i>&nbsp;&nbsp; Cost Estimator</a></li>
-                    <li class="nav-item"><a class="nav-link active" href="appointment.html"><i class="fa-solid fa-calendar-check"></i>&nbsp;&nbsp;Appointment</a></li>
-                    <li class="nav-item"><a class="nav-link" href="upload_documents.html"><i class="fa-solid fa-upload "></i> &nbsp;&nbsp;Upload Documents</a></li>
+                    <li class="nav-item"><a class="nav-link " href="index.html"><i class="fa-solid fa-house"></i>
+                            &nbsp;&nbsp;Home</a></li>
+                    <li class="nav-item"><a class="nav-link" href="about.html"><i
+                                class="fa-solid fa-user"></i>&nbsp;&nbsp;About</a></li>
+                    <li class="nav-item"><a class="nav-link" href="services.html"><i
+                                class="fa-solid fa-wrench"></i>&nbsp;&nbsp;Services</a></li>
+                    <li class="nav-item"><a class="nav-link" href="portfolio.html"><i
+                                class="fa-solid fa-briefcase"></i>&nbsp;&nbsp;Portfolio</a></li>
+                    <li class="nav-item"><a class="nav-link" href="contact.html"><i
+                                class="fa-solid fa-envelope"></i>&nbsp;&nbsp;Contact</a></li>
+                    <li class="nav-item"><a class="nav-link" href="cost_estimator.html"><i
+                                class="fa-solid fa-calculator"></i>&nbsp;&nbsp; Cost Estimator</a></li>
+                    <li class="nav-item"><a class="nav-link active" href="appointment.html"><i
+                                class="fa-solid fa-calendar-check"></i>&nbsp;&nbsp;Appointment</a></li>
+                    <li class="nav-item"><a class="nav-link" href="upload_documents.html"><i
+                                class="fa-solid fa-upload "></i> &nbsp;&nbsp;Upload Documents</a></li>
+                    <li class="nav-item"><a class="nav-link" href="login.html"><i class="fa-solid fa-sign-in-alt"></i>
+                            &nbsp;&nbsp;Login</a></li>
                 </ul>
             </div>
         </div>
@@ -245,14 +298,15 @@
         </div>
     </div>
 
-
-
-
-
-
     <!-- Footer -->
     <footer class="bg-dark text-white text-center py-3">
         <p>&copy; 2025 Civil Engineer. All Rights Reserved.</p>
+        <div class="footer-icons">
+            <a href="https://www.facebook.com" target="_blank"><i class="fab fa-facebook-f"></i></a>
+            <a href="https://www.twitter.com" target="_blank"><i class="fab fa-twitter"></i></a>
+            <a href="https://www.linkedin.com" target="_blank"><i class="fab fa-linkedin-in"></i></a>
+            <a href="https://www.instagram.com" target="_blank"><i class="fab fa-instagram"></i></a>
+        </div>
     </footer>
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
@@ -269,8 +323,10 @@
         });
 
         // Handle Click on Available Slots
-        document.querySelectorAll(".available-slot").forEach(slot => {
-            slot.addEventListener("click", () => {
+        document.querySelectorAll(".available-slot").forEach(slot =>
+        {
+            slot.addEventListener("click", () =>
+            {
                 const day = slot.getAttribute("data-day");
                 const time = slot.getAttribute("data-time");
 
@@ -295,7 +351,8 @@
         });
 
         // Handle Form Submission
-        document.getElementById("appointmentForm").addEventListener("submit", function (e) {
+        document.getElementById("appointmentForm").addEventListener("submit", function (e)
+        {
             e.preventDefault();
 
             // Get form values
@@ -307,7 +364,8 @@
             const notes = document.getElementById("notes").value;
 
             // Validate inputs
-            if (!date || !time || !fullName || !email || !phone) {
+            if (!date || !time || !fullName || !email || !phone)
+            {
                 alert("Please fill out all required fields.");
                 return;
             }
@@ -323,8 +381,10 @@
         });
 
         // Handle Click on Available Slots
-        document.querySelectorAll(".available-slot").forEach(slot => {
-            slot.addEventListener("click", () => {
+        document.querySelectorAll(".available-slot").forEach(slot =>
+        {
+            slot.addEventListener("click", () =>
+            {
                 // Remove 'selected' class from all slots
                 document.querySelectorAll(".available-slot").forEach(s => s.classList.remove("selected"));
 
@@ -353,6 +413,21 @@
                 timeSlot.value = time;
             });
         });
+
+
+        // GDPR Banner
+        gdprBanner.style.display = 'block';
+
+        acceptGDPR.addEventListener("click", () =>
+        {
+            gdprBanner.style.display = 'none';
+            localStorage.setItem('gdprAccepted', 'true');
+        });
+
+        if (localStorage.getItem('gdprAccepted'))
+        {
+            gdprBanner.style.display = 'none';
+        }
 
     </script>
 </body>

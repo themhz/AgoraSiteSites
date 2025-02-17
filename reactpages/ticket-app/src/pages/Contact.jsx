@@ -29,6 +29,9 @@ const Contact = () => {
       setSubmitted(true);
       setError("");
     }, 1000);
+
+
+    
   };
 
   return (

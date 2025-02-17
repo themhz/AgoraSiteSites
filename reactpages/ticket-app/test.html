@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>IVF Clinic Landing Page</title>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        body {
+            font-family: 'Roboto', sans-serif;
+        }
+
+        .slideshow-container {
+            position: relative;
+            width: 100%;
+            max-width: 1000px;
+            margin: auto;
+        }
+
+        .slides {
+            display: none;
+        }
+
+        .slides img {
+            width: 100%;
+            border-radius: 10px;
+        }
+
+        .prev,
+        .next {
+            cursor: pointer;
+            position: absolute;
+            top: 50%;
+            width: auto;
+            padding: 16px;
+            margin-top: -22px;
+            color: white;
+            font-weight: bold;
+            font-size: 18px;
+            transition: 0.6s ease;
+            border-radius: 0 3px 3px 0;
+            user-select: none;
+        }
+
+        .next {
+            right: 0;
+            border-radius: 3px 0 0 3px;
+        }
+
+        .prev:hover,
+        .next:hover {
+            background-color: rgba(0, 0, 0, 0.8);
+        }
+
+        .menu-icon {
+            display: none;
+        }
+
+        .menu {
+            display: flex;
+        }
+
+        @media (max-width: 768px) {
+            .menu {
+                display: none;
+                flex-direction: column;
+                width: 100%;
+                background-color: white;
+                position: absolute;
+                top: 60px;
+                left: 0;
+            }
+
+            .menu.active {
+                display: flex;
+            }
+
+            .menu-icon {
+                display: block;
+            }
+
+            .menu a {
+                padding: 10px 20px;
+                border-bottom: 1px solid #ddd;
+                width: 100%;
+                text-align: center;
+            }
+        }
+    </style>
+</head>
+
+<body class="bg-blue-100">
+
+    <nav class="bg-white p-4 flex justify-between items-center relative">
+        <div class="text-2xl font-bold text-pink-600">IVF Clinic</div>
+        <div class="menu-icon" onclick="toggleMenu()">
+            <svg class="w-8 h-8 text-pink-600" fill="none" stroke="currentColor" viewBox="0 0 24 24"
+                xmlns="http://www.w3.org/2000/svg">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16">
+                </path>
+            </svg>
+        </div>
+        <div class="menu space-x-4">
+            <a href="#" class="text-pink-600 hover:text-pink-800">Home</a>
+            <a href="#" class="text-pink-600 hover:text-pink-800">About</a>
+            <a href="#" class="text-pink-600 hover:text-pink-800">Services</a>
+            <a href="#" class="text-pink-600 hover:text-pink-800">Contact</a>
+        </div>
+    </nav>
+
+    <div class="slideshow-container mt-8">
+        <div class="slides fade">
+            <img src="https://placehold.co/600x400" alt="Slide 1">
+        </div>
+        <div class="slides fade">
+            <img src="https://placehold.co/600x401" alt="Slide 2">
+        </div>
+        <div class="slides fade">
+            <img src="https://placehold.co/600x402" alt="Slide 3">
+        </div>
+        <a class="prev" onclick="plusSlides(-1)">&#10094;</a>
+        <a class="next" onclick="plusSlides(1)">&#10095;</a>
+    </div>
+
+    <div class="text-center mt-8 p-4 bg-pink-100 rounded-lg shadow-md">
+        <h1 class="text-4xl font-bold text-pink-600">IVF Journey: Empowering Your Dreams</h1>
+        <button class="mt-4 bg-pink-500 hover:bg-pink-700 text-white font-bold py-2 px-4 rounded">
+            Get Started
+        </button>
+    </div>
+
+    <script>
+        let slideIndex = 0;
+        showSlides();
+
+        function showSlides()
+        {
+            let i;
+            let slides = document.getElementsByClassName("slides");
+            for (i = 0; i < slides.length; i++)
+            {
+                slides[i].style.display = "none";
+            }
+            slideIndex++;
+            if (slideIndex > slides.length) { slideIndex = 1 }
+            slides[slideIndex - 1].style.display = "block";
+            setTimeout(showSlides, 3000); // Change image every 3 seconds
+        }
+
+        function plusSlides(n)
+        {
+            showSlides(slideIndex += n);
+        }
+
+        function toggleMenu()
+        {
+            const menu = document.querySelector('.menu');
+            menu.classList.toggle('active');
+        }
+    </script>
+
+</body>
+
+</html>
