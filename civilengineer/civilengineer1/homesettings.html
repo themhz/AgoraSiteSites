@@ -1,0 +1,402 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Admin - Civil Engineer</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+    <style>
+        body {
+            background-color: #f8f9fa;
+            color: #333;
+            margin: 0;
+            padding: 0;
+        }
+
+        .admin-container {
+            display: flex;
+            margin: 20px;
+        }
+
+        .sidebar {
+            width: 250px;
+            background-color: #343a40;
+            color: white;
+            padding: 20px;
+            border-radius: 10px;
+            transition: width 0.3s;
+        }
+
+        .sidebar ul {
+            list-style-type: none;
+            padding: 0;
+        }
+
+        .sidebar ul li {
+            margin: 15px 0;
+        }
+
+        .sidebar ul li a {
+            color: white;
+            text-decoration: none;
+        }
+
+        .sidebar ul li a:hover {
+            text-decoration: underline;
+        }
+
+        .sidebar ul li.active {
+            background-color: #495057;
+            /* Darker background color for active item */
+            /* Blue text color for active item */
+            border-radius: 5px;
+            padding: 10px;
+            /* Optional: Adds a slight border radius */
+        }
+
+        .sidebar ul li.active a {
+            color: #007bff;
+            /* Blue text color for active item */
+        }
+
+        /* Offcanvas active item */
+        .offcanvas-body ul li.active a {
+            color: #007bff;
+            /* Blue text color for active item */
+            font-weight: bold;
+            /* Optional: Make text bold for emphasis */
+        }
+
+        .main-content {
+            flex-grow: 1;
+            padding: 20px;
+            background: white;
+            border-radius: 10px;
+            box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+        }
+
+        .top-bar {
+            background-color: #343a40;
+            color: white;
+            padding: 10px 20px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .top-bar .clock {
+            font-size: 1.2em;
+        }
+
+        .top-bar .user-info {
+            display: flex;
+            align-items: center;
+        }
+
+        .top-bar .user-info i {
+            margin-right: 10px;
+        }
+
+        .top-bar .user-info span {
+            margin-right: 20px;
+        }
+
+        .top-bar .logout {
+            color: #007bff;
+            cursor: pointer;
+        }
+
+        .top-bar .logout:hover {
+            text-decoration: underline;
+        }
+
+        .footer-icons {
+            margin-top: 10px;
+        }
+
+        .footer-icons a {
+            color: white;
+            margin: 0 10px;
+            font-size: 24px;
+        }
+
+        .footer-icons a:hover {
+            color: #007bff;
+        }
+
+        .gdpr-banner {
+            position: fixed;
+            bottom: 0;
+            width: 100%;
+            background-color: #333;
+            color: white;
+            text-align: center;
+            padding: 10px;
+            z-index: 1000;
+            display: none;
+        }
+
+        .gdpr-banner button {
+            background-color: #007bff;
+            border: none;
+            color: white;
+            padding: 10px 20px;
+            margin-left: 10px;
+            cursor: pointer;
+        }
+
+        .gdpr-banner button:hover {
+            background-color: #0056b3;
+        }
+
+        .form-group {
+            margin-bottom: 15px;
+        }
+
+        .form-label {
+            font-weight: bold;
+        }
+
+        .portfolio-images {
+            display: flex;
+            gap: 10px;
+        }
+
+        .portfolio-images img {
+            max-width: 100%;
+            height: auto;
+            border-radius: 5px;
+        }
+
+        @media (max-width: 768px) {
+            .admin-container {
+                flex-direction: column;
+            }
+
+            .sidebar {
+                display: none;
+            }
+
+            .main-content {
+                padding: 10px;
+            }
+        }
+
+        .navbar-toggler {
+            border: none;
+            background-color: transparent;
+        }
+
+        .navbar-toggler-icon {
+            background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 30 30' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath stroke='rgba%28255, 255, 255, 0.5%29' stroke-width='2' stroke-linecap='round' stroke-miterlimit='10' d='M4 7h22M4 15h22M4 23h22'/%3E%3C/svg%3E");
+        }
+    </style>
+</head>
+
+<body>
+    <!-- GDPR Banner -->
+    <div class="gdpr-banner" id="gdprBanner">
+        <p>We use cookies to ensure you get the best experience on our website. <button id="acceptGDPR">Accept</button>
+        </p>
+    </div>
+
+    <!-- Top Bar -->
+    <div class="top-bar">
+        <button class="navbar-toggler d-md-none" type="button" data-bs-toggle="offcanvas"
+            data-bs-target="#offcanvasNavbar" aria-controls="offcanvasNavbar">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="clock" id="clock"></div>
+        <div class="user-info">
+            <i class="fas fa-user-shield"></i>
+            <span id="userName">Admin</span>
+            <span class="logout" onclick="logout()">Logout</span>
+        </div>
+    </div>
+
+    <!-- Offcanvas Sidebar for Mobile -->
+    <div class="offcanvas offcanvas-start" tabindex="-1" id="offcanvasNavbar" aria-labelledby="offcanvasNavbarLabel">
+        <div class="offcanvas-header">
+            <h5 class="offcanvas-title" id="offcanvasNavbarLabel">Admin Menu</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+        </div>
+        <div class="offcanvas-body">
+            <ul class="navbar-nav justify-content-end flex-grow-1 pe-3">
+                <li class="nav-item active">
+                    <a class="nav-link" href="homesettings.html"><i class="fas fa-home"></i> Home Settings</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="aboutsettings.html"><i class="fas fa-info-circle"></i> About Settings</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#"><i class="fas fa-cogs"></i> Services Settings</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#"><i class="fas fa-folder"></i> Portfolio Settings</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#"><i class="fas fa-address-book"></i> Contact Settings</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#"><i class="fas fa-calculator"></i> Cost Estimator Settings</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#"><i class="fas fa-calendar-alt"></i> Appointment Settings</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#"><i class="fas fa-user"></i> Profile Settings</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#"><i class="fas fa-upload"></i> Upload Documents Settings</a>
+                </li>
+            </ul>
+        </div>
+    </div>
+
+    <!-- Admin Container -->
+    <div class="admin-container">
+        <!-- Sidebar -->
+        <div class="sidebar d-none d-md-block">
+            <ul>
+                <li class="active"><a href="homesettings.html"><i class="fas fa-home"></i> Home Settings</a></li>
+                <li><a href="aboutsettings.html"><i class="fas fa-info-circle"></i> About Settings</a></li>
+                <li><a href="#"><i class="fas fa-cogs"></i> Services Settings</a></li>
+                <li><a href="#"><i class="fas fa-folder"></i> Portfolio Settings</a></li>
+                <li><a href="#"><i class="fas fa-address-book"></i> Contact Settings</a></li>
+                <li><a href="#"><i class="fas fa-calculator"></i> Cost Estimator Settings</a></li>
+                <li><a href="#"><i class="fas fa-calendar-alt"></i> Appointment Settings</a></li>
+                <li><a href="#"><i class="fas fa-user"></i> Profile Settings</a></li>
+                <li><a href="#"><i class="fas fa-upload"></i> Upload Documents Settings</a></li>
+            </ul>
+        </div>
+
+        <!-- Main Content -->
+        <div class="main-content">
+            <h2>Home Settings</h2>
+            <form>
+                <!-- SEO Settings -->
+                <div class="form-group">
+                    <label for="seoTitle" class="form-label">SEO Title</label>
+                    <input type="text" class="form-control" id="seoTitle" placeholder="Enter SEO title">
+                </div>
+                <div class="form-group">
+                    <label for="seoDescription" class="form-label">SEO Description</label>
+                    <textarea class="form-control" id="seoDescription" rows="3"
+                        placeholder="Enter SEO description"></textarea>
+                </div>
+                <div class="form-group">
+                    <label for="seoKeywords" class="form-label">SEO Keywords</label>
+                    <input type="text" class="form-control" id="seoKeywords" placeholder="Enter SEO keywords">
+                </div>
+
+                <!-- About Text -->
+                <div class="form-group">
+                    <label for="aboutText" class="form-label">About Text</label>
+                    <textarea class="form-control" id="aboutText" rows="4" placeholder="Enter about text"></textarea>
+                </div>
+
+                <!-- Services -->
+                <h3>Services</h3>
+                <div class="form-group">
+                    <label for="serviceTitle1" class="form-label">Service Title 1</label>
+                    <input type="text" class="form-control" id="serviceTitle1" placeholder="Enter service title">
+                </div>
+                <div class="form-group">
+                    <label for="serviceDescription1" class="form-label">Service Description 1</label>
+                    <textarea class="form-control" id="serviceDescription1" rows="3"
+                        placeholder="Enter service description"></textarea>
+                </div>
+                <div class="form-group">
+                    <label for="serviceTitle2" class="form-label">Service Title 2</label>
+                    <input type="text" class="form-control" id="serviceTitle2" placeholder="Enter service title">
+                </div>
+                <div class="form-group">
+                    <label for="serviceDescription2" class="form-label">Service Description 2</label>
+                    <textarea class="form-control" id="serviceDescription2" rows="3"
+                        placeholder="Enter service description"></textarea>
+                </div>
+                <div class="form-group">
+                    <label for="serviceTitle3" class="form-label">Service Title 3</label>
+                    <input type="text" class="form-control" id="serviceTitle3" placeholder="Enter service title">
+                </div>
+                <div class="form-group">
+                    <label for="serviceDescription3" class="form-label">Service Description 3</label>
+                    <textarea class="form-control" id="serviceDescription3" rows="3"
+                        placeholder="Enter service description"></textarea>
+                </div>
+
+                <!-- Portfolio -->
+                <h3>Portfolio</h3>
+                <div class="form-group">
+                    <label for="portfolioImages" class="form-label">Portfolio Images</label>
+                    <div class="portfolio-images">
+                        <img src="image1.jpg" alt="Portfolio Image 1" class="img-thumbnail">
+                        <img src="image2.jpg" alt="Portfolio Image 2" class="img-thumbnail">
+                        <img src="image3.jpg" alt="Portfolio Image 3" class="img-thumbnail">
+                    </div>
+                    <input type="file" class="form-control" id="portfolioImages" multiple>
+                </div>
+
+                <!-- Save Button -->
+                <button type="submit" class="btn btn-primary">Save Changes</button>
+            </form>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer class="bg-dark text-white text-center py-3">
+        <p>&copy; 2025 Civil Engineer. All Rights Reserved.</p>
+        <div class="footer-icons">
+            <a href="https://www.facebook.com" target="_blank"><i class="fab fa-facebook-f"></i></a>
+            <a href="https://www.twitter.com" target="_blank"><i class="fab fa-twitter"></i></a>
+            <a href="https://www.linkedin.com" target="_blank"><i class="fab fa-linkedin-in"></i></a>
+            <a href="https://www.instagram.com" target="_blank"><i class="fab fa-instagram"></i></a>
+        </div>
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+    <script>
+        const gdprBanner = document.getElementById("gdprBanner");
+        const acceptGDPR = document.getElementById("acceptGDPR");
+
+        // GDPR Banner
+        gdprBanner.style.display = 'block';
+
+        acceptGDPR.addEventListener("click", () =>
+        {
+            gdprBanner.style.display = 'none';
+            localStorage.setItem('gdprAccepted', 'true');
+        });
+
+        if (localStorage.getItem('gdprAccepted'))
+        {
+            gdprBanner.style.display = 'none';
+        }
+
+        // Clock
+        function updateClock()
+        {
+            const clockElement = document.getElementById("clock");
+            const now = new Date();
+            const hours = String(now.getHours()).padStart(2, '0');
+            const minutes = String(now.getMinutes()).padStart(2, '0');
+            const seconds = String(now.getSeconds()).padStart(2, '0');
+            clockElement.textContent = `${hours}:${minutes}:${seconds}`;
+        }
+
+        setInterval(updateClock, 1000);
+        updateClock();
+
+        // Logout function
+        function logout()
+        {
+            alert("Logout successful!");
+            // Redirect to login page or perform logout actions
+        }
+    </script>
+</body>
+
+</html>
