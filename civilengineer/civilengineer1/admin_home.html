@@ -1,0 +1,543 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Admin - Civil Engineer</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <link href="https://cdn.quilljs.com/1.3.6/quill.snow.css" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+    <style>
+        body {
+            background-color: #f8f9fa;
+            color: #333;
+            margin: 0;
+            padding: 0;
+        }
+
+        .admin-container {
+            display: flex;
+            margin: 20px;
+        }
+
+        .sidebar {
+            width: 250px;
+            background-color: #343a40;
+            color: white;
+            padding: 20px;
+            border-radius: 10px;
+            transition: width 0.3s;
+        }
+
+        .sidebar ul {
+            list-style-type: none;
+            padding: 0;
+        }
+
+        .sidebar ul li {
+            margin: 15px 0;
+        }
+
+        .sidebar ul li a {
+            color: white;
+            text-decoration: none;
+        }
+
+        .sidebar ul li a:hover {
+            text-decoration: underline;
+        }
+
+        .main-content {
+            flex-grow: 1;
+            padding: 20px;
+            background: white;
+            border-radius: 10px;
+            box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+        }
+
+        .top-bar {
+            background-color: #343a40;
+            color: white;
+            padding: 10px 20px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .top-bar .clock {
+            font-size: 1.2em;
+        }
+
+        .top-bar .user-info {
+            display: flex;
+            align-items: center;
+        }
+
+        .top-bar .user-info i {
+            margin-right: 10px;
+        }
+
+        .top-bar .user-info span {
+            margin-right: 20px;
+        }
+
+        .top-bar .logout {
+            color: #007bff;
+            cursor: pointer;
+        }
+
+        .top-bar .logout:hover {
+            text-decoration: underline;
+        }
+
+        .footer-icons {
+            margin-top: 10px;
+        }
+
+        .footer-icons a {
+            color: white;
+            margin: 0 10px;
+            font-size: 24px;
+        }
+
+        .footer-icons a:hover {
+            color: #007bff;
+        }
+
+        .gdpr-banner {
+            position: fixed;
+            bottom: 0;
+            width: 100%;
+            background-color: #333;
+            color: white;
+            text-align: center;
+            padding: 10px;
+            z-index: 1000;
+            display: none;
+        }
+
+        .gdpr-banner button {
+            background-color: #007bff;
+            border: none;
+            color: white;
+            padding: 10px 20px;
+            margin-left: 10px;
+            cursor: pointer;
+        }
+
+        .gdpr-banner button:hover {
+            background-color: #0056b3;
+        }
+
+        @media (max-width: 768px) {
+            .admin-container {
+                flex-direction: column;
+            }
+
+            .sidebar {
+                display: none;
+            }
+
+            .main-content {
+                padding: 10px;
+            }
+        }
+
+        .navbar-toggler {
+            border: none;
+            background-color: transparent;
+        }
+
+        .navbar-toggler-icon {
+            background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 30 30' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath stroke='rgba%28255, 255, 255, 0.5%29' stroke-width='2' stroke-linecap='round' stroke-miterlimit='10' d='M4 7h22M4 15h22M4 23h22'/%3E%3C/svg%3E");
+        }
+
+        .slideshow-image {
+            width: 100px;
+            height: auto;
+            margin-right: 10px;
+        }
+    </style>
+</head>
+
+<body>
+    <!-- GDPR Banner -->
+    <div class="gdpr-banner" id="gdprBanner">
+        <p>We use cookies to ensure you get the best experience on our website. <button id="acceptGDPR">Accept</button>
+        </p>
+    </div>
+
+    <!-- Top Bar -->
+    <div class="top-bar">
+        <button class="navbar-toggler d-md-none" type="button" data-bs-toggle="offcanvas"
+            data-bs-target="#offcanvasNavbar" aria-controls="offcanvasNavbar">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="clock" id="clock"></div>
+        <div class="user-info">
+            <i class="fas fa-user-shield"></i>
+            <span id="userName">Admin</span>
+            <span class="logout" onclick="logout()">Logout</span>
+        </div>
+    </div>
+
+    <!-- Offcanvas Sidebar for Mobile -->
+    <div class="offcanvas offcanvas-start" tabindex="-1" id="offcanvasNavbar" aria-labelledby="offcanvasNavbarLabel">
+        <div class="offcanvas-header">
+            <h5 class="offcanvas-title" id="offcanvasNavbarLabel">Admin Menu</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+        </div>
+        <div class="offcanvas-body">
+            <ul class="navbar-nav justify-content-end flex-grow-1 pe-3">
+                <li class="nav-item">
+                    <a class="nav-link" href="#"><i class="fas fa-home"></i> Home Settings</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#"><i class="fas fa-info-circle"></i> About Settings</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#"><i class="fas fa-cogs"></i> Services Settings</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#"><i class="fas fa-folder"></i> Portfolio Settings</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#"><i class="fas fa-address-book"></i> Contact Settings</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#"><i class="fas fa-calculator"></i> Cost Estimator Settings</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#"><i class="fas fa-calendar-alt"></i> Appointment Settings</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#"><i class="fas fa-user"></i> Profile Settings</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#"><i class="fas fa-upload"></i> Upload Documents Settings</a>
+                </li>
+            </ul>
+        </div>
+    </div>
+
+    <!-- Admin Container -->
+    <div class="admin-container">
+        <!-- Sidebar -->
+        <div class="sidebar d-none d-md-block">
+            <ul>
+                <li><a href="#" id="homeLink"><i class="fas fa-home"></i> Home Settings</a></li>
+                <li><a href="#"><i class="fas fa-info-circle"></i> About Settings</a></li>
+                <li><a href="#"><i class="fas fa-cogs"></i> Services Settings</a></li>
+                <li><a href="#"><i class="fas fa-folder"></i> Portfolio Settings</a></li>
+                <li><a href="#"><i class="fas fa-address-book"></i> Contact Settings</a></li>
+                <li><a href="#"><i class="fas fa-calculator"></i> Cost Estimator Settings</a></li>
+                <li><a href="#"><i class="fas fa-calendar-alt"></i> Appointment Settings</a></li>
+                <li><a href="#"><i class="fas fa-user"></i> Profile Settings</a></li>
+                <li><a href="#"><i class="fas fa-upload"></i> Upload Documents Settings</a></li>
+            </ul>
+        </div>
+
+        <!-- Main Content -->
+        <div class="main-content" id="mainContent">
+            <h2>Home Page Settings</h2>
+
+            <!-- Slideshow Manager -->
+            <div id="slideshowManager">
+                <h3>Slideshow</h3>
+                <button class="btn btn-primary mb-3" data-bs-toggle="modal" data-bs-target="#slideModal">Add
+                    Slide</button>
+                <div id="slidesList" class="mt-3">
+                    <!-- Sample Slides -->
+                    <div class="slide-item d-flex align-items-center mb-2">
+                        <img src="https://placehold.co/150" alt="Sample Slide 1" class="slideshow-image">
+                        <div>
+                            <p><strong>Text:</strong> Sample Slide 1</p>
+                            <p><strong>Button Text:</strong> Learn More</p>
+                            <p><strong>Link:</strong> #</p>
+                            <button class="btn btn-danger btn-sm">Delete</button>
+                            <button class="btn btn-primary btn-sm ms-2 edit-slide-btn" data-bs-toggle="modal"
+                                data-bs-target="#slideModal">Edit</button>
+                        </div>
+                    </div>
+                    <div class="slide-item d-flex align-items-center mb-2">
+                        <img src="https://placehold.co/150" alt="Sample Slide 2" class="slideshow-image">
+                        <div>
+                            <p><strong>Text:</strong> Sample Slide 2</p>
+                            <p><strong>Button Text:</strong> Explore</p>
+                            <p><strong>Link:</strong> #</p>
+                            <button class="btn btn-danger btn-sm">Delete</button>
+                            <button class="btn btn-primary btn-sm ms-2 edit-slide-btn" data-bs-toggle="modal"
+                                data-bs-target="#slideModal">Edit</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- About Me Editor -->
+            <div id="aboutMeEditor" class="mt-4">
+                <h3>About Me</h3>
+                <div id="editor"></div>
+            </div>
+
+            <!-- SEO Settings -->
+            <div id="seoSettings" class="mt-4">
+                <h3>SEO Settings</h3>
+                <form id="seoForm">
+                    <div class="mb-3">
+                        <label for="seoTitle" class="form-label">Title</label>
+                        <input type="text" class="form-control" id="seoTitle" required>
+                    </div>
+                    <div class="mb-3">
+                        <label for="seoDescription" class="form-label">Description</label>
+                        <textarea class="form-control" id="seoDescription" rows="3" required></textarea>
+                    </div>
+                    <div class="mb-3">
+                        <label for="seoKeywords" class="form-label">Keywords</label>
+                        <input type="text" class="form-control" id="seoKeywords" required>
+                    </div>
+                    <button type="submit" class="btn btn-primary">Save SEO Settings</button>
+                </form>
+            </div>
+
+            <!-- Social Media Links -->
+            <div id="socialMediaLinks" class="mt-4">
+                <h3>Social Media Links</h3>
+                <form id="socialForm">
+                    <div class="mb-3">
+                        <label for="socialType" class="form-label">Select Social Media</label>
+                        <select class="form-select" id="socialType" required>
+                            <option value="facebook">Facebook</option>
+                            <option value="twitter">Twitter</option>
+                            <option value="linkedin">LinkedIn</option>
+                            <option value="instagram">Instagram</option>
+                            <option value="youtube">YouTube</option>
+                            <option value="pinterest">Pinterest</option>
+                        </select>
+                    </div>
+                    <div class="mb-3">
+                        <label for="socialLink" class="form-label">Link</label>
+                        <input type="text" class="form-control" id="socialLink" required>
+                    </div>
+                    <button type="submit" class="btn btn-primary">Add Social Media Link</button>
+                </form>
+                <div id="socialList" class="mt-3">
+                    <!-- Social Media Links will be listed here -->
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer class="bg-dark text-white text-center py-3">
+        <p>&copy; 2025 Civil Engineer. All Rights Reserved.</p>
+        <div class="footer-icons">
+            <a href="https://www.facebook.com" target="_blank"><i class="fab fa-facebook-f"></i></a>
+            <a href="https://www.twitter.com" target="_blank"><i class="fab fa-twitter"></i></a>
+            <a href="https://www.linkedin.com" target="_blank"><i class="fab fa-linkedin-in"></i></a>
+            <a href="https://www.instagram.com" target="_blank"><i class="fab fa-instagram"></i></a>
+        </div>
+    </footer>
+
+    <!-- Slide Modal -->
+    <div class="modal fade" id="slideModal" tabindex="-1" aria-labelledby="slideModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="slideModalLabel">Add/Edit Slide</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <form id="slideModalForm">
+                        <div class="mb-3">
+                            <label for="modalSlideImage" class="form-label">Image URL</label>
+                            <input type="text" class="form-control" id="modalSlideImage" required>
+                        </div>
+                        <div class="mb-3">
+                            <label for="modalSlideText" class="form-label">Text</label>
+                            <input type="text" class="form-control" id="modalSlideText" required>
+                        </div>
+                        <div class="mb-3">
+                            <label for="modalSlideButtonText" class="form-label">Button Text</label>
+                            <input type="text" class="form-control" id="modalSlideButtonText" required>
+                        </div>
+                        <div class="mb-3">
+                            <label for="modalSlideLink" class="form-label">Button Link</label>
+                            <input type="text" class="form-control" id="modalSlideLink" required>
+                        </div>
+                        <button type="submit" class="btn btn-primary">Save Slide</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="https://cdn.quilljs.com/1.3.6/quill.js"></script>
+    <script>
+        // Initialize Quill editor
+        var quill = new Quill('#editor', {
+            theme: 'snow'
+        });
+
+        // Handle menu selection
+        document.getElementById('homeLink').addEventListener('click', function (event)
+        {
+            event.preventDefault();
+            document.getElementById('mainContent').style.display = 'block';
+            // Load home page content or perform AJAX request to fetch data
+        });
+
+        // GDPR Banner
+        const gdprBanner = document.getElementById("gdprBanner");
+        const acceptGDPR = document.getElementById("acceptGDPR");
+
+        gdprBanner.style.display = 'block';
+
+        acceptGDPR.addEventListener("click", () =>
+        {
+            gdprBanner.style.display = 'none';
+            localStorage.setItem('gdprAccepted', 'true');
+        });
+
+        if (localStorage.getItem('gdprAccepted'))
+        {
+            gdprBanner.style.display = 'none';
+        }
+
+        // Clock
+        function updateClock()
+        {
+            const clockElement = document.getElementById("clock");
+            const now = new Date();
+            const hours = String(now.getHours()).padStart(2, '0');
+            const minutes = String(now.getMinutes()).padStart(2, '0');
+            const seconds = String(now.getSeconds()).padStart(2, '0');
+            clockElement.textContent = `${hours}:${minutes}:${seconds}`;
+        }
+
+        setInterval(updateClock, 1000);
+        updateClock();
+
+        // Logout function
+        function logout()
+        {
+            alert("Logout successful!");
+            // Redirect to login page or perform logout actions
+        }
+
+        let currentSlide = null;
+
+        // Handle form submissions (for demonstration purposes, no backend integration)
+        document.getElementById('slideModalForm').addEventListener('submit', function (event)
+        {
+            event.preventDefault();
+            const slideImage = document.getElementById('modalSlideImage').value;
+            const slideText = document.getElementById('modalSlideText').value;
+            const slideButtonText = document.getElementById('modalSlideButtonText').value;
+            const slideLink = document.getElementById('modalSlideLink').value;
+
+            if (currentSlide)
+            {
+                // Update existing slide
+                currentSlide.querySelector('img').src = slideImage;
+                currentSlide.querySelectorAll('p')[0].innerText = `Text: ${slideText}`;
+                currentSlide.querySelectorAll('p')[1].innerText = `Button Text: ${slideButtonText}`;
+                currentSlide.querySelectorAll('p')[2].innerText = `Link: ${slideLink}`;
+                currentSlide = null;
+            } else
+            {
+                // Add new slide
+                const slideItem = document.createElement('div');
+                slideItem.classList.add('slide-item', 'd-flex', 'align-items-center', 'mb-2');
+                slideItem.innerHTML = `
+                    <img src="${slideImage}" alt="Slide Image" class="slideshow-image">
+                    <div>
+                        <p><strong>Text:</strong> ${slideText}</p>
+                        <p><strong>Button Text:</strong> ${slideButtonText}</p>
+                        <p><strong>Link:</strong> ${slideLink}</p>
+                        <button class="btn btn-danger btn-sm">Delete</button>
+                        <button class="btn btn-primary btn-sm ms-2 edit-slide-btn" data-bs-toggle="modal"
+                            data-bs-target="#slideModal">Edit</button>
+                    </div>
+                `;
+                document.getElementById('slidesList').appendChild(slideItem);
+            }
+
+            // Clear form and close modal
+            event.target.reset();
+            const modal = bootstrap.Modal.getInstance(document.getElementById('slideModal'));
+            modal.hide();
+        });
+
+        document.getElementById('slidesList').addEventListener('click', function (event)
+        {
+            if (event.target.classList.contains('edit-slide-btn'))
+            {
+                const slideItem = event.target.closest('.slide-item');
+                const imgSrc = slideItem.querySelector('img').src;
+                const text = slideItem.querySelectorAll('p')[0].innerText.replace('Text: ', '');
+                const buttonText = slideItem.querySelectorAll('p')[1].innerText.replace('Button Text: ', '');
+                const link = slideItem.querySelectorAll('p')[2].innerText.replace('Link: ', '');
+
+                // Populate modal form with slide data
+                document.getElementById('modalSlideImage').value = imgSrc;
+                document.getElementById('modalSlideText').value = text;
+                document.getElementById('modalSlideButtonText').value = buttonText;
+                document.getElementById('modalSlideLink').value = link;
+
+                // Set current slide for update
+                currentSlide = slideItem;
+            }
+        });
+
+        document.getElementById('seoForm').addEventListener('submit', function (event)
+        {
+            event.preventDefault();
+            alert('SEO settings saved!');
+        });
+
+        document.getElementById('socialForm').addEventListener('submit', function (event)
+        {
+            event.preventDefault();
+            const socialType = document.getElementById('socialType').value;
+            const socialLink = document.getElementById('socialLink').value;
+            let iconClass = '';
+
+            switch (socialType)
+            {
+                case 'facebook':
+                    iconClass = 'fab fa-facebook-f';
+                    break;
+                case 'twitter':
+                    iconClass = 'fab fa-twitter';
+                    break;
+                case 'linkedin':
+                    iconClass = 'fab fa-linkedin-in';
+                    break;
+                case 'instagram':
+                    iconClass = 'fab fa-instagram';
+                    break;
+                case 'youtube':
+                    iconClass = 'fab fa-youtube';
+                    break;
+                case 'pinterest':
+                    iconClass = 'fab fa-pinterest';
+                    break;
+                default:
+                    iconClass = 'fas fa-link';
+            }
+
+            const socialItem = document.createElement('div');
+            socialItem.classList.add('social-item', 'd-flex', 'align-items-center', 'mb-2');
+            socialItem.innerHTML = `
+                <i class="${iconClass}"></i> <p>${socialLink}</p>
+                <button class="btn btn-danger btn-sm">Delete</button>
+            `;
+            document.getElementById('socialList').appendChild(socialItem);
+        });
+    </script>
+</body>
+
+</html>
